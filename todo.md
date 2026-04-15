@@ -53,3 +53,6 @@
 - [ ] Insert the five-amp stage image into the lineup intro blank area.
 - [ ] Refine the lineup intro image framing and layout spacing around the new visual.
 - [ ] Validate the updated lineup intro and save a fresh checkpoint.
+- [ ] Move the lineup intro supporting copy to sit beneath the five-amp image.
+- [ ] Keep the five-amp image aligned to the right of the lineup headline with refined spacing.
+- [ ] Revalidate the lineup intro composition and save a fresh checkpoint.

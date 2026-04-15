@@ -29,3 +29,7 @@ The composition is strongest as a wide supporting visual in the lineup intro bec
 ## Browser validation
 
 The lineup intro now uses the previously blank right-side area as a framed supporting visual. In preview, the new five-amp stage image balances the oversized heading well, fills the space with a strong horizontal read, and keeps the surrounding copy legible. The crop feels stable and premium at desktop width, with the family grouping centered cleanly inside the frame.
+
+## Layout refinement review
+
+The revised lineup intro now matches the requested hierarchy more closely. In preview, the headline stays on the left, the five-amp stage image occupies the right column, and the smaller supporting paragraph sits directly beneath the image instead of below the heading. The overall composition reads more intentionally and gives the visual block a cleaner editorial structure.
