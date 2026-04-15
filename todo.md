@@ -6,3 +6,7 @@
 - [ ] Create a new hero asset that stages the real Elusive Overdrive on a wooden table without the checkerboard background.
 - [ ] Replace the current hero product composition with the table-staged Elusive Overdrive visual.
 - [ ] Recheck hero balance, realism, and readability after the new product staging is in place.
+- [ ] Remove explainer-style labels and copy from the hero support panel.
+- [ ] Rewrite the hero paragraph and supporting text so it sells the product rather than describing the website changes.
+- [ ] Review other sections for workshop-process language that makes the site feel unfinished or self-referential.
+- [ ] Tighten the overall homepage tone so it reads like a polished launch-ready brand site.

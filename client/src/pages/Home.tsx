@@ -99,9 +99,9 @@ const faqs = [
       "Yes. The homepage leads with brand story and atmosphere, then turns into a practical discovery flow with lineup cards, tonal recommendations, and a comparison table so musicians can move from emotion to decision.",
   },
   {
-    question: "Why emphasize a workshop-editorial visual style?",
+    question: "What should the Edwards site feel like?",
     answer:
-      "Because Edwards sits in boutique territory. The design should feel handcrafted and trustworthy, with warmth, restraint, and material texture that support premium pricing and builder credibility.",
+      "It should feel like a finished boutique brand: confident, premium, and product-led, with enough warmth and restraint to let the amps carry the story.",
   },
 ];
 
@@ -164,7 +164,7 @@ export default function Home() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/78 sm:text-xl">
-                The hero now leads with the real Elusive Overdrive so the site reflects the actual product: black textured cabinet, distinctive diamond grille, and a hand-built voice shaped for articulate cleans and expressive overdrive.
+                A compact American-voiced combo with depth, clarity, and a wide sweep into expressive overdrive, the Elusive Overdrive is built for players who want touch sensitivity without sacrificing authority.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -175,7 +175,7 @@ export default function Home() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-none border-white/20 bg-black/20 px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-foreground hover:bg-white/8">
-                  <a href="#craft">Inside the Workshop</a>
+                  <a href="#consultation">Book Consultation</a>
                 </Button>
               </div>
             </motion.div>
@@ -198,16 +198,16 @@ export default function Home() {
               </div>
               <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Featured model</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Elusive Overdrive, positioned as the premier Edwards amp and the clearest expression of the brand.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Voice</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">American clean to rich overdrive.</p>
                 </div>
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Actual product</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">The hero now uses the supplied amp itself, restaged on a wooden bench so the first impression feels both real and premium.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Format</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Compact combo. Stage ready.</p>
                 </div>
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Buying path</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Lineup discovery, tonal guidance, and consultation-driven conversion built around the Elusive Overdrive hero story.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Best for</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Studio, club dates, and responsive live rigs.</p>
                 </div>
               </div>
             </motion.div>
@@ -263,9 +263,9 @@ export default function Home() {
 
             <div>
               <p className="section-kicker">Why Edwards</p>
-              <h2 className="section-title">A boutique brand world should feel as deliberate as the circuitry inside the amp.</h2>
+              <h2 className="section-title">Edwards amps are voiced for players who hear nuance and feel response.</h2>
               <p className="section-copy mt-6">
-                The rebuild treats Edwards as a premium small-batch builder, not a generic storefront. Every major section is designed to surface what matters most in this category: craftsmanship, tonal point of view, component credibility, and an easier path from curiosity to serious inquiry.
+                From clean headroom to blooming overdrive, the lineup is shaped around feel, projection, and musical range. The brand presentation should carry the same restraint, confidence, and specificity as the amps themselves.
               </p>
 
               <div className="mt-10 grid gap-6">
@@ -295,7 +295,7 @@ export default function Home() {
               <h2 className="section-title">The site helps players identify the right platform by feel, venue, and response.</h2>
             </div>
             <p className="section-copy lg:pt-12">
-              Tone discovery is one of the strongest improvements in this rebuild. The content shifts from heavy paragraph blocks into practical guidance that mirrors the questions players actually ask before they reach out.
+              Explore the lineup by the way you actually play: headroom, breakup point, response under the fingers, and where each amp sits best in a real rig.
             </p>
           </div>
 
@@ -360,15 +360,15 @@ export default function Home() {
 
           <div className="container relative grid gap-10 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-28">
             <div>
-              <p className="section-kicker">The Shop Story</p>
-              <h2 className="section-title">A premium rebuild should let players feel the workshop behind the product.</h2>
+              <p className="section-kicker">The Edwards Standard</p>
+              <h2 className="section-title">Boutique American tone, refined into a lineup with clarity, authority, and feel.</h2>
             </div>
-            <div className="space-y-6 text-lg leading-8 text-foreground/76">
+              <div className="space-y-6 text-lg leading-8 text-foreground/76">
               <p>
-                Edwards already has the raw material for a strong brand story: hand-built cabinets, custom chassis work, premium transformer choices, and a lineup described in the language of musicians instead of generic retail copy.
+                Edwards Amplification belongs in the conversation with serious boutique builders: rich clean architecture, controlled breakup, and cabinets that project with weight and composure.
               </p>
               <p>
-                This website translates that authenticity into a more modern editorial experience, where the brand can speak with clarity, confidence, and restraint while keeping the handmade character intact.
+                This lineup is for players who want more than volume. It is for players chasing touch, shape, and an amp that feels musical at every setting.
               </p>
             </div>
           </div>
