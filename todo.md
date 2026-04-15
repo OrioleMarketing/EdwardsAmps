@@ -1,0 +1,8 @@
+- [ ] Prepare a clean cutout of the supplied Elusive Overdrive product image for hero use.
+- [ ] Replace the current generated hero product visual with the real Elusive Overdrive image.
+- [ ] Update hero copy and supporting labels so the featured product is clearly named Elusive Overdrive.
+- [ ] Rebalance hero composition, spacing, and contrast around the new product image.
+- [ ] Review the revised homepage in the browser, verify build health, and save an updated checkpoint.
+- [ ] Create a new hero asset that stages the real Elusive Overdrive on a wooden table without the checkerboard background.
+- [ ] Replace the current hero product composition with the table-staged Elusive Overdrive visual.
+- [ ] Recheck hero balance, realism, and readability after the new product staging is in place.

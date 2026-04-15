@@ -160,11 +160,11 @@ export default function Home() {
               </p>
 
               <h1 className="font-display text-4xl leading-[0.94] text-balance text-foreground sm:text-6xl lg:text-7xl">
-                Built like a custom shop. Voiced like an instrument.
+                Elusive Overdrive, the premier voice in the Edwards lineup.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/78 sm:text-xl">
-                Edwards Amplification blends boutique craftsmanship, premium component choices, and tone-led design into a lineup for players who care about feel as much as frequency.
+                The hero now leads with the real Elusive Overdrive so the site reflects the actual product: black textured cabinet, distinctive diamond grille, and a hand-built voice shaped for articulate cleans and expressive overdrive.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -187,25 +187,27 @@ export default function Home() {
               className="relative ml-auto w-full max-w-2xl self-center"
             >
               <div className="absolute -left-4 top-8 hidden h-[76%] w-[74%] border border-primary/35 lg:block" />
-              <div className="relative overflow-hidden border border-white/10 bg-card/55 p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-product-detail-GoYXGF8YcsycLES4bbvahs.webp"
-                  alt="Close-up premium Edwards amplifier product photograph"
-                  className="aspect-[4/3] w-full object-cover"
-                />
+              <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.12),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
+                <div className="relative aspect-[4/3] overflow-hidden border border-white/6 bg-black/20">
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png"
+                    alt="The real Edwards Elusive Overdrive amplifier staged on a wooden workbench"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
               <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Craft focus</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Premium cabinets, refined voicing, and builder-first credibility.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Featured model</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Elusive Overdrive, positioned as the premier Edwards amp and the clearest expression of the brand.</p>
                 </div>
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Use cases</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Studio sessions, worship stages, clubs, and player rigs that need nuance.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Actual product</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">The hero now uses the supplied amp itself, restaged on a wooden bench so the first impression feels both real and premium.</p>
                 </div>
                 <div>
                   <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Buying path</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Lineup discovery, tonal guidance, and consultation-driven conversion.</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Lineup discovery, tonal guidance, and consultation-driven conversion built around the Elusive Overdrive hero story.</p>
                 </div>
               </div>
             </motion.div>
