@@ -56,3 +56,6 @@
 - [ ] Move the lineup intro supporting copy to sit beneath the five-amp image.
 - [ ] Keep the five-amp image aligned to the right of the lineup headline with refined spacing.
 - [ ] Revalidate the lineup intro composition and save a fresh checkpoint.
+- [ ] Make the lineup intro headline span the full section width.
+- [ ] Move the five-amp image below the headline on the left and place the supporting copy on the right.
+- [ ] Validate the new editorial layout and save a fresh checkpoint.

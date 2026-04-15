@@ -193,14 +193,14 @@ export default function Home() {
         </section>
 
         <motion.section {...sectionMotion} id="lineup" className="container py-20 lg:py-28">
-          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
-            <div className="lg:pr-8">
+          <div className="grid gap-8 lg:gap-10">
+            <div className="max-w-6xl">
               <p className="section-kicker">The Lineup</p>
-              <h2 className="section-title">Five distinct amps, each built around a different feel, voice, and musical job.</h2>
+              <h2 className="section-title max-w-none">Five distinct amps, each built around a different feel, voice, and musical job.</h2>
             </div>
 
-            <div className="space-y-5 lg:space-y-6">
-              <div className="group relative overflow-hidden border border-white/10 bg-card/40 shadow-[0_24px_80px_rgba(0,0,0,0.38)] lg:min-h-[19rem]">
+            <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
+              <div className="group relative overflow-hidden border border-white/10 bg-card/40 shadow-[0_24px_80px_rgba(0,0,0,0.38)] lg:min-h-[21rem]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,149,92,0.18),transparent_48%)] opacity-80" />
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-75" />
                 <img
@@ -212,9 +212,11 @@ export default function Home() {
                 />
               </div>
 
-              <p className="section-copy max-w-3xl lg:max-w-none lg:pr-10">
-                From the wide-range Elusive Overdrive to more British and tweed-leaning options, the lineup is shaped so players can quickly understand what each amp does best and where it belongs in a real rig.
-              </p>
+              <div className="flex h-full items-center lg:pr-8">
+                <p className="section-copy max-w-none">
+                  From the wide-range Elusive Overdrive to more British and tweed-leaning options, the lineup is shaped so players can quickly understand what each amp does best and where it belongs in a real rig.
+                </p>
+              </div>
             </div>
           </div>
 
