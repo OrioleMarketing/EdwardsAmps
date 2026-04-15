@@ -59,7 +59,13 @@
 - [ ] Make the lineup intro headline span the full section width.
 - [ ] Move the five-amp image below the headline on the left and place the supporting copy on the right.
 - [ ] Validate the new editorial layout and save a fresh checkpoint.
-- [ ] Review the current homepage and navigation structure for Shop placement opportunities.
-- [ ] Design and implement a new Shop section that matches the EdwardsAmps visual language.
-- [ ] Add cart entry points in the header and relevant shopping surfaces.
-- [ ] Validate the new shopping interface and save a fresh checkpoint.
+- [x] Review the current homepage and navigation structure for Shop placement opportunities.
+- [x] Design and implement a new Shop section that matches the EdwardsAmps visual language.
+- [x] Add cart entry points in the header and relevant shopping surfaces.
+- [x] Validate the new shopping interface and save a fresh checkpoint.
+- [x] Parse the uploaded Shopify product export and map each Shopify product and variant to the current Edwards site models.
+- [x] Identify which Edwards products should become Storefront API-backed direct-purchase items versus consultation-only items.
+- [x] Remove the "Book a Build Consultation" button from the homepage header and align the navigation with the new shop-first direction.
+- [x] Determine the frontend integration points for Shopify Storefront API product data, cart creation, line-item updates, and checkout handoff while keeping the mini cart on the Edwards site.
+- [x] Document the Shopify-side setup the user still needs to complete, including providing the storefront access token securely and confirming checkout contact-field settings.
+- [x] Validate the updated storefront experience and save a fresh checkpoint before handoff.

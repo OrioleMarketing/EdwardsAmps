@@ -5,8 +5,10 @@ copy, elegant spacing, and calm confidence. The page should sell the amp itself,
 */
 
 import { Button } from "@/components/ui/button";
+import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { ampProducts, ampProductsBySlug } from "@/lib/ampData";
-import { ArrowLeft, ArrowRight, Music2, PhoneCall } from "lucide-react";
+import { ArrowLeft, ArrowRight, Music2, PhoneCall, ShoppingBag } from "lucide-react";
+import { SHOPIFY_PRODUCT_OPTIONS_BY_AMP } from "@shared/shopifyCatalog";
 
 export default function AmpDetail({ slug }: { slug: string }) {
   const amp = ampProductsBySlug[slug];
@@ -15,16 +17,18 @@ export default function AmpDetail({ slug }: { slug: string }) {
     return null;
   }
 
+  const { addToCart, isAddingToCart, productsByKey } = useShopifyCart();
   const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
-  const isDirectCheckout = ["hot-mama", "double-dee-tweed"].includes(amp.slug);
-  const headerCtaLabel = isDirectCheckout ? "Buy now" : "Ask About This Amp";
-  const headerCtaHref = isDirectCheckout ? "/#shop" : "#inquiry";
-  const heroPrimaryLabel = isDirectCheckout ? "Add to cart in Shop" : "View specifications";
-  const heroPrimaryHref = isDirectCheckout ? "/#shop" : "#specs";
-  const heroSecondaryLabel = isDirectCheckout ? "Talk with Edwards" : "Talk with Edwards";
+  const directOrderOptions = SHOPIFY_PRODUCT_OPTIONS_BY_AMP[amp.slug] ?? [];
+  const isDirectCheckout = directOrderOptions.length > 0;
+  const headerCtaLabel = isDirectCheckout ? "Shop This Amp" : "Ask About This Amp";
+  const headerCtaHref = isDirectCheckout ? "#shop-path" : "#inquiry";
+  const heroPrimaryLabel = isDirectCheckout ? "View direct order options" : "View specifications";
+  const heroPrimaryHref = isDirectCheckout ? "#shop-path" : "#specs";
+  const heroSecondaryLabel = "Talk with Edwards";
   const heroSecondaryHref = "#inquiry";
   const heroCommerceNote = isDirectCheckout
-    ? "This model is framed as a direct-checkout build in the new Shop section, where cart and later Shopify handoff can happen without losing the Edwards atmosphere."
+    ? "This model now connects into the live Shopify-backed mini cart without leaving the Edwards atmosphere first. Customers can choose a direct-order format here, then move into Shopify checkout only when they are ready."
     : "This model remains consultation-first so pricing, configuration, and build timing can stay accurate before checkout is introduced.";
 
   return (
@@ -211,13 +215,48 @@ export default function AmpDetail({ slug }: { slug: string }) {
               <h2 className="section-title">Talk through availability, wattage, cabinet choices, and whether this model fits your style.</h2>
               <p className="section-copy mt-6 max-w-2xl">{amp.availabilityNote}</p>
 
-              <div className="mt-8 border border-white/10 bg-[#14110e] p-5">
+              <div id="shop-path" className="mt-8 border border-white/10 bg-[#14110e] p-5">
                 <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/78">Shop path</p>
                 <p className="mt-3 text-sm leading-6 text-foreground/68">
                   {isDirectCheckout
-                    ? "This amp is one of the models intended for the direct-checkout Shop flow. Use Buy now or Add to cart in Shop to move into the new cart experience."
-                    : "This amp stays inquiry-led. The new Shop section still features it, but the site intentionally routes this model through conversation instead of generic checkout."}
+                    ? "This amp is one of the models now connected to the live Shopify mini cart. Choose the direct-order format below to add it immediately without leaving the Edwards site yet."
+                    : "This amp stays inquiry-led. The Shop section still features it, but the site intentionally routes this model through conversation instead of generic checkout."}
                 </p>
+
+                {isDirectCheckout ? (
+                  <div className="mt-6 grid gap-3">
+                    {directOrderOptions.map((option) => {
+                      const liveProduct = productsByKey[option.key];
+                      const isAvailable = liveProduct?.availableForSale ?? true;
+
+                      return (
+                        <div key={option.key} className="border border-white/10 bg-black/20 p-4">
+                          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                            <div>
+                              <p className="text-[0.65rem] uppercase tracking-[0.22em] text-primary/78">Direct-order option</p>
+                              <h3 className="mt-2 font-display text-2xl leading-tight text-foreground">{liveProduct?.name ?? option.displayName}</h3>
+                              <p className="mt-2 text-sm leading-6 text-foreground/66">{option.subtitle}</p>
+                            </div>
+                            <p className="font-display text-2xl text-primary">{liveProduct?.priceLabel ?? option.fallbackPriceLabel}</p>
+                          </div>
+                          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                            <Button
+                              className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
+                              onClick={() => addToCart(option.key)}
+                              disabled={!isAvailable || isAddingToCart}
+                            >
+                              <ShoppingBag className="mr-2 h-4 w-4" />
+                              {isAvailable ? "Add to cart" : "Unavailable"}
+                            </Button>
+                            <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
+                              <a href="/#shop">Open shop section</a>
+                            </Button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
               </div>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
