@@ -55,12 +55,12 @@ const pillars = [
   {
     icon: Gauge,
     title: "Tone-first voicing",
-    text: "The lineup is organized by tonal destination so players can move quickly toward the right platform instead of decoding dense spec blocks first.",
+    text: "Each model is built around a distinct response under the fingers, making it easier to choose by feel and sound instead of chasing specs alone.",
   },
   {
     icon: ShieldCheck,
-    title: "Confidence in the buying path",
-    text: "The site turns contact into a guided consultation, helping visitors move toward availability questions, custom options, and product fit without dead ends.",
+    title: "Direct builder access",
+    text: "When players are ready to talk wattage, cabinets, availability, or custom direction, they can go straight to a real conversation with Edwards.",
   },
 ];
 
@@ -217,10 +217,10 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
             <div>
               <p className="section-kicker">The Lineup</p>
-              <h2 className="section-title">Four voices, each framed around the way players actually search for tone.</h2>
+              <h2 className="section-title">Four distinct amps, each built around a different feel, voice, and musical job.</h2>
             </div>
             <p className="section-copy max-w-3xl lg:justify-self-end">
-              Instead of burying buyers in a single long scroll, the rebuilt experience introduces every core model with a tonal identity, a quick specification snapshot, and a clearer path toward availability or consultation.
+              From the wide-range Elusive Overdrive to more British and tweed-leaning options, the lineup is shaped so players can quickly understand what each amp does best and where it belongs in a real rig.
             </p>
           </div>
 
@@ -264,7 +264,7 @@ export default function Home() {
               <p className="section-kicker">Why Edwards</p>
               <h2 className="section-title">Edwards amps are voiced for players who hear nuance and feel response.</h2>
               <p className="section-copy mt-6">
-                From clean headroom to blooming overdrive, the lineup is shaped around feel, projection, and musical range. The brand presentation should carry the same restraint, confidence, and specificity as the amps themselves.
+                From clean headroom to blooming overdrive, the lineup is shaped around feel, projection, and musical range. Every model is built to sound musical, respond naturally, and stay useful long after the honeymoon period wears off.
               </p>
 
               <div className="mt-10 grid gap-6">
@@ -291,7 +291,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
             <div>
               <p className="section-kicker">Find Your Sound</p>
-              <h2 className="section-title">The site helps players identify the right platform by feel, venue, and response.</h2>
+              <h2 className="section-title">Find the amp that fits your touch, your volume needs, and the way you actually play.</h2>
             </div>
             <p className="section-copy lg:pt-12">
               Explore the lineup by the way you actually play: headroom, breakup point, response under the fingers, and where each amp sits best in a real rig.
@@ -316,9 +316,9 @@ export default function Home() {
             <div className="grid gap-0 lg:grid-cols-[0.72fr_1.28fr]">
               <div className="border-b border-white/10 p-8 lg:border-b-0 lg:border-r">
                 <p className="section-kicker">Comparison Snapshot</p>
-                <h3 className="mt-3 font-display text-3xl text-foreground">Quick guidance without losing the boutique feel.</h3>
+                <h3 className="mt-3 font-display text-3xl text-foreground">Quick comparison for players narrowing the field.</h3>
                 <p className="mt-4 text-base leading-7 text-foreground/70">
-                  The comparison block keeps spec literacy intact, but frames it in a clearer format so buyers can narrow options faster.
+                  Use this snapshot to compare voice, format, and best fit at a glance before digging deeper or reaching out.
                 </p>
               </div>
               <div className="overflow-x-auto">
@@ -379,7 +379,7 @@ export default function Home() {
               <p className="section-kicker">Talk With Edwards</p>
               <h2 className="section-title">Have questions about tone, wattage, or availability? Start with a real conversation.</h2>
               <p className="section-copy mt-6 max-w-2xl">
-                Not every player needs the same wattage, cabinet, or amount of gain. This section gives visitors a direct way to ask about availability, custom options, and which model will make the most sense for their playing style.
+                Not every player needs the same wattage, cabinet, or amount of gain. Reach out for availability, custom options, or help choosing the model that best matches your style, stage volume, and tonal goals.
               </p>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -391,7 +391,7 @@ export default function Home() {
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/52">Call Edwards</p>
                     <p className="mt-3 font-display text-3xl text-foreground">(256) 604-8721</p>
-                    <p className="mt-3 text-sm leading-6 text-foreground/70">For product fit, custom direction, and direct conversation.</p>
+                    <p className="mt-3 text-sm leading-6 text-foreground/70">Talk through product fit, cabinet choices, and current availability.</p>
                   </div>
                 </a>
 
@@ -403,7 +403,7 @@ export default function Home() {
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/52">Start with the lineup</p>
                     <p className="mt-3 font-display text-3xl text-foreground">Match the voice first</p>
-                    <p className="mt-3 text-sm leading-6 text-foreground/70">Use the tone-led cards above to narrow down the right platform before reaching out.</p>
+                     <p className="mt-3 text-sm leading-6 text-foreground/70">Compare the core voices first, then reach out with a clearer sense of what you want.</p>
                   </div>
                 </a>
               </div>
@@ -411,9 +411,9 @@ export default function Home() {
 
             <div className="border border-white/10 bg-[#11100e] p-8 lg:p-10">
               <p className="section-kicker">Supportive FAQ</p>
-              <h3 className="font-display text-4xl leading-tight text-foreground">Practical answers that remove friction from premium purchases.</h3>
+              <h3 className="font-display text-4xl leading-tight text-foreground">Practical answers for players getting serious about an amp purchase.</h3>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/68">
-                The rebuilt site is meant to answer the practical questions that usually sit between admiration and action. Opening one answer by default makes the support area feel more alive and more useful at first glance.
+                These answers cover the questions that usually come up when players start thinking about wattage, speaker matching, model choice, and whether one amp can cover more ground than expected.
               </p>
               <Accordion type="single" collapsible defaultValue="item-0" className="mt-8 w-full">
                 {faqs.map((faq, index) => (
@@ -437,7 +437,7 @@ export default function Home() {
           <div>
             <p className="font-display text-3xl uppercase tracking-[0.18em] text-primary">Edwards Amplification</p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-foreground/66">
-              A boutique website concept focused on modern craftsmanship, tonal clarity, and consultation-ready conversion for a premium guitar amp brand.
+              Hand-built tube amplifiers shaped around feel, musical range, and direct builder access for players who care about real tone.
             </p>
           </div>
           <div className="flex flex-col items-start gap-3 text-sm uppercase tracking-[0.2em] text-foreground/54 lg:items-end">

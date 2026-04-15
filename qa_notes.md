@@ -11,3 +11,6 @@ The lower page confirms that the consultation and FAQ sections are structurally 
 The revised hero now presents the real Elusive Overdrive on a wooden workbench, which resolves the previous checkerboard issue and aligns the product presentation more closely with the workshop-editorial direction. The composition reads clearly, the product feels grounded, and the image supports the premium tone of the page without breaking contrast or hierarchy.
 
 The latest revision removes the distracting gold guide line treatment from the hero image area and replaces the Elusive Overdrive copy with more approachable, player-friendly language. The hero now reads more calmly, and the supporting FAQ labels have shifted from internal planning language to customer-facing questions.
+
+The latest review confirms that the lineup section no longer reads like a website explainer. Its introduction is now product-led and focused on how each amp fits a player and a rig. The revised section-title line-height also improves the stacked serif heading, which now breathes more naturally in the lineup area without the previous crowding.
+The Why Edwards section now reads as product and brand positioning rather than commentary about the website itself. The main serif heading in this section has improved vertical spacing and no longer appears compressed or crowded at this viewport.

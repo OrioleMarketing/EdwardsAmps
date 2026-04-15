@@ -14,3 +14,7 @@
 - [ ] Update hero and supporting copy to reflect the provided Elusive Overdrive product details in plain English.
 - [ ] Remove the distracting gold line overlays from the hero image area and related frame treatment.
 - [ ] Recheck the hero for clarity, alignment, and visual calm after the line treatment is removed.
+- [ ] Remove the remaining website-explainer language from the lineup and product-value sections.
+- [ ] Rewrite section intros and feature blocks so they speak about the amps and buying experience, not the website rebuild.
+- [ ] Fix the crowded heading line spacing in the third section so serif titles read cleanly.
+- [ ] Recheck the revised sections in the browser for tone, spacing, and readability.
