@@ -14,37 +14,8 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowRight, Gauge, Music2, PhoneCall, ShieldCheck, Sparkles, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
+import { ampProducts } from "@/lib/ampData";
 
-const amps = [
-  {
-    name: "Elusive Overdrive",
-    price: "$3,000",
-    voice: "Starts with big blackface-style cleans, then moves into overdrive that can go from subtle grit to full lead tones.",
-    build: "24W or 40W · 6V6 or 6L6 power section · effects loop and footswitchable overdrive",
-    vibe: "A true do-it-all amp for players who want one rig for clean, edge-of-breakup, and driven sounds.",
-  },
-  {
-    name: "King Richard",
-    price: "$2,800",
-    voice: "British authority with chime, punch, and jumpable-channel complexity.",
-    build: "~45W · EL84 platform · EF86 + 12AX7 channels",
-    vibe: "A bigger voice for players who want dimensional cleans and commanding live feel.",
-  },
-  {
-    name: "Hot Mama",
-    price: "$1,800",
-    voice: "Portable British sparkle with recording-friendly breakup and surprising stage strength.",
-    build: "~18W · EL84 platform · head or 1x12 combo",
-    vibe: "The versatile small-format amp for session work, church, club stages, and everyday playing.",
-  },
-  {
-    name: "Double Dee Tweed",
-    price: "$2,000",
-    voice: "Touch-sensitive tweed response with extra headroom and singing drive.",
-    build: "~18W · 6V6 platform · 1x12 combo",
-    vibe: "A compact tweed-inspired voice that moves from rootsy cleans into Texas-style grind.",
-  },
-];
 
 const pillars = [
   {
@@ -225,9 +196,10 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {amps.map((amp, index) => (
-              <article
-                key={amp.name}
+            {ampProducts.map((amp, index) => (
+              <a
+                key={amp.slug}
+                href={`/amps/${amp.slug}`}
                 className="group relative overflow-hidden border border-white/10 bg-card/60 p-6 transition-transform duration-500 hover:-translate-y-1 hover:border-primary/35 hover:bg-card"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -237,15 +209,19 @@ export default function Home() {
                     <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">{amp.name}</h3>
                   </div>
                   <span className="border border-primary/25 bg-primary/10 px-3 py-2 text-sm uppercase tracking-[0.18em] text-primary">
-                    From {amp.price}
+                    {amp.price}
                   </span>
                 </div>
                 <p className="mt-6 text-lg leading-8 text-foreground/82">{amp.voice}</p>
                 <div className="mt-6 grid gap-4 border-t border-white/8 pt-6 text-sm text-foreground/68 sm:grid-cols-2">
-                  <p>{amp.build}</p>
-                  <p>{amp.vibe}</p>
+                  <p>{amp.format}</p>
+                  <p>{amp.idealFor}</p>
                 </div>
-              </article>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary">
+                  View product page
+                  <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                </div>
+              </a>
             ))}
           </div>
         </motion.section>
@@ -332,12 +308,12 @@ export default function Home() {
                     </tr>
                   </thead>
                   <tbody>
-                    {amps.map((amp) => (
+                    {ampProducts.map((amp) => (
                       <tr key={amp.name} className="border-b border-white/8 align-top text-sm text-foreground/72 last:border-b-0">
                         <td className="px-6 py-5 font-medium text-foreground">{amp.name}</td>
                         <td className="px-6 py-5">{amp.voice}</td>
-                        <td className="px-6 py-5">{amp.build}</td>
-                        <td className="px-6 py-5">{amp.vibe}</td>
+                        <td className="px-6 py-5">{amp.format}</td>
+                        <td className="px-6 py-5">{amp.idealFor}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -395,15 +371,16 @@ export default function Home() {
                   </div>
                 </a>
 
-                <a href="#lineup" className="group flex min-h-44 flex-col justify-between border border-white/10 bg-card/60 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-card">
+                  <a href="/amps/elusive-overdrive" className="group flex min-h-44 flex-col justify-between border border-white/10 bg-card/60 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-card">
+
                   <div className="flex items-center justify-between">
                     <Music2 className="h-5 w-5 text-primary" />
                     <ArrowRight className="h-4 w-4 text-primary transition-transform duration-500 group-hover:translate-x-1" />
                   </div>
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/52">Start with the lineup</p>
-                    <p className="mt-3 font-display text-3xl text-foreground">Match the voice first</p>
-                     <p className="mt-3 text-sm leading-6 text-foreground/70">Compare the core voices first, then reach out with a clearer sense of what you want.</p>
+                    <p className="mt-3 font-display text-3xl text-foreground">Start with Elusive Overdrive</p>
+                     <p className="mt-3 text-sm leading-6 text-foreground/70">Open the flagship product page first, then move through the rest of the lineup from a stronger reference point.</p>
                   </div>
                 </a>
               </div>

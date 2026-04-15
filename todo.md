@@ -18,3 +18,8 @@
 - [ ] Rewrite section intros and feature blocks so they speak about the amps and buying experience, not the website rebuild.
 - [ ] Fix the crowded heading line spacing in the third section so serif titles read cleanly.
 - [ ] Recheck the revised sections in the browser for tone, spacing, and readability.
+- [ ] Audit the original EdwardsAmps site for each amp model and gather product descriptions, specs, and positioning.
+- [ ] Define a reusable product-page template and route structure for the lineup.
+- [ ] Create a dedicated product page for each Edwards amp using original-site information and clearer player-friendly copy.
+- [ ] Link lineup cards and calls to action from the homepage into the new product pages.
+- [ ] Review the full product-page flow in the browser and confirm the site still type-checks cleanly.
