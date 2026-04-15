@@ -1,3 +1,9 @@
+/*
+Design Philosophy for App.tsx
+The global shell should default to a dark, warm, workshop-editorial atmosphere so every page inherits
+boutique contrast, restrained drama, and premium readability from the first paint.
+*/
+
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -27,7 +33,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
+        defaultTheme="dark"
         // switchable
       >
         <TooltipProvider>
