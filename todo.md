@@ -10,3 +10,7 @@
 - [ ] Rewrite the hero paragraph and supporting text so it sells the product rather than describing the website changes.
 - [ ] Review other sections for workshop-process language that makes the site feel unfinished or self-referential.
 - [ ] Tighten the overall homepage tone so it reads like a polished launch-ready brand site.
+- [ ] Rewrite Elusive Overdrive content so novice-to-intermediate players can understand the sound, controls, and use case quickly.
+- [ ] Update hero and supporting copy to reflect the provided Elusive Overdrive product details in plain English.
+- [ ] Remove the distracting gold line overlays from the hero image area and related frame treatment.
+- [ ] Recheck the hero for clarity, alignment, and visual calm after the line treatment is removed.

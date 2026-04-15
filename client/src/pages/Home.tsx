@@ -18,10 +18,10 @@ import { motion } from "framer-motion";
 const amps = [
   {
     name: "Elusive Overdrive",
-    price: "$3,300",
-    voice: "American clean headroom that opens into rich, articulate overdrive.",
-    build: "24W or 40W · 6V6/6L6 platform · head or combo",
-    vibe: "The flagship for players who want blackface-style cleans with a wider gain range.",
+    price: "$3,000",
+    voice: "Starts with big blackface-style cleans, then moves into overdrive that can go from subtle grit to full lead tones.",
+    build: "24W or 40W · 6V6 or 6L6 power section · effects loop and footswitchable overdrive",
+    vibe: "A true do-it-all amp for players who want one rig for clean, edge-of-breakup, and driven sounds.",
   },
   {
     name: "King Richard",
@@ -89,19 +89,19 @@ const tonePaths = [
 
 const faqs = [
   {
-    question: "How should the new site handle buying if inventory changes?",
+    question: "How do I know which Edwards amp is right for me?",
     answer:
-      "The experience is built around clear intent rather than forcing every visitor through a store-first path. In-stock items can point to direct purchase later, while limited runs and options-heavy builds can move through availability and consultation calls to action.",
+      "Start with the kind of sound you want most often. If you want sparkling cleans and a wide overdrive range, the Elusive Overdrive is the best place to begin. If you want more British character, faster breakup, or a smaller recording-friendly format, the other models will narrow the field quickly.",
   },
   {
-    question: "Can the site support both flagship storytelling and model comparison?",
+    question: "Can Edwards help me choose the right wattage and speaker setup?",
     answer:
-      "Yes. The homepage leads with brand story and atmosphere, then turns into a practical discovery flow with lineup cards, tonal recommendations, and a comparison table so musicians can move from emotion to decision.",
+      "Yes. The consultation path is there for exactly that reason. Players can ask about wattage, cabinet pairing, venue size, and the kind of breakup they want, then get pointed toward the best fit instead of guessing from specs alone.",
   },
   {
-    question: "What should the Edwards site feel like?",
+    question: "What makes the Elusive Overdrive special?",
     answer:
-      "It should feel like a finished boutique brand: confident, premium, and product-led, with enough warmth and restraint to let the amps carry the story.",
+      "It covers an unusually wide range without losing feel. You can get clear, blackface-style cleans, edge-of-breakup touch response, and a fuller overdrive voice from the same amp, which makes it a strong choice for players who want one amp to handle a lot of ground.",
   },
 ];
 
@@ -160,11 +160,11 @@ export default function Home() {
               </p>
 
               <h1 className="font-display text-4xl leading-[0.94] text-balance text-foreground sm:text-6xl lg:text-7xl">
-                Elusive Overdrive, the premier voice in the Edwards lineup.
+                Elusive Overdrive, the amp that can replace a room full of favorites.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/78 sm:text-xl">
-                A compact American-voiced combo with depth, clarity, and a wide sweep into expressive overdrive, the Elusive Overdrive is built for players who want touch sensitivity without sacrificing authority.
+                If you want one amp that can give you beautiful clean tones, smooth breakup, and bold overdrive without feeling harsh or stiff, the Elusive Overdrive is built for exactly that job. It has the clarity many players love in classic American amps, but with a much bigger gain range when you want to push it.
               </p>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -186,8 +186,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.25 }}
               className="relative ml-auto w-full max-w-2xl self-center"
             >
-              <div className="absolute -left-4 top-8 hidden h-[76%] w-[74%] border border-primary/35 lg:block" />
-              <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.12),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
+              <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.08),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
                 <div className="relative aspect-[4/3] overflow-hidden border border-white/6 bg-black/20">
                   <img
                     src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png"
@@ -198,16 +197,16 @@ export default function Home() {
               </div>
               <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Voice</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">American clean to rich overdrive.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Sound</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Blackface-style cleans to mild or wild overdrive.</p>
                 </div>
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Format</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Compact combo. Stage ready.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Power</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">Available in 24W or 40W with 6V6 or 6L6 tubes.</p>
                 </div>
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Best for</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Studio, club dates, and responsive live rigs.</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Starts at</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">$3,000 USD for a hand-built head.</p>
                 </div>
               </div>
             </motion.div>
@@ -377,10 +376,10 @@ export default function Home() {
         <motion.section {...sectionMotion} id="consultation" className="container py-20 lg:py-28">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
             <div className="border border-white/10 bg-card/45 p-8 lg:p-10">
-              <p className="section-kicker">Consultation Path</p>
-              <h2 className="section-title">From first curiosity to serious inquiry, the site keeps the next step obvious.</h2>
+              <p className="section-kicker">Talk With Edwards</p>
+              <h2 className="section-title">Have questions about tone, wattage, or availability? Start with a real conversation.</h2>
               <p className="section-copy mt-6 max-w-2xl">
-                This concept favors a guided, consultation-ready buying path over a broken or ambiguous store flow. It gives players a cleaner way to ask about availability, custom builds, or the right model for their rig.
+                Not every player needs the same wattage, cabinet, or amount of gain. This section gives visitors a direct way to ask about availability, custom options, and which model will make the most sense for their playing style.
               </p>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
