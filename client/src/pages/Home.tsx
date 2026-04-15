@@ -193,12 +193,25 @@ export default function Home() {
         </section>
 
         <motion.section {...sectionMotion} id="lineup" className="container py-20 lg:py-28">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-            <div>
+          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:grid-rows-[auto_auto] lg:items-end">
+            <div className="lg:pr-8">
               <p className="section-kicker">The Lineup</p>
               <h2 className="section-title">Five distinct amps, each built around a different feel, voice, and musical job.</h2>
             </div>
-            <p className="section-copy max-w-3xl lg:justify-self-end">
+
+            <div className="group relative overflow-hidden border border-white/10 bg-card/40 shadow-[0_24px_80px_rgba(0,0,0,0.38)] lg:row-span-2 lg:min-h-[19rem]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,149,92,0.18),transparent_48%)] opacity-80" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-75" />
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp"
+                alt="All five Edwards amps grouped together in a dark stage-style environment"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </div>
+
+            <p className="section-copy max-w-3xl lg:max-w-none lg:pr-10 lg:self-start">
               From the wide-range Elusive Overdrive to more British and tweed-leaning options, the lineup is shaped so players can quickly understand what each amp does best and where it belongs in a real rig.
             </p>
           </div>

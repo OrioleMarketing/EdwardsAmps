@@ -47,3 +47,9 @@
 - [ ] Validate the homepage after the refresh and save a new checkpoint for republishing.
 - [ ] Update the lineup heading to the new five-amp wording.
 - [ ] Validate the revised lineup section and save a fresh checkpoint for publishing.
+- [ ] Gather the five current amp references for the wide lineup intro image.
+- [ ] Create a stage-style wide image featuring all five amps for the lineup intro area.
+- [ ] Review the new lineup intro image for scale, realism, and fit before placement.
+- [ ] Insert the five-amp stage image into the lineup intro blank area.
+- [ ] Refine the lineup intro image framing and layout spacing around the new visual.
+- [ ] Validate the updated lineup intro and save a fresh checkpoint.
