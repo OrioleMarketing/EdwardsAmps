@@ -23,3 +23,7 @@
 - [ ] Create a dedicated product page for each Edwards amp using original-site information and clearer player-friendly copy.
 - [ ] Link lineup cards and calls to action from the homepage into the new product pages.
 - [ ] Review the full product-page flow in the browser and confirm the site still type-checks cleanly.
+- [ ] Remove all references to the original Edwards site from the amp detail pages.
+- [ ] Replace leftover explanatory wording on the product pages with finished customer-facing product copy.
+- [ ] Review the specifications intro and similar recurring copy blocks across multiple amp pages for consistency.
+- [ ] Recheck the updated product pages in the browser and validate the revised language.

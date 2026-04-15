@@ -155,7 +155,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
               <p className="section-kicker">Specifications</p>
               <h2 className="section-title">The technical side, organized so it is easier to understand at a glance.</h2>
               <p className="section-copy mt-6">
-                The details below come from the original EdwardsAmps source material and are arranged to help players compare the important things quickly.
+                A straightforward view of the key details players usually want first: power, format, core controls, and the build choices that shape how the amp feels in use.
               </p>
             </div>
 
