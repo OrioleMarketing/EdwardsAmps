@@ -13,3 +13,5 @@ The generated composition successfully removes the original backgrounds and stag
 The homepage markup now includes a sixth lineup card labelled 06 with the title Elusive Overdrive and the requested subtitle mentioning the Jon Kammerer custom guitar with TonePod™ technology. The card is present in the lineup grid and is linked as a featured pairing rather than a standard product listing.
 
 The refined homepage lineup view now places the collaboration card directly beside Lil Tyke Tweed in the final row. The badge no longer crowds the title block, the subtitle remains readable at card width, and the cross-brand image gives the empty slot a clear featured-purpose treatment rather than making it feel like a missing product tile.
+
+The collaboration card has been updated to remove the temporary call-to-action wording at the bottom. TypeScript still passes, and the lineup section continues to render with the collaboration card present as a featured visual tile beside Lil Tyke Tweed.

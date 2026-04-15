@@ -38,3 +38,10 @@
 - [ ] Add a collaboration feature card in the empty lineup slot beside Lil Tyke Tweed.
 - [ ] Use the Jon Kammerer and Elusive Overdrive cross-brand image with a compact collaboration subtitle.
 - [ ] Review the updated lineup row for spacing, hierarchy, and consistency with the other product cards.
+- [ ] Evaluate ecommerce options for EdwardsAmps, including Shopify and native checkout paths.
+- [ ] Compare catalog, checkout, shipping, and maintenance tradeoffs for the preferred ecommerce setup.
+- [ ] Recommend an ecommerce architecture and phased rollout plan for the site.
+- [ ] Remove the temporary “Ask about this setup” wording from the collaboration card.
+- [ ] Recheck the collaboration card spacing after the CTA text is removed.
+- [ ] Refresh the collaboration card image implementation to create a new publishable revision.
+- [ ] Validate the homepage after the refresh and save a new checkpoint for republishing.
