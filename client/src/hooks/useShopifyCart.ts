@@ -12,7 +12,7 @@ export function useShopifyCart() {
     onSuccess: async () => {
       await cartQuery.refetch();
       toast("Added to cart.", {
-        description: "Your Edwards mini cart now reflects the live Shopify cart.",
+        description: "Your selected amp has been added to the cart.",
       });
     },
     onError: (error) => {

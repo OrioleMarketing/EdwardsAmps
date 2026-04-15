@@ -20,16 +20,14 @@ export default function AmpDetail({ slug }: { slug: string }) {
   const { addToCart, isAddingToCart, productsByKey } = useShopifyCart();
   const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
   const directOrderOptions = SHOPIFY_PRODUCT_OPTIONS_BY_AMP[amp.slug] ?? [];
-  const isDirectCheckout = directOrderOptions.length > 0;
-  const headerCtaLabel = isDirectCheckout ? "Shop This Amp" : "Ask About This Amp";
-  const headerCtaHref = isDirectCheckout ? "#shop-path" : "#inquiry";
-  const heroPrimaryLabel = isDirectCheckout ? "View direct order options" : "View specifications";
-  const heroPrimaryHref = isDirectCheckout ? "#shop-path" : "#specs";
+  const headerCtaLabel = "Shop This Amp";
+  const headerCtaHref = "#shop-path";
+  const heroPrimaryLabel = "View order options";
+  const heroPrimaryHref = "#shop-path";
   const heroSecondaryLabel = "Talk with Edwards";
   const heroSecondaryHref = "#inquiry";
-  const heroCommerceNote = isDirectCheckout
-    ? "This model now connects into the live Shopify-backed mini cart without leaving the Edwards atmosphere first. Customers can choose a direct-order format here, then move into Shopify checkout only when they are ready."
-    : "This model remains consultation-first so pricing, configuration, and build timing can stay accurate before checkout is introduced.";
+  const heroCommerceNote =
+    "Choose the format that fits your rig, add it to the cart, and continue to checkout when you are ready.";
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
@@ -211,52 +209,48 @@ export default function AmpDetail({ slug }: { slug: string }) {
         <section id="inquiry" className="container py-20 lg:py-28">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
             <div className="border border-white/10 bg-card/45 p-8 lg:p-10">
-              <p className="section-kicker">Ask about {amp.shortName}</p>
-              <h2 className="section-title">Talk through availability, wattage, cabinet choices, and whether this model fits your style.</h2>
+              <p className="section-kicker">Order {amp.shortName}</p>
+              <h2 className="section-title">Choose the version that fits your rig and add it to the cart.</h2>
               <p className="section-copy mt-6 max-w-2xl">{amp.availabilityNote}</p>
 
               <div id="shop-path" className="mt-8 border border-white/10 bg-[#14110e] p-5">
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/78">Shop path</p>
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/78">Available versions</p>
                 <p className="mt-3 text-sm leading-6 text-foreground/68">
-                  {isDirectCheckout
-                    ? "This amp is one of the models now connected to the live Shopify mini cart. Choose the direct-order format below to add it immediately without leaving the Edwards site yet."
-                    : "This amp stays inquiry-led. The Shop section still features it, but the site intentionally routes this model through conversation instead of generic checkout."}
+                  Each version of this amp is listed as its own store item so you can order the exact format you want.
                 </p>
 
-                {isDirectCheckout ? (
-                  <div className="mt-6 grid gap-3">
-                    {directOrderOptions.map((option) => {
-                      const liveProduct = productsByKey[option.key];
-                      const isAvailable = liveProduct?.availableForSale ?? true;
+                <div className="mt-6 grid gap-3">
+                  {directOrderOptions.map((option) => {
+                    const liveProduct = productsByKey[option.key];
+                    const isAvailable = liveProduct?.availableForSale ?? true;
 
-                      return (
-                        <div key={option.key} className="border border-white/10 bg-black/20 p-4">
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                            <div>
-                              <p className="text-[0.65rem] uppercase tracking-[0.22em] text-primary/78">Direct-order option</p>
-                              <h3 className="mt-2 font-display text-2xl leading-tight text-foreground">{liveProduct?.name ?? option.displayName}</h3>
-                              <p className="mt-2 text-sm leading-6 text-foreground/66">{option.subtitle}</p>
-                            </div>
-                            <p className="font-display text-2xl text-primary">{liveProduct?.priceLabel ?? option.fallbackPriceLabel}</p>
+                    return (
+                      <div key={option.key} className="border border-white/10 bg-black/20 p-4">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                          <div>
+                            <p className="text-[0.65rem] uppercase tracking-[0.22em] text-primary/78">Store item</p>
+                            <h3 className="mt-2 font-display text-2xl leading-tight text-foreground">{liveProduct?.name ?? option.displayName}</h3>
+                            <p className="mt-2 text-sm leading-6 text-foreground/66">{option.subtitle}</p>
                           </div>
-                          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                            <Button
-                              className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
-                              onClick={() => addToCart(option.key)}
-                              disabled={!isAvailable || isAddingToCart}
-                            >
-                              <ShoppingBag className="mr-2 h-4 w-4" />
-                              {isAvailable ? "Add to cart" : "Unavailable"}
-                            </Button>
-                            <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
-                              <a href="/#shop">Open shop section</a>
-                            </Button>
-                          </div>
+                          <p className="font-display text-2xl text-primary">{liveProduct?.priceLabel ?? option.fallbackPriceLabel}</p>
                         </div>
-                      );
-                    })}
-                  </div>
-                ) : null}
+                        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                          <Button
+                            className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
+                            onClick={() => addToCart(option.key)}
+                            disabled={!isAvailable || isAddingToCart}
+                          >
+                            <ShoppingBag className="mr-2 h-4 w-4" />
+                            {isAvailable ? "Add to cart" : "Unavailable"}
+                          </Button>
+                          <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
+                            <a href="/#shop">View full shop</a>
+                          </Button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">

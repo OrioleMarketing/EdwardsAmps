@@ -24,114 +24,31 @@ import {
 } from "@/components/ui/sheet";
 import { ArrowRight, Gauge, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
-import { toast } from "sonner";
 import { ampProducts } from "@/lib/ampData";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
+import { SHOPIFY_PRODUCT_OPTIONS } from "@shared/shopifyCatalog";
 
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
-
-const directShopProducts = [
-  {
-    id: "hot-mama-head",
-    slug: "hot-mama",
-    name: "Hot Mama Head",
-    eyebrow: "Ready for direct checkout",
-    subtitle: "Portable British sparkle in the most travel-friendly format in the lineup.",
-    priceLabel: "$1,800 USD",
-    priceValue: 1800,
-    description:
-      "For players who want the Hot Mama voice in a compact head that can move easily between rehearsals, church dates, sessions, and small stages.",
-  },
-  {
-    id: "hot-mama-combo",
-    slug: "hot-mama",
-    name: "Hot Mama 1x12 Combo",
-    eyebrow: "Ready for direct checkout",
-    subtitle: "The grab-and-go combo version for players who want one cabinet and one trip.",
-    priceLabel: "$2,000 USD",
-    priceValue: 2000,
-    description:
-      "A more self-contained Hot Mama setup for players who want British-inspired response, smooth breakup, and a practical footprint right out of the box.",
-  },
-  {
-    id: "double-dee-tweed-combo",
-    slug: "double-dee-tweed",
-    name: "Double Dee Tweed 1x12 Combo",
-    eyebrow: "Ready for direct checkout",
-    subtitle: "Rootsy tweed character with more usable range than a one-trick vintage piece.",
-    priceLabel: "$2,000 USD",
-    priceValue: 2000,
-    description:
-      "A strong direct-order candidate for players chasing touch-sensitive tweed feel, sweeter compression, and a combo that can cover home, studio, and stage use.",
-  },
-] as const;
-
-const consultationFirstBuilds = ampProducts.filter((product) =>
-  ["elusive-overdrive", "king-richard", "lil-tyke-tweed"].includes(product.slug)
-);
-
-const shopAnchorCards = directShopProducts.map((product) => {
-  const amp = ampProducts.find((candidate) => candidate.slug === product.slug);
+const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
+  const amp = ampProducts.find((candidate) => candidate.slug === product.ampSlug);
 
   return {
-    ...product,
+    id: product.key,
+    slug: product.ampSlug,
+    handle: product.handle,
+    name: product.displayName,
+    eyebrow: product.eyebrow,
+    subtitle: product.subtitle,
+    priceLabel: product.fallbackPriceLabel,
+    priceValue: product.fallbackPriceValue,
+    description: product.description,
     image: amp?.heroImage ?? "",
-    alt: amp?.heroAlt ?? product.name,
+    alt: amp?.heroAlt ?? product.displayName,
   };
 });
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
 
-const formatMoney = (value: number) => currencyFormatter.format(value);
-
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
-
-const updateCartQuantity = (currentCart: Record<string, number>, id: string, nextQuantity: number) => {
-  if (nextQuantity <= 0) {
-    const { [id]: _removed, ...rest } = currentCart;
-    return rest;
-  }
-
-  return {
-    ...currentCart,
-    [id]: nextQuantity,
-  };
-};
-
-const getProductById = (id: string) => shopAnchorCards.find((product) => product.id === id);
-
-const getCartSubtotal = (cart: Record<string, number>) =>
-  Object.entries(cart).reduce((total, [id, quantity]) => {
-    const product = getProductById(id);
-    return total + (product ? product.priceValue * quantity : 0);
-  }, 0);
-
-const getCartCount = (cart: Record<string, number>) => Object.values(cart).reduce((total, quantity) => total + quantity, 0);
-
-const getCartLines = (cart: Record<string, number>) =>
-  Object.entries(cart)
-    .map(([id, quantity]) => {
-      const product = getProductById(id);
-      if (!product) return null;
-      return {
-        ...product,
-        quantity,
-        lineTotal: product.priceValue * quantity,
-      };
-    })
-    .filter((product): product is NonNullable<typeof product> => Boolean(product));
-
-const showCheckoutToast = () => {
-  toast("Checkout path ready for Shopify or another commerce layer.", {
-    description:
-      "The cart UI is designed and connected. The next step is wiring these items to Shopify checkout, shipping, inventory, and required customer fields.",
-  });
-};
-
 
 const pillars = [
   {
@@ -238,7 +155,7 @@ export default function Home() {
             <a href="#craft" className="transition-colors hover:text-primary">Craft</a>
             <a href="#tone" className="transition-colors hover:text-primary">Find Your Sound</a>
             <a href="#shop" className="transition-colors hover:text-primary">Shop</a>
-            <a href="#consultation" className="transition-colors hover:text-primary">Consultation</a>
+            <a href="#consultation" className="transition-colors hover:text-primary">Contact</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -287,7 +204,7 @@ export default function Home() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-none border-white/20 bg-black/20 px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-foreground hover:bg-white/8">
-                  <a href="#consultation">Book Consultation</a>
+                  <a href="#shop">Shop the Collection</a>
                 </Button>
               </div>
             </motion.div>
@@ -545,45 +462,45 @@ export default function Home() {
           <div className="grid gap-8 border border-white/10 bg-card/35 p-8 lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
             <div>
               <p className="section-kicker">Shop</p>
-              <h2 className="section-title max-w-4xl">A new Shop structure for direct orders, cart entry points, and custom-build inquiries.</h2>
+              <h2 className="section-title max-w-4xl">Built to be played, ready to be ordered.</h2>
               <p className="section-copy mt-6 max-w-3xl">
-                Direct orders can now sit alongside consultation-first builds without breaking the Edwards tone. Straightforward models move toward checkout, while flagship and highly personal builds still route through conversation.
+                The Edwards collection brings together the full lineup in one place, from the wide-range Elusive Overdrive to the smallest tweed voice. Choose the format that fits your rig, add it to the cart, and move straight into checkout when you are ready.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a href="#shop-products" className="inline-flex items-center justify-center rounded-none border border-primary/50 bg-primary px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-primary/90">
-                  Browse direct builds
+                  Shop all amps
                 </a>
                 <a href="#consultation" className="inline-flex items-center justify-center rounded-none border border-white/15 bg-black/20 px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">
-                  Talk about a custom build
+                  Questions before you order
                 </a>
               </div>
             </div>
 
             <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-primary/80">Live commerce layer</p>
-              <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Connected to Shopify without leaving Edwards first</h3>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-primary/80">Store collection</p>
+              <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Nine Edwards builds, each sold as its own product</h3>
               <p className="mt-4 text-base leading-7 text-foreground/70">
-                The mini cart now talks to Shopify through the Storefront API, so customers can add products, adjust quantities, and move into checkout from the Edwards experience without losing the site’s tone.
+                From four Elusive Overdrive configurations to British-leaning heads and tweed combos, each listing is presented as a separate store item so players can order the exact amp they want.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Ready to order</p>
-                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Products</p>
+                  <p className="mt-3 font-display text-3xl text-primary">9</p>
                 </div>
                 <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Conversation-led</p>
-                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Elusive options</p>
+                  <p className="mt-3 font-display text-3xl text-primary">4</p>
                 </div>
                 <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Entry points</p>
-                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Formats</p>
+                  <p className="mt-3 font-display text-3xl text-primary">Heads & combos</p>
                 </div>
               </div>
 
               <p className="mt-6 text-sm leading-6 text-foreground/62">
-                Cart entry points now live in the header, in this Shop section, and in a floating cart pill once a visitor has added something to the order draft.
+                Browse the full collection below, compare the formats, and keep your picks in the cart while you continue exploring the lineup.
               </p>
             </div>
           </div>
@@ -592,11 +509,11 @@ export default function Home() {
             <div>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Direct checkout</p>
-                  <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Direct-checkout builds</h3>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Full collection</p>
+                  <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Shop the Edwards lineup</h3>
                 </div>
                 <p className="max-w-xl text-sm leading-6 text-foreground/65">
-                  These cards now behave like real storefront products, with staged imagery, visible starting prices, and cart-ready calls to action.
+                  Every model appears here as its own store listing, including all four Elusive Overdrive options.
                 </p>
               </div>
 
@@ -640,88 +557,37 @@ export default function Home() {
 
             <div className="space-y-6">
               <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Cart entry points</p>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Open the cart without leaving the story</h3>
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Cart</p>
+                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Keep your selections together while you compare the lineup</h3>
                 <p className="mt-4 text-base leading-7 text-foreground/68">
-                  The mini cart is designed as a right-side drawer so visitors can stay immersed in the site instead of being thrown into a disconnected cart page too early.
+                  Add any amp to the cart, adjust the quantity whenever you like, and head to checkout once the right combination is in front of you.
                 </p>
-
-                <ul className="mt-8 space-y-4">
-                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Header cart icon for persistent access.</li>
-                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Shop-section cart button for product-comparison flow.</li>
-                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Floating cart pill once something has been added.</li>
-                </ul>
 
                 <SheetTrigger asChild>
                   <Button className="mt-8 w-full rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
                     <ShoppingBag className="mr-2 h-4 w-4" />
-                    Open cart preview
+                    View cart
                   </Button>
                 </SheetTrigger>
 
                 <p className="mt-4 text-sm leading-6 text-foreground/52">
-                  The drawer is now powered by Shopify’s Storefront cart flow, then hands shoppers into Shopify checkout only when they are ready to finish shipping and payment.
+                  The cart keeps your current selection close at hand so you can compare formats, quantities, and pricing before checkout.
                 </p>
               </div>
 
               <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
                 <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Estimated subtotal · {cartSubtotalLabel}</p>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Need a higher-touch build?</h3>
+                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Questions about the lineup?</h3>
                 <p className="mt-4 text-base leading-7 text-foreground/68">
-                  The site now distinguishes between items that can be bought immediately and models that deserve a real conversation before money changes hands.
+                  If you want help choosing between wattages, formats, or voicings, Edwards is still available to help you narrow the field.
                 </p>
                 <p className="mt-6 text-sm leading-6 text-foreground/55">
-                  A later Shopify integration can take this subtotal straight into checkout with shipping rules, tax handling, and required customer-contact capture.
+                  The store is built for direct ordering, but you can always reach out before placing the order if you want guidance on the best fit.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-14 border border-white/10 bg-[#120f0d] p-8 lg:p-10">
-            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-              <div>
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Consultation-first</p>
-                <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Consultation-first builds</h3>
-              </div>
-              <p className="max-w-3xl text-base leading-7 text-foreground/68">
-                These models stay anchored in builder-led discovery. They are visible in the Shop section, but intentionally routed into conversation rather than a generic checkout flow.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {consultationFirstBuilds.map((product) => (
-                <article key={product.slug} className="group flex h-full flex-col justify-between border border-white/10 bg-card/55 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-card">
-                  <div>
-                    <div className="aspect-[4/3] overflow-hidden border border-white/10 bg-black/30">
-                      <img src={product.heroImage} alt={product.heroAlt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-                    </div>
-                    <p className="mt-5 text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">Builder conversation</p>
-                    <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{product.name}</h4>
-                    <p className="mt-3 text-sm leading-6 text-foreground/65">{product.summary}</p>
-                    <p className="mt-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground/42">{product.price}</p>
-                  </div>
-
-                  <div className="mt-8 flex flex-col gap-3">
-                    <Button
-                      variant="outline"
-                      className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary"
-                      onClick={() =>
-                        toast(`${product.name} remains consultation-first.`, {
-                          description:
-                            "This model is intentionally routed through a builder conversation instead of direct checkout so pricing, configuration, and timing stay accurate.",
-                        })
-                      }
-                    >
-                      Request build details
-                    </Button>
-                    <Button asChild className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-                      <a href={`/amps/${product.slug}`}>View product</a>
-                    </Button>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
         </motion.section>
 
         <motion.section {...sectionMotion} id="consultation" className="container py-20 lg:py-28">
@@ -805,9 +671,9 @@ export default function Home() {
       <SheetContent side="right" className="w-full border-l border-white/10 bg-[#15120f] text-foreground sm:max-w-md">
         <SheetHeader className="border-b border-white/10 pb-6">
           <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">Cart</p>
-          <SheetTitle className="font-display text-4xl leading-none text-foreground">Cart preview</SheetTitle>
+          <SheetTitle className="font-display text-4xl leading-none text-foreground">Your cart</SheetTitle>
           <SheetDescription className="max-w-sm text-sm leading-6 text-foreground/62">
-            A dark, drawer-based cart that gives Edwards a polished shop entry point before the final ecommerce backend is connected.
+            Review the amps you have selected, adjust quantities, and head to checkout when you are ready.
           </SheetDescription>
         </SheetHeader>
 
@@ -817,10 +683,10 @@ export default function Home() {
               <ShoppingBag className="h-10 w-10 text-primary" />
               <h3 className="mt-5 font-display text-3xl leading-tight text-foreground">Your cart is still empty.</h3>
               <p className="mt-4 max-w-sm text-sm leading-6 text-foreground/62">
-                Add one of the direct-order builds from the Shop section to start a live Shopify cart without leaving the Edwards site.
+                Add any Edwards amp from the Shop section to start building your order.
               </p>
               <p className="mt-6 text-[0.65rem] uppercase tracking-[0.24em] text-foreground/42">
-                Shipping, taxes, and the required phone number field will be finalized in Shopify checkout.
+                Every listed model can be ordered directly from the store.
               </p>
             </div>
           ) : (
@@ -834,7 +700,7 @@ export default function Home() {
                   <div key={line.id} className="border border-white/10 bg-black/20 p-4">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-[0.62rem] uppercase tracking-[0.24em] text-primary/80">Direct checkout</p>
+                        <p className="text-[0.62rem] uppercase tracking-[0.24em] text-primary/80">Edwards Amplification</p>
                         <h4 className="mt-2 font-display text-2xl leading-tight text-foreground">{lineTitle}</h4>
                         <p className="mt-2 text-sm leading-6 text-foreground/62">{lineSubtitle}</p>
                       </div>
@@ -881,7 +747,7 @@ export default function Home() {
               <span className="font-display text-2xl tracking-normal text-primary">{cartSubtotalLabel}</span>
             </div>
             <p className="text-sm leading-6 text-foreground/54">
-              Shipping, tax, and the required phone number field will be captured in Shopify checkout, while the Edwards site stays focused on product selection and cart review.
+              Review your current selection here, then continue to checkout when the order looks right.
             </p>
             {cart?.checkoutUrl ? (
               <Button asChild className="w-full rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
@@ -893,7 +759,7 @@ export default function Home() {
               </Button>
             )}
             <p className="text-xs leading-5 text-foreground/42">
-              The mini cart stays on Edwards, and checkout only hands off to Shopify at the final payment and shipping step.
+              Final shipping, taxes, and payment details are completed during checkout.
             </p>
           </div>
         </SheetFooter>

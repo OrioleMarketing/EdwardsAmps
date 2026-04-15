@@ -69,3 +69,9 @@
 - [x] Determine the frontend integration points for Shopify Storefront API product data, cart creation, line-item updates, and checkout handoff while keeping the mini cart on the Edwards site.
 - [x] Document the Shopify-side setup the user still needs to complete, including providing the storefront access token securely and confirming checkout contact-field settings.
 - [x] Validate the updated storefront experience and save a fresh checkpoint before handoff.
+- [x] Remove customer-facing copy that explains how the site or Shopify integration works, including the current Shop intro section shown in the screenshot.
+- [x] Rewrite the Shop section so it presents products and purchasing plainly, without internal process language.
+- [x] Expand the Shopify catalog mapping so all Edwards amp products are treated as purchasable store items rather than consultation-first items.
+- [x] Add all four Elusive Overdrive products as separate direct-purchase store options in the storefront and product pages.
+- [x] Update the remaining amp detail and shop surfaces so every product is orderable from the site.
+- [x] Validate the cleaned storefront and full-catalog store flow with tests, build checks, and a new checkpoint.
