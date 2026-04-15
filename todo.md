@@ -32,3 +32,9 @@
 - [ ] Match each amp to an appropriate environment such as church rehearsal, coffee shop, studio, or stage.
 - [ ] Upload the new staged product images and replace the current product-page photos.
 - [ ] Review each updated product page for realism, consistency, and visual fit.
+- [ ] Download and inspect the Jon Kammerer custom guitar source image from the provided URL.
+- [ ] Create a cross-branded staged image with the Jon Kammerer guitar leaning against the Elusive Overdrive amp.
+- [ ] Review the cross-branded image for realism, product accuracy, and site-ready composition.
+- [ ] Add a collaboration feature card in the empty lineup slot beside Lil Tyke Tweed.
+- [ ] Use the Jon Kammerer and Elusive Overdrive cross-brand image with a compact collaboration subtitle.
+- [ ] Review the updated lineup row for spacing, hierarchy, and consistency with the other product cards.

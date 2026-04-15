@@ -76,6 +76,14 @@ const faqs = [
   },
 ];
 
+const collaborationFeature = {
+  title: "Elusive Overdrive",
+  subtitle: "with the Jon Kammerer custom guitar with TonePod™ technology",
+  image:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/jon-kammerer-elusive-crossbrand_50cba937.png",
+  alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
+};
+
 const sectionMotion = {
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
@@ -223,6 +231,42 @@ export default function Home() {
                 </div>
               </a>
             ))}
+
+            <a
+              href="#consultation"
+              className="group relative flex h-full flex-col overflow-hidden border border-primary/22 bg-[linear-gradient(180deg,rgba(33,27,21,0.9)_0%,rgba(16,13,11,0.96)_100%)] p-6 transition-transform duration-500 hover:-translate-y-1 hover:border-primary/40"
+            >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-65 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="flex flex-col items-start gap-4">
+                <div>
+                  <p className="text-[0.68rem] uppercase tracking-[0.28em] text-foreground/45">06</p>
+                  <h3 className="mt-3 font-display text-3xl leading-tight text-foreground">{collaborationFeature.title}</h3>
+                  <p className="mt-3 max-w-md text-sm leading-6 text-foreground/64">
+                    {collaborationFeature.subtitle}
+                  </p>
+                </div>
+                <span className="whitespace-nowrap border border-primary/25 bg-primary/10 px-3 py-2 text-sm uppercase tracking-[0.18em] text-primary">
+                  Featured pairing
+                </span>
+              </div>
+
+              <div className="mt-6 overflow-hidden border border-white/8 bg-black/30">
+                <img
+                  src={collaborationFeature.image}
+                  alt={collaborationFeature.alt}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+
+              <p className="mt-6 text-base leading-7 text-foreground/76">
+                A premium crossover pairing that presents the Elusive Overdrive alongside Jon Kammerer&apos;s custom build for players who want a single image that speaks to touch, craft, and statement tone.
+              </p>
+
+              <div className="mt-auto pt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-primary">
+                Ask about this setup
+                <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+              </div>
+            </a>
           </div>
         </motion.section>
 
