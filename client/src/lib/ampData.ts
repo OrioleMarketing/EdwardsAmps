@@ -85,8 +85,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,800 USD',
-    heroImage: 'https://edwardsamps.com/uploads/3/4/2/2/34224544/img-5969_orig.jpg',
-    heroAlt: 'Edwards King Richard amplifier head',
+    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/king-richard-large-stage_1a0319a2.png',
+    heroAlt: 'Edwards King Richard amplifier staged on a large performance stage',
     eyebrow: 'British chime and authority',
     summary:
       'King Richard is Edwards’ bigger British-leaning head, built for players who want punch, dimension, and the richer complexity that comes from running two distinct channels.',
@@ -125,8 +125,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Hot Mama',
     shortName: 'Hot Mama',
     price: 'From $1,800 USD',
-    heroImage: 'https://edwardsamps.com/uploads/3/4/2/2/34224544/img-5974_orig.jpg',
-    heroAlt: 'Edwards Hot Mama combo amplifier',
+    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/hot-mama-church-rehearsal_ece6a7bf.png',
+    heroAlt: 'Edwards Hot Mama combo amplifier staged in a warm church rehearsal room',
     eyebrow: 'Portable British sparkle',
     summary:
       'Hot Mama is the compact British-inspired amp in the lineup, built for players who want lively cleans, musical breakup, and a format that works as easily in a studio as it does onstage.',
@@ -164,8 +164,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Double Dee Tweed',
     shortName: 'Double Dee Tweed',
     price: 'From $2,000 USD',
-    heroImage: 'https://edwardsamps.com/uploads/3/4/2/2/34224544/img-5977_orig.jpg',
-    heroAlt: 'Edwards Double Dee Tweed combo amplifier',
+    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/double-dee-coffee-shop_ffb42f11.png',
+    heroAlt: 'Edwards Double Dee Tweed combo amplifier staged for an intimate coffee shop performance',
     eyebrow: 'Rootsy tweed character',
     summary:
       'Double Dee Tweed takes the appeal of a classic tweed combo and gives players more usable range, more room before breakup, and enough personality to move from home to studio to stage.',
@@ -203,8 +203,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Lil Tyke Tweed Amp',
     shortName: 'Lil Tyke Tweed',
     price: 'Inquire for pricing',
-    heroImage: 'https://edwardsamps.com/uploads/3/4/2/2/34224544/img-5963_orig.jpg',
-    heroAlt: 'Edwards Lil Tyke Tweed combo amplifier',
+    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/lil-tyke-home-writing-room_6ca542a9.png',
+    heroAlt: 'Edwards Lil Tyke Tweed combo amplifier staged in an intimate home writing room',
     eyebrow: 'Small tweed combo format',
     summary:
       'Lil Tyke is a compact tweed-style combo for players who want a smaller amp with direct response, vintage flavor, and a simple control set that gets out of the way.',

@@ -28,3 +28,7 @@
 - [ ] Review the specifications intro and similar recurring copy blocks across multiple amp pages for consistency.
 - [ ] Recheck the updated product pages in the browser and validate the revised language.
 - [ ] Change the product-page specifications heading to the exact text: "The technical side – at a glance."
+- [ ] Isolate the original product photos and generate realistic staged scenes for each amp.
+- [ ] Match each amp to an appropriate environment such as church rehearsal, coffee shop, studio, or stage.
+- [ ] Upload the new staged product images and replace the current product-page photos.
+- [ ] Review each updated product page for realism, consistency, and visual fit.
