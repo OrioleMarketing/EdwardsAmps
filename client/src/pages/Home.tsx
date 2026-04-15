@@ -196,7 +196,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
             <div>
               <p className="section-kicker">The Lineup</p>
-              <h2 className="section-title">Four distinct amps, each built around a different feel, voice, and musical job.</h2>
+              <h2 className="section-title">Five distinct amps, each built around a different feel, voice, and musical job.</h2>
             </div>
             <p className="section-copy max-w-3xl lg:justify-self-end">
               From the wide-range Elusive Overdrive to more British and tweed-leaning options, the lineup is shaped so players can quickly understand what each amp does best and where it belongs in a real rig.

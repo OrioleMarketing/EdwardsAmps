@@ -45,3 +45,5 @@
 - [ ] Recheck the collaboration card spacing after the CTA text is removed.
 - [ ] Refresh the collaboration card image implementation to create a new publishable revision.
 - [ ] Validate the homepage after the refresh and save a new checkpoint for republishing.
+- [ ] Update the lineup heading to the new five-amp wording.
+- [ ] Validate the revised lineup section and save a fresh checkpoint for publishing.
