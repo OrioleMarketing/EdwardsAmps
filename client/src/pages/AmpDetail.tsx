@@ -16,6 +16,16 @@ export default function AmpDetail({ slug }: { slug: string }) {
   }
 
   const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
+  const isDirectCheckout = ["hot-mama", "double-dee-tweed"].includes(amp.slug);
+  const headerCtaLabel = isDirectCheckout ? "Buy now" : "Ask About This Amp";
+  const headerCtaHref = isDirectCheckout ? "/#shop" : "#inquiry";
+  const heroPrimaryLabel = isDirectCheckout ? "Add to cart in Shop" : "View specifications";
+  const heroPrimaryHref = isDirectCheckout ? "/#shop" : "#specs";
+  const heroSecondaryLabel = isDirectCheckout ? "Talk with Edwards" : "Talk with Edwards";
+  const heroSecondaryHref = "#inquiry";
+  const heroCommerceNote = isDirectCheckout
+    ? "This model is framed as a direct-checkout build in the new Shop section, where cart and later Shopify handoff can happen without losing the Edwards atmosphere."
+    : "This model remains consultation-first so pricing, configuration, and build timing can stay accurate before checkout is introduced.";
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
@@ -32,11 +42,12 @@ export default function AmpDetail({ slug }: { slug: string }) {
             <a href="/" className="transition-colors hover:text-primary">Home</a>
             <a href="#overview" className="transition-colors hover:text-primary">Overview</a>
             <a href="#specs" className="transition-colors hover:text-primary">Specifications</a>
+            <a href="/#shop" className="transition-colors hover:text-primary">Shop</a>
             <a href="#inquiry" className="transition-colors hover:text-primary">Inquiry</a>
           </nav>
 
           <Button asChild className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-            <a href="#inquiry">Ask About This Amp</a>
+            <a href={headerCtaHref}>{headerCtaLabel}</a>
           </Button>
         </div>
       </header>
@@ -86,15 +97,17 @@ export default function AmpDetail({ slug }: { slug: string }) {
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Button asChild className="rounded-none border border-primary/60 bg-primary px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-                  <a href="#specs">
-                    View specifications
+                  <a href={heroPrimaryHref}>
+                    {heroPrimaryLabel}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-none border-white/20 bg-black/20 px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-foreground hover:bg-white/8">
-                  <a href="#inquiry">Talk with Edwards</a>
+                  <a href={heroSecondaryHref}>{heroSecondaryLabel}</a>
                 </Button>
               </div>
+
+              <p className="mt-5 max-w-3xl text-sm leading-6 text-foreground/58">{heroCommerceNote}</p>
             </div>
 
             <div className="relative ml-auto w-full max-w-2xl">
@@ -197,6 +210,15 @@ export default function AmpDetail({ slug }: { slug: string }) {
               <p className="section-kicker">Ask about {amp.shortName}</p>
               <h2 className="section-title">Talk through availability, wattage, cabinet choices, and whether this model fits your style.</h2>
               <p className="section-copy mt-6 max-w-2xl">{amp.availabilityNote}</p>
+
+              <div className="mt-8 border border-white/10 bg-[#14110e] p-5">
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/78">Shop path</p>
+                <p className="mt-3 text-sm leading-6 text-foreground/68">
+                  {isDirectCheckout
+                    ? "This amp is one of the models intended for the direct-checkout Shop flow. Use Buy now or Add to cart in Shop to move into the new cart experience."
+                    : "This amp stays inquiry-led. The new Shop section still features it, but the site intentionally routes this model through conversation instead of generic checkout."}
+                </p>
+              </div>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <a href="tel:+12566048721" className="group flex min-h-44 flex-col justify-between border border-primary/25 bg-primary/10 p-6 transition-colors duration-500 hover:bg-primary/15">

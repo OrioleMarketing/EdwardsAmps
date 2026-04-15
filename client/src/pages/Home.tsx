@@ -5,6 +5,7 @@ print-catalog pacing, tone-led product discovery, and tactile boutique craftsman
 Does each choice reinforce the custom-shop atmosphere rather than a generic marketing site?
 */
 
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -12,9 +13,123 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ArrowRight, Gauge, Music2, PhoneCall, ShieldCheck, Sparkles, Wrench } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { ArrowRight, Gauge, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 import { ampProducts } from "@/lib/ampData";
+
+const currencyFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
+
+const directShopProducts = [
+  {
+    id: "hot-mama-head",
+    slug: "hot-mama",
+    name: "Hot Mama Head",
+    eyebrow: "Ready for direct checkout",
+    subtitle: "Portable British sparkle in the most travel-friendly format in the lineup.",
+    priceLabel: "$1,800 USD",
+    priceValue: 1800,
+    description:
+      "For players who want the Hot Mama voice in a compact head that can move easily between rehearsals, church dates, sessions, and small stages.",
+  },
+  {
+    id: "hot-mama-combo",
+    slug: "hot-mama",
+    name: "Hot Mama 1x12 Combo",
+    eyebrow: "Ready for direct checkout",
+    subtitle: "The grab-and-go combo version for players who want one cabinet and one trip.",
+    priceLabel: "$2,000 USD",
+    priceValue: 2000,
+    description:
+      "A more self-contained Hot Mama setup for players who want British-inspired response, smooth breakup, and a practical footprint right out of the box.",
+  },
+  {
+    id: "double-dee-tweed-combo",
+    slug: "double-dee-tweed",
+    name: "Double Dee Tweed 1x12 Combo",
+    eyebrow: "Ready for direct checkout",
+    subtitle: "Rootsy tweed character with more usable range than a one-trick vintage piece.",
+    priceLabel: "$2,000 USD",
+    priceValue: 2000,
+    description:
+      "A strong direct-order candidate for players chasing touch-sensitive tweed feel, sweeter compression, and a combo that can cover home, studio, and stage use.",
+  },
+] as const;
+
+const consultationFirstBuilds = ampProducts.filter((product) =>
+  ["elusive-overdrive", "king-richard", "lil-tyke-tweed"].includes(product.slug)
+);
+
+const shopAnchorCards = directShopProducts.map((product) => {
+  const amp = ampProducts.find((candidate) => candidate.slug === product.slug);
+
+  return {
+    ...product,
+    image: amp?.heroImage ?? "",
+    alt: amp?.heroAlt ?? product.name,
+  };
+});
+
+const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
+
+const formatMoney = (value: number) => currencyFormatter.format(value);
+
+const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
+
+const updateCartQuantity = (currentCart: Record<string, number>, id: string, nextQuantity: number) => {
+  if (nextQuantity <= 0) {
+    const { [id]: _removed, ...rest } = currentCart;
+    return rest;
+  }
+
+  return {
+    ...currentCart,
+    [id]: nextQuantity,
+  };
+};
+
+const getProductById = (id: string) => shopAnchorCards.find((product) => product.id === id);
+
+const getCartSubtotal = (cart: Record<string, number>) =>
+  Object.entries(cart).reduce((total, [id, quantity]) => {
+    const product = getProductById(id);
+    return total + (product ? product.priceValue * quantity : 0);
+  }, 0);
+
+const getCartCount = (cart: Record<string, number>) => Object.values(cart).reduce((total, quantity) => total + quantity, 0);
+
+const getCartLines = (cart: Record<string, number>) =>
+  Object.entries(cart)
+    .map(([id, quantity]) => {
+      const product = getProductById(id);
+      if (!product) return null;
+      return {
+        ...product,
+        quantity,
+        lineTotal: product.priceValue * quantity,
+      };
+    })
+    .filter((product): product is NonNullable<typeof product> => Boolean(product));
+
+const showCheckoutToast = () => {
+  toast("Checkout path ready for Shopify or another commerce layer.", {
+    description:
+      "The cart UI is designed and connected. The next step is wiring these items to Shopify checkout, shipping, inventory, and required customer fields.",
+  });
+};
 
 
 const pillars = [
@@ -78,7 +193,7 @@ const faqs = [
 
 const collaborationFeature = {
   title: "Elusive Overdrive",
-  subtitle: "with the Jon Kammerer custom guitar with TonePod™ technology",
+  subtitle: collaborationCardSubtitle,
   image:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/jon-kammerer-elusive-crossbrand_50cba937.png",
   alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
@@ -91,8 +206,38 @@ const sectionMotion = {
 };
 
 export default function Home() {
+  const [cart, setCart] = useState<Record<string, number>>({});
+
+  const cartLines = useMemo(() => getCartLines(cart), [cart]);
+  const cartCount = useMemo(() => getCartCount(cart), [cart]);
+  const cartSubtotal = useMemo(() => getCartSubtotal(cart), [cart]);
+
+  const addToCart = (id: string) => {
+    const product = getProductById(id);
+    if (!product) return;
+
+    setCart((currentCart) => updateCartQuantity(currentCart, id, (currentCart[id] ?? 0) + 1));
+    toast(`${product.name} added to cart.`, {
+      description: "Open the cart from the header, the Shop section, or the floating cart pill to review the current order draft.",
+    });
+  };
+
+  const changeQuantity = (id: string, delta: number) => {
+    const product = getProductById(id);
+    if (!product) return;
+
+    setCart((currentCart) => {
+      const nextQuantity = (currentCart[id] ?? 0) + delta;
+      if (nextQuantity <= 0) {
+        toast(`${product.name} removed from cart.`);
+      }
+      return updateCartQuantity(currentCart, id, nextQuantity);
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
+    <Sheet>
+      <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
       <div className="pointer-events-none fixed inset-0 opacity-[0.08] mix-blend-screen noise-overlay" />
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-background/75 backdrop-blur-xl">
@@ -108,10 +253,17 @@ export default function Home() {
             <a href="#lineup" className="transition-colors hover:text-primary">Lineup</a>
             <a href="#craft" className="transition-colors hover:text-primary">Craft</a>
             <a href="#tone" className="transition-colors hover:text-primary">Find Your Sound</a>
+            <a href="#shop" className="transition-colors hover:text-primary">Shop</a>
             <a href="#consultation" className="transition-colors hover:text-primary">Consultation</a>
           </nav>
 
           <div className="flex items-center gap-3">
+            <SheetTrigger asChild>
+              <Button variant="outline" className="rounded-none border border-white/15 bg-card/80 px-4 py-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:bg-card hover:text-primary">
+                <ShoppingBag className="mr-2 h-4 w-4" />
+                <span>{`Cart · ${cartCount}`}</span>
+              </Button>
+            </SheetTrigger>
             <Button asChild className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
               <a href="#consultation">Book a Build Consultation</a>
             </Button>
@@ -408,6 +560,180 @@ export default function Home() {
           </div>
         </motion.section>
 
+        <motion.section {...sectionMotion} id="shop" className="container py-20 lg:py-28">
+          <div className="grid gap-8 border border-white/10 bg-card/35 p-8 lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
+            <div>
+              <p className="section-kicker">Shop</p>
+              <h2 className="section-title max-w-4xl">A new Shop structure for direct orders, cart entry points, and custom-build inquiries.</h2>
+              <p className="section-copy mt-6 max-w-3xl">
+                Direct orders can now sit alongside consultation-first builds without breaking the Edwards tone. Straightforward models move toward checkout, while flagship and highly personal builds still route through conversation.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a href="#shop-products" className="inline-flex items-center justify-center rounded-none border border-primary/50 bg-primary px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-primary/90">
+                  Browse direct builds
+                </a>
+                <a href="#consultation" className="inline-flex items-center justify-center rounded-none border border-white/15 bg-black/20 px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">
+                  Talk about a custom build
+                </a>
+              </div>
+            </div>
+
+            <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-primary/80">New commerce layer</p>
+              <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Designed for a later Shopify handoff</h3>
+              <p className="mt-4 text-base leading-7 text-foreground/70">
+                Because the checkout discussion was open to Shopify, this new shopping surface is structured so it can connect to Buy Buttons or Storefront checkout without changing the visible Edwards design language.
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="border border-white/10 bg-black/25 p-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Ready to order</p>
+                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                </div>
+                <div className="border border-white/10 bg-black/25 p-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Conversation-led</p>
+                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                </div>
+                <div className="border border-white/10 bg-black/25 p-4">
+                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Entry points</p>
+                  <p className="mt-3 font-display text-3xl text-primary">3</p>
+                </div>
+              </div>
+
+              <p className="mt-6 text-sm leading-6 text-foreground/62">
+                Cart entry points now live in the header, in this Shop section, and in a floating cart pill once a visitor has added something to the order draft.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-10 xl:grid-cols-[1.2fr_0.8fr] xl:items-start" id="shop-products">
+            <div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Direct checkout</p>
+                  <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Direct-checkout builds</h3>
+                </div>
+                <p className="max-w-xl text-sm leading-6 text-foreground/65">
+                  These cards now behave like real storefront products, with staged imagery, visible starting prices, and cart-ready calls to action.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {shopAnchorCards.map((product) => (
+                  <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
+                    <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
+                      <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">{product.eyebrow}</p>
+                      <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{product.name}</h4>
+                      <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
+                      <p className="mt-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground/45">Starting at</p>
+                      <p className="mt-2 font-display text-2xl text-primary">{product.priceLabel}</p>
+                      <p className="mt-4 flex-1 text-sm leading-6 text-foreground/62">{product.description}</p>
+
+                      <div className="mt-8 flex flex-col gap-3">
+                        <Button className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90" onClick={() => addToCart(product.id)}>
+                          <ShoppingBag className="mr-2 h-4 w-4" />
+                          Add to cart
+                        </Button>
+                        <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
+                          <a href={`/amps/${product.slug}`}>View product</a>
+                        </Button>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Cart entry points</p>
+                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Open the cart without leaving the story</h3>
+                <p className="mt-4 text-base leading-7 text-foreground/68">
+                  The mini cart is designed as a right-side drawer so visitors can stay immersed in the site instead of being thrown into a disconnected cart page too early.
+                </p>
+
+                <ul className="mt-8 space-y-4">
+                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Header cart icon for persistent access.</li>
+                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Shop-section cart button for product-comparison flow.</li>
+                  <li className="border-l border-primary/40 pl-4 text-sm leading-6 text-foreground/66">Floating cart pill once something has been added.</li>
+                </ul>
+
+                <SheetTrigger asChild>
+                  <Button className="mt-8 w-full rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
+                    <ShoppingBag className="mr-2 h-4 w-4" />
+                    Open cart preview
+                  </Button>
+                </SheetTrigger>
+
+                <p className="mt-4 text-sm leading-6 text-foreground/52">
+                  This cart drawer can later hand off to Shopify Buy Button checkout, Storefront API, or another payment and shipping workflow without reworking the front-end composition.
+                </p>
+              </div>
+
+              <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Estimated subtotal · {formatMoney(cartSubtotal)}</p>
+                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Need a higher-touch build?</h3>
+                <p className="mt-4 text-base leading-7 text-foreground/68">
+                  The site now distinguishes between items that can be bought immediately and models that deserve a real conversation before money changes hands.
+                </p>
+                <p className="mt-6 text-sm leading-6 text-foreground/55">
+                  A later Shopify integration can take this subtotal straight into checkout with shipping rules, tax handling, and required customer-contact capture.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 border border-white/10 bg-[#120f0d] p-8 lg:p-10">
+            <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+              <div>
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Consultation-first</p>
+                <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Consultation-first builds</h3>
+              </div>
+              <p className="max-w-3xl text-base leading-7 text-foreground/68">
+                These models stay anchored in builder-led discovery. They are visible in the Shop section, but intentionally routed into conversation rather than a generic checkout flow.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {consultationFirstBuilds.map((product) => (
+                <article key={product.slug} className="group flex h-full flex-col justify-between border border-white/10 bg-card/55 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-card">
+                  <div>
+                    <div className="aspect-[4/3] overflow-hidden border border-white/10 bg-black/30">
+                      <img src={product.heroImage} alt={product.heroAlt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                    </div>
+                    <p className="mt-5 text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">Builder conversation</p>
+                    <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{product.name}</h4>
+                    <p className="mt-3 text-sm leading-6 text-foreground/65">{product.summary}</p>
+                    <p className="mt-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground/42">{product.price}</p>
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-3">
+                    <Button
+                      variant="outline"
+                      className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary"
+                      onClick={() =>
+                        toast(`${product.name} remains consultation-first.`, {
+                          description:
+                            "This model is intentionally routed through a builder conversation instead of direct checkout so pricing, configuration, and timing stay accurate.",
+                        })
+                      }
+                    >
+                      Request build details
+                    </Button>
+                    <Button asChild className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
+                      <a href={`/amps/${product.slug}`}>View product</a>
+                    </Button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
         <motion.section {...sectionMotion} id="consultation" className="container py-20 lg:py-28">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
             <div className="border border-white/10 bg-card/45 p-8 lg:p-10">
@@ -485,6 +811,105 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <SheetContent side="right" className="w-full border-l border-white/10 bg-[#15120f] text-foreground sm:max-w-md">
+        <SheetHeader className="border-b border-white/10 pb-6">
+          <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">Cart</p>
+          <SheetTitle className="font-display text-4xl leading-none text-foreground">Cart preview</SheetTitle>
+          <SheetDescription className="max-w-sm text-sm leading-6 text-foreground/62">
+            A dark, drawer-based cart that gives Edwards a polished shop entry point before the final ecommerce backend is connected.
+          </SheetDescription>
+        </SheetHeader>
+
+        <div className="flex flex-1 flex-col overflow-y-auto px-4 pb-4">
+          {cartLines.length === 0 ? (
+            <div className="flex flex-1 flex-col items-center justify-center border border-dashed border-white/15 bg-black/20 px-6 py-10 text-center">
+              <ShoppingBag className="h-10 w-10 text-primary" />
+              <h3 className="mt-5 font-display text-3xl leading-tight text-foreground">Your cart is still empty.</h3>
+              <p className="mt-4 max-w-sm text-sm leading-6 text-foreground/62">
+                Add one of the direct-checkout builds from the new Shop section to test the cart flow. Consultation-first models stay routed to builder contact.
+              </p>
+              <p className="mt-6 text-[0.65rem] uppercase tracking-[0.24em] text-foreground/42">
+                Starting prices shown. Final shipping and availability can be handled in the eventual Shopify checkout or builder confirmation flow.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-4 pt-6">
+              {cartLines.map((line) => (
+                <div key={line.id} className="border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[0.62rem] uppercase tracking-[0.24em] text-primary/80">Direct checkout</p>
+                      <h4 className="mt-2 font-display text-2xl leading-tight text-foreground">{line.name}</h4>
+                      <p className="mt-2 text-sm leading-6 text-foreground/62">{line.subtitle}</p>
+                    </div>
+                    <p className="font-display text-2xl text-primary">{formatMoney(line.lineTotal)}</p>
+                  </div>
+
+                  <div className="mt-5 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+                    <div className="flex items-center border border-white/10 bg-card/70">
+                      <button
+                        type="button"
+                        aria-label={`Decrease quantity for ${line.name}`}
+                        className="inline-flex h-10 w-10 items-center justify-center border-r border-white/10 text-foreground transition-colors hover:text-primary"
+                        onClick={() => changeQuantity(line.id, -1)}
+                      >
+                        <Minus className="h-4 w-4" />
+                      </button>
+                      <span className="inline-flex min-w-12 items-center justify-center px-3 text-sm uppercase tracking-[0.18em] text-foreground/82">
+                        {line.quantity}
+                      </span>
+                      <button
+                        type="button"
+                        aria-label={`Increase quantity for ${line.name}`}
+                        className="inline-flex h-10 w-10 items-center justify-center border-l border-white/10 text-foreground transition-colors hover:text-primary"
+                        onClick={() => addToCart(line.id)}
+                      >
+                        <ShoppingBag className="h-4 w-4" />
+                      </button>
+                    </div>
+                    <p className="text-sm uppercase tracking-[0.22em] text-foreground/48">{quantityLabel(line.quantity)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <SheetFooter className="border-t border-white/10 bg-[#100d0b]">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-4 text-sm uppercase tracking-[0.22em] text-foreground/55">
+              <span>Estimated subtotal</span>
+              <span className="font-display text-2xl tracking-normal text-primary">{formatMoney(cartSubtotal)}</span>
+            </div>
+            <p className="text-sm leading-6 text-foreground/54">
+              Shipping, tax, and lead-time details can be finalized in Shopify or during the final Edwards order confirmation flow.
+            </p>
+            <Button className="w-full rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90" onClick={showCheckoutToast}>
+              Proceed to checkout
+            </Button>
+            <p className="text-xs leading-5 text-foreground/42">
+              This drawer can later hand off to Shopify Buy Button checkout, Storefront API, or another payment and shipping workflow without reworking the front-end composition.
+            </p>
+          </div>
+        </SheetFooter>
+      </SheetContent>
+
+      {cartCount > 0 ? (
+        <div className="fixed right-5 bottom-5 z-40 hidden sm:block">
+          <SheetTrigger asChild>
+            <button
+              type="button"
+              className="inline-flex items-center gap-3 rounded-none border border-primary/35 bg-[#15120f]/95 px-5 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-primary shadow-[0_18px_45px_rgba(0,0,0,0.35)] backdrop-blur-md transition-colors hover:border-primary/60 hover:bg-[#1d1915]"
+            >
+              <ShoppingBag className="h-4 w-4" />
+              <span>{`View cart · ${cartCount}`}</span>
+              <span className="text-foreground/55">{formatMoney(cartSubtotal)}</span>
+            </button>
+          </SheetTrigger>
+        </div>
+      ) : null}
     </div>
+    </Sheet>
   );
 }

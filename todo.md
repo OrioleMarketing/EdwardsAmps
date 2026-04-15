@@ -59,3 +59,7 @@
 - [ ] Make the lineup intro headline span the full section width.
 - [ ] Move the five-amp image below the headline on the left and place the supporting copy on the right.
 - [ ] Validate the new editorial layout and save a fresh checkpoint.
+- [ ] Review the current homepage and navigation structure for Shop placement opportunities.
+- [ ] Design and implement a new Shop section that matches the EdwardsAmps visual language.
+- [ ] Add cart entry points in the header and relevant shopping surfaces.
+- [ ] Validate the new shopping interface and save a fresh checkpoint.
