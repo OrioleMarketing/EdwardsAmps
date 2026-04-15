@@ -153,7 +153,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="section-kicker">Specifications</p>
-              <h2 className="section-title">The technical side, organized so it is easier to understand at a glance.</h2>
+              <h2 className="section-title">The technical side – at a glance.</h2>
               <p className="section-copy mt-6">
                 A straightforward view of the key details players usually want first: power, format, core controls, and the build choices that shape how the amp feels in use.
               </p>

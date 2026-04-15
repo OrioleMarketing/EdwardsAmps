@@ -27,3 +27,4 @@
 - [ ] Replace leftover explanatory wording on the product pages with finished customer-facing product copy.
 - [ ] Review the specifications intro and similar recurring copy blocks across multiple amp pages for consistency.
 - [ ] Recheck the updated product pages in the browser and validate the revised language.
+- [ ] Change the product-page specifications heading to the exact text: "The technical side – at a glance."
