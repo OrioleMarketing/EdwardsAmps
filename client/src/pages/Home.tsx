@@ -328,7 +328,7 @@ export default function Home() {
               </div>
 
               <p className="mt-6 text-base leading-7 text-foreground/76">
-                A premium crossover pairing that presents the Elusive Overdrive alongside Jon Kammerer&apos;s custom build for players who want a single image that speaks to touch, craft, and statement tone.
+                A premium crossover pairing that presents the Elusive Overdrive alongside Jon Kammerer&apos;s custom build for players who want a single setup that speaks to touch, craft, and statement tone.
               </p>
 
             </a>

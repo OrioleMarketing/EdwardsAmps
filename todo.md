@@ -75,3 +75,4 @@
 - [x] Add all four Elusive Overdrive products as separate direct-purchase store options in the storefront and product pages.
 - [x] Update the remaining amp detail and shop surfaces so every product is orderable from the site.
 - [x] Validate the cleaned storefront and full-catalog store flow with tests, build checks, and a new checkpoint.
+- [x] Change the collaboration copy from "single image that speaks to" to "single setup that speaks to".
