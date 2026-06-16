@@ -76,3 +76,10 @@
 - [x] Update the remaining amp detail and shop surfaces so every product is orderable from the site.
 - [x] Validate the cleaned storefront and full-catalog store flow with tests, build checks, and a new checkpoint.
 - [x] Change the collaboration copy from "single image that speaks to" to "single setup that speaks to".
+- [x] Clean up the supplied Edwards logo artwork into a readable web-ready brand lockup.
+- [x] Create a header-friendly logo composition that places the name clearly to the right of the real mark.
+- [x] Replace the current site header branding with the cleaned real logo.
+- [x] Validate the updated branding in the site preview and save a checkpoint.
+- [x] Replace the current header logo treatment with a faithful version of the client's original logo, keeping the oval AMPLIFICATION element intact.
+- [x] Create a light-on-dark treatment of the original logo so it remains legible against the site's dark header background.
+- [ ] Revalidate the updated logo in the header preview and save a new checkpoint.

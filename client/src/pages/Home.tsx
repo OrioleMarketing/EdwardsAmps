@@ -143,11 +143,12 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-background/75 backdrop-blur-xl">
         <div className="container flex items-center justify-between gap-6 py-4">
-          <a href="#top" className="flex flex-col leading-none">
-            <span className="font-display text-2xl uppercase tracking-[0.18em] text-primary">Edwards</span>
-            <span className="font-sans text-[0.68rem] uppercase tracking-[0.34em] text-foreground/65">
-              Amplification
-            </span>
+          <a href="#top" className="flex items-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              alt="Edwards Amplification"
+              className="h-9 w-auto sm:h-10 lg:h-12"
+            />
           </a>
 
           <nav className="hidden items-center gap-8 text-sm uppercase tracking-[0.18em] text-foreground/72 lg:flex">
@@ -653,7 +654,11 @@ export default function Home() {
       <footer className="border-t border-white/10 bg-black/25">
         <div className="container grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-display text-3xl uppercase tracking-[0.18em] text-primary">Edwards Amplification</p>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              alt="Edwards Amplification"
+              className="h-14 w-auto sm:h-16"
+            />
             <p className="mt-4 max-w-2xl text-base leading-7 text-foreground/66">
               Hand-built tube amplifiers shaped around feel, musical range, and direct builder access for players who care about real tone.
             </p>
