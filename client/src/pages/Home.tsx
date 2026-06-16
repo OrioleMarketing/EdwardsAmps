@@ -147,7 +147,7 @@ export default function Home() {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
-              className="h-9 w-auto sm:h-10 lg:h-12"
+              className="h-[39.6px] w-auto sm:h-[44px] lg:h-[52.8px]"
             />
           </a>
 
@@ -657,7 +657,7 @@ export default function Home() {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
-              className="h-14 w-auto sm:h-16"
+              className="h-[61.6px] w-auto sm:h-[70.4px]"
             />
             <p className="mt-4 max-w-2xl text-base leading-7 text-foreground/66">
               Hand-built tube amplifiers shaped around feel, musical range, and direct builder access for players who care about real tone.

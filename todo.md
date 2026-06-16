@@ -82,4 +82,5 @@
 - [x] Validate the updated branding in the site preview and save a checkpoint.
 - [x] Replace the current header logo treatment with a faithful version of the client's original logo, keeping the oval AMPLIFICATION element intact.
 - [x] Create a light-on-dark treatment of the original logo so it remains legible against the site's dark header background.
-- [ ] Revalidate the updated logo in the header preview and save a new checkpoint.
+- [x] Revalidate the updated logo in the header preview and save a new checkpoint.
+- [x] Increase the header logo size by about 10% to improve readability on the live site.
