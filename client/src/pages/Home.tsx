@@ -5,7 +5,7 @@ print-catalog pacing, tone-led product discovery, and tactile boutique craftsman
 Does each choice reinforce the custom-shop atmosphere rather than a generic marketing site?
 */
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -22,7 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ArrowRight, Gauge, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench } from "lucide-react";
+import { ArrowRight, Gauge, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
@@ -125,6 +125,7 @@ const sectionMotion = {
 
 export default function Home() {
   const { addToCart, cart, isAddingToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const cartLines = cart?.lines ?? [];
   const cartCount = cart?.totalQuantity ?? 0;
@@ -159,15 +160,62 @@ export default function Home() {
             <a href="#consultation" className="transition-colors hover:text-primary">Contact</a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center border border-white/15 bg-card/80 text-foreground transition-colors hover:border-primary/40 hover:text-primary lg:hidden"
+              aria-label={isMobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-controls="mobile-site-navigation"
+              aria-expanded={isMobileNavOpen}
+              onClick={() => setIsMobileNavOpen((open) => !open)}
+            >
+              {isMobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
             <SheetTrigger asChild>
-              <Button variant="outline" className="rounded-none border border-white/15 bg-card/80 px-4 py-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:bg-card hover:text-primary">
-                <ShoppingBag className="mr-2 h-4 w-4" />
-                <span>{`Cart · ${cartCount}`}</span>
+              <Button variant="outline" className="rounded-none border border-white/15 bg-card/80 px-3 py-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:bg-card hover:text-primary sm:px-4">
+                <ShoppingBag className="sm:mr-2 h-4 w-4" />
+                <span className="hidden sm:inline">{`Cart · ${cartCount}`}</span>
+                <span className="sr-only">{`Cart · ${cartCount}`}</span>
               </Button>
             </SheetTrigger>
           </div>
         </div>
+        {isMobileNavOpen && (
+          <nav id="mobile-site-navigation" aria-label="Mobile site navigation" className="border-t border-white/10 bg-[#11100e]/98 px-5 py-5 backdrop-blur-xl lg:hidden">
+            <div className="container grid gap-1 px-0">
+              {[
+                ["Lineup", "#lineup"],
+                ["Craft", "#craft"],
+                ["Find Your Sound", "#tone"],
+                ["Shop", "#shop"],
+                ["Contact", "#consultation"],
+              ].map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setIsMobileNavOpen(false)}
+                  className="flex items-center justify-between border-b border-white/10 py-4 text-sm uppercase tracking-[0.22em] text-foreground/82 transition-colors hover:text-primary"
+                >
+                  {label}
+                  <ArrowRight className="h-4 w-4 text-primary" />
+                </a>
+              ))}
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  onClick={() => setIsMobileNavOpen(false)}
+                  className="mt-3 flex items-center justify-between border border-primary/40 bg-primary/10 px-4 py-4 text-sm uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/15"
+                >
+                  <span className="flex items-center gap-3">
+                    <ShoppingBag className="h-4 w-4" />
+                    View cart
+                  </span>
+                  <span>{cartCount}</span>
+                </button>
+              </SheetTrigger>
+            </div>
+          </nav>
+        )}
       </header>
 
       <main id="top">
@@ -443,7 +491,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,7,0.84)_0%,rgba(8,8,7,0.92)_100%)]" />
           </div>
 
-          <div className="container relative grid gap-10 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-28">
+          <div className="container relative grid gap-10 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-20">
             <div>
               <p className="section-kicker">The Edwards Standard</p>
               <h2 className="section-title">Boutique American tone, refined into a lineup with clarity, authority, and feel.</h2>
@@ -459,139 +507,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section {...sectionMotion} id="shop" className="container py-20 lg:py-28">
-          <div className="grid gap-8 border border-white/10 bg-card/35 p-8 lg:grid-cols-[1.05fr_0.95fr] lg:p-10">
-            <div>
-              <p className="section-kicker">Shop</p>
-              <h2 className="section-title max-w-4xl">Built to be played, ready to be ordered.</h2>
-              <p className="section-copy mt-6 max-w-3xl">
-                The Edwards collection brings together the full lineup in one place, from the wide-range Elusive Overdrive to the smallest tweed voice. Choose the format that fits your rig, add it to the cart, and move straight into checkout when you are ready.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <a href="#shop-products" className="inline-flex items-center justify-center rounded-none border border-primary/50 bg-primary px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-primary/90">
-                  Shop all amps
-                </a>
-                <a href="#consultation" className="inline-flex items-center justify-center rounded-none border border-white/15 bg-black/20 px-6 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">
-                  Questions before you order
-                </a>
-              </div>
-            </div>
-
-            <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-primary/80">Store collection</p>
-              <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Nine Edwards builds, each sold as its own product</h3>
-              <p className="mt-4 text-base leading-7 text-foreground/70">
-                From four Elusive Overdrive configurations to British-leaning heads and tweed combos, each listing is presented as a separate store item so players can order the exact amp they want.
-              </p>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Products</p>
-                  <p className="mt-3 font-display text-3xl text-primary">9</p>
-                </div>
-                <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Elusive options</p>
-                  <p className="mt-3 font-display text-3xl text-primary">4</p>
-                </div>
-                <div className="border border-white/10 bg-black/25 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/45">Formats</p>
-                  <p className="mt-3 font-display text-3xl text-primary">Heads & combos</p>
-                </div>
-              </div>
-
-              <p className="mt-6 text-sm leading-6 text-foreground/62">
-                Browse the full collection below, compare the formats, and keep your picks in the cart while you continue exploring the lineup.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-10 xl:grid-cols-[1.2fr_0.8fr] xl:items-start" id="shop-products">
-            <div>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Full collection</p>
-                  <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Shop the Edwards lineup</h3>
-                </div>
-                <p className="max-w-xl text-sm leading-6 text-foreground/65">
-                  Every model appears here as its own store listing, including all four Elusive Overdrive options.
-                </p>
-              </div>
-
-              <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {shopAnchorCards.map((product) => {
-                  const liveProduct = productsByKey[product.id];
-                  const isAvailable = liveProduct?.availableForSale ?? true;
-
-                  return (
-                    <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
-                      <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
-                        <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-                      </div>
-                      <div className="flex flex-1 flex-col p-6">
-                        <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">{liveProduct?.availableForSale ? product.eyebrow : "Temporarily unavailable"}</p>
-                        <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{liveProduct?.name ?? product.name}</h4>
-                        <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
-                        <p className="mt-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground/45">Starting at</p>
-                        <p className="mt-2 font-display text-2xl text-primary">{liveProduct?.priceLabel ?? product.priceLabel}</p>
-                        <p className="mt-4 flex-1 text-sm leading-6 text-foreground/62">{product.description}</p>
-
-                        <div className="mt-8 flex flex-col gap-3">
-                          <Button
-                            className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
-                            onClick={() => addToCart(product.id)}
-                            disabled={!isAvailable || isCartBusy}
-                          >
-                            <ShoppingBag className="mr-2 h-4 w-4" />
-                            {isAvailable ? "Add to cart" : "Unavailable"}
-                          </Button>
-                          <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
-                            <a href={`/amps/${product.slug}`}>View product</a>
-                          </Button>
-                        </div>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Cart</p>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Keep your selections together while you compare the lineup</h3>
-                <p className="mt-4 text-base leading-7 text-foreground/68">
-                  Add any amp to the cart, adjust the quantity whenever you like, and head to checkout once the right combination is in front of you.
-                </p>
-
-                <SheetTrigger asChild>
-                  <Button className="mt-8 w-full rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-                    <ShoppingBag className="mr-2 h-4 w-4" />
-                    View cart
-                  </Button>
-                </SheetTrigger>
-
-                <p className="mt-4 text-sm leading-6 text-foreground/52">
-                  The cart keeps your current selection close at hand so you can compare formats, quantities, and pricing before checkout.
-                </p>
-              </div>
-
-              <div className="border border-white/10 bg-[#14110e] p-6 lg:p-8">
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Estimated subtotal · {cartSubtotalLabel}</p>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-foreground">Questions about the lineup?</h3>
-                <p className="mt-4 text-base leading-7 text-foreground/68">
-                  If you want help choosing between wattages, formats, or voicings, Edwards is still available to help you narrow the field.
-                </p>
-                <p className="mt-6 text-sm leading-6 text-foreground/55">
-                  The store is built for direct ordering, but you can always reach out before placing the order if you want guidance on the best fit.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </motion.section>
-
-        <motion.section {...sectionMotion} id="consultation" className="container py-20 lg:py-28">
+        <motion.section {...sectionMotion} id="consultation" className="container py-14 lg:py-20">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
             <div className="border border-white/10 bg-card/45 p-8 lg:p-10">
               <p className="section-kicker">Talk With Edwards</p>
@@ -646,6 +562,75 @@ export default function Home() {
                   </AccordionItem>
                 ))}
               </Accordion>
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section {...sectionMotion} id="shop" className="container py-20 lg:py-28">
+          <div className="flex flex-col gap-6 border border-white/10 bg-card/35 p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
+            <div className="max-w-3xl">
+              <p className="section-kicker">Shop</p>
+              <h2 className="section-title">Built to be played, ready to be ordered.</h2>
+              <p className="section-copy mt-6">
+                Browse the full Edwards lineup, choose the format that fits your rig, and add it to the cart when you are ready.
+              </p>
+            </div>
+            <SheetTrigger asChild>
+              <Button className="rounded-none border border-primary/50 bg-primary px-6 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
+                <ShoppingBag className="mr-2 h-4 w-4" />
+                View cart · {cartCount}
+              </Button>
+            </SheetTrigger>
+          </div>
+
+          <div className="mt-12" id="shop-products">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Full collection</p>
+                <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Shop the Edwards lineup</h3>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-foreground/65">
+                Every model is listed as its own product, including all four Elusive Overdrive options.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {shopAnchorCards.map((product) => {
+                const liveProduct = productsByKey[product.id];
+                const isAvailable = liveProduct?.availableForSale ?? true;
+
+                return (
+                  <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
+                    <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
+                      <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">
+                        {liveProduct?.availableForSale ? product.eyebrow : "Temporarily unavailable"}
+                      </p>
+                      <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{liveProduct?.name ?? product.name}</h4>
+                      <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
+                      <p className="mt-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground/45">Starting at</p>
+                      <p className="mt-2 font-display text-2xl text-primary">{liveProduct?.priceLabel ?? product.priceLabel}</p>
+                      <p className="mt-4 flex-1 text-sm leading-6 text-foreground/62">{product.description}</p>
+
+                      <div className="mt-8 flex flex-col gap-3">
+                        <Button
+                          className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
+                          onClick={() => addToCart(product.id)}
+                          disabled={!isAvailable || isCartBusy}
+                        >
+                          <ShoppingBag className="mr-2 h-4 w-4" />
+                          {isAvailable ? "Add to cart" : "Unavailable"}
+                        </Button>
+                        <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
+                          <a href={`/amps/${product.slug}`}>View product</a>
+                        </Button>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </motion.section>

@@ -84,3 +84,11 @@
 - [x] Create a light-on-dark treatment of the original logo so it remains legible against the site's dark header background.
 - [x] Revalidate the updated logo in the header preview and save a new checkpoint.
 - [x] Increase the header logo size by about 10% to improve readability on the live site.
+
+- [x] Tighten the vertical spacing between “The Edwards Standard” and “Talk With Edwards” in the Craft area.
+- [x] Validate the refined Craft-section spacing and save a reviewable checkpoint.
+
+- [x] Add an accessible mobile navigation menu to the Edwards header with links to the main site sections and the cart.
+- [x] Validate the mobile menu interaction and responsive Craft spacing before saving the next checkpoint.
+
+- [ ] Save a reviewable checkpoint for the Craft-spacing and mobile-navigation refinements.
