@@ -94,4 +94,6 @@
 - [x] Save a reviewable checkpoint for the Craft-spacing and mobile-navigation refinements.
 
 - [x] Tighten the oversized lower-page gaps after Talk With Edwards and between the adjacent footer and Shop surfaces.
-- [ ] Validate the lower-page rhythm across desktop and mobile layouts, then save a reviewable checkpoint.
+- [x] Validate the lower-page rhythm across desktop and mobile layouts, then save a reviewable checkpoint.
+
+- [x] Confirm the tightened lower-page rhythm in a mobile-width viewport before final handoff.
