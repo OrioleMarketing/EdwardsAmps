@@ -566,7 +566,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section {...sectionMotion} id="shop" className="container pt-12 pb-3 lg:pt-16 lg:pb-4">
+        <section id="shop" className="container pt-12 pb-3 lg:pt-16 lg:pb-4">
           <div className="flex flex-col gap-6 border border-white/10 bg-card/35 p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
             <div className="max-w-3xl">
               <p className="section-kicker">Shop</p>
@@ -633,7 +633,7 @@ export default function Home() {
               })}
             </div>
           </div>
-        </motion.section>
+        </section>
       </main>
 
       <footer className="border-t border-white/10 bg-black/25">

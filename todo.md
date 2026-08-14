@@ -98,5 +98,8 @@
 
 - [x] Confirm the tightened lower-page rhythm in a mobile-width viewport before final handoff.
 
-- [ ] Remove the remaining blank space before the footer after the final Shop content.
-- [ ] Validate the compact Shop-to-footer transition and save a reviewable checkpoint.
+- [x] Remove the remaining blank space before the footer after the final Shop content.
+- [x] Validate the compact Shop-to-footer transition and save a reviewable checkpoint.
+
+- [ ] Fix the mobile full-screen blank panel below the FAQ so lower-page sections follow their content height.
+- [ ] Validate the repaired mobile scroll flow from FAQ through Shop and footer, then save a reviewable checkpoint.
