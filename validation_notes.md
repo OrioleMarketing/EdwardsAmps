@@ -13,3 +13,5 @@ The current mobile-width preview confirms that the responsive header presents th
 ## 2026-08-14 — Mobile blank-panel repair
 
 The reported blank panel corresponded to a full-height Shop section whose scroll-triggered animation could remain at zero opacity on mobile. The Shop section now renders without that animation wrapper. Verification confirms the Shop section is visible (`opacity: 1`, `visibility: visible`), has its full product content, and no longer relies on an in-view animation before the lower-page content can appear.
+
+An instrumented 390-pixel-wide mobile browser session then reviewed the complete lower-page transition. The Shop section begins immediately after the FAQ/contact area with its visible heading and cart action, retains full opacity, and ends directly at the footer boundary. The footer capture shows the final product card followed by the footer without a blank intervening panel.
