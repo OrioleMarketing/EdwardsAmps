@@ -491,7 +491,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,7,0.84)_0%,rgba(8,8,7,0.92)_100%)]" />
           </div>
 
-          <div className="container relative grid gap-10 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-20">
+          <div className="container relative grid gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-16">
             <div>
               <p className="section-kicker">The Edwards Standard</p>
               <h2 className="section-title">Boutique American tone, refined into a lineup with clarity, authority, and feel.</h2>
@@ -507,7 +507,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section {...sectionMotion} id="consultation" className="container py-14 lg:py-20">
+        <motion.section {...sectionMotion} id="consultation" className="container py-12 lg:py-16">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
             <div className="border border-white/10 bg-card/45 p-8 lg:p-10">
               <p className="section-kicker">Talk With Edwards</p>
@@ -566,7 +566,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section {...sectionMotion} id="shop" className="container py-20 lg:py-28">
+        <motion.section {...sectionMotion} id="shop" className="container py-12 lg:py-16">
           <div className="flex flex-col gap-6 border border-white/10 bg-card/35 p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
             <div className="max-w-3xl">
               <p className="section-kicker">Shop</p>
@@ -583,7 +583,7 @@ export default function Home() {
             </SheetTrigger>
           </div>
 
-          <div className="mt-12" id="shop-products">
+          <div className="mt-8" id="shop-products">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Full collection</p>

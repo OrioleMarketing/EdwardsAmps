@@ -91,4 +91,7 @@
 - [x] Add an accessible mobile navigation menu to the Edwards header with links to the main site sections and the cart.
 - [x] Validate the mobile menu interaction and responsive Craft spacing before saving the next checkpoint.
 
-- [ ] Save a reviewable checkpoint for the Craft-spacing and mobile-navigation refinements.
+- [x] Save a reviewable checkpoint for the Craft-spacing and mobile-navigation refinements.
+
+- [x] Tighten the oversized lower-page gaps after Talk With Edwards and between the adjacent footer and Shop surfaces.
+- [ ] Validate the lower-page rhythm across desktop and mobile layouts, then save a reviewable checkpoint.
