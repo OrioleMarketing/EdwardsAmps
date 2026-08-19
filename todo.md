@@ -103,3 +103,7 @@
 
 - [x] Fix the mobile full-screen blank panel below the FAQ so lower-page sections follow their content height.
 - [x] Validate the repaired mobile scroll flow from FAQ through Shop and footer, then save a reviewable checkpoint.
+
+- [ ] Verify access to OrioleMarketing/edwardsamps and inspect the current local and remote Git state.
+- [ ] Push the current EdwardsAmps code to the corresponding GitHub repository without overwriting unrelated remote work.
+- [ ] Verify the remote branch contains the current project revision and report the result.
