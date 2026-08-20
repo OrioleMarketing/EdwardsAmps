@@ -35,7 +35,7 @@ export const ampProducts: AmpProduct[] = [
     shortName: 'Elusive Overdrive',
     price: 'From $3,000 USD',
     heroImage:
-      'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png',
+      'https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/elusive-overdrive-on-table-hero_a3fdf76a.png',
     heroAlt: 'Edwards Elusive Overdrive amplifier staged on a wooden workbench',
     eyebrow: 'American clean to wild overdrive',
     summary:
@@ -85,7 +85,7 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,800 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/king-richard-large-stage_1a0319a2.png',
+    heroImage: 'https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/king-richard-large-stage_1a0319a2.png',
     heroAlt: 'Edwards King Richard amplifier staged on a large performance stage',
     eyebrow: 'British chime and authority',
     summary:
@@ -125,7 +125,7 @@ export const ampProducts: AmpProduct[] = [
     name: 'Hot Mama',
     shortName: 'Hot Mama',
     price: 'From $1,800 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/hot-mama-church-rehearsal_ece6a7bf.png',
+    heroImage: 'https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/hot-mama-church-rehearsal_ece6a7bf.png',
     heroAlt: 'Edwards Hot Mama combo amplifier staged in a warm church rehearsal room',
     eyebrow: 'Portable British sparkle',
     summary:
@@ -164,7 +164,7 @@ export const ampProducts: AmpProduct[] = [
     name: 'Double Dee Tweed',
     shortName: 'Double Dee Tweed',
     price: 'From $2,000 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/double-dee-coffee-shop_ffb42f11.png',
+    heroImage: 'https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/double-dee-coffee-shop_ffb42f11.png',
     heroAlt: 'Edwards Double Dee Tweed combo amplifier staged for an intimate coffee shop performance',
     eyebrow: 'Rootsy tweed character',
     summary:
@@ -203,7 +203,7 @@ export const ampProducts: AmpProduct[] = [
     name: 'Lil Tyke Tweed Amp',
     shortName: 'Lil Tyke Tweed',
     price: 'Inquire for pricing',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/lil-tyke-home-writing-room_6ca542a9.png',
+    heroImage: 'https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/lil-tyke-home-writing-room_6ca542a9.png',
     heroAlt: 'Edwards Lil Tyke Tweed combo amplifier staged in an intimate home writing room',
     eyebrow: 'Small tweed combo format',
     summary:

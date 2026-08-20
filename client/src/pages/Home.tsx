@@ -113,7 +113,7 @@ const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
   image:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/jon-kammerer-elusive-crossbrand_50cba937.png",
+    "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/jon-kammerer-elusive-crossbrand_50cba937.png",
   alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
 };
 
@@ -146,7 +146,7 @@ export default function Home() {
         <div className="container flex items-center justify-between gap-6 py-4">
           <a href="#top" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-[39.6px] w-auto sm:h-[44px] lg:h-[52.8px]"
             />
@@ -222,7 +222,7 @@ export default function Home() {
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-hero-reference-igVrT9qU3v6WCBowpAQDUa.webp"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-hero-reference-igVrT9qU3v6WCBowpAQDUa.webp"
               alt="Boutique Edwards amplifier in a custom workshop setting"
               className="h-full w-full object-cover object-center opacity-35"
             />
@@ -267,7 +267,7 @@ export default function Home() {
               <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.08),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
                 <div className="relative aspect-[4/3] overflow-hidden border border-white/6 bg-black/20">
                   <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png"
+                    src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/elusive-overdrive-on-table-hero_a3fdf76a.png"
                     alt="The real Edwards Elusive Overdrive amplifier staged on a wooden workbench"
                     className="h-full w-full object-cover"
                   />
@@ -303,7 +303,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,149,92,0.18),transparent_48%)] opacity-80" />
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-75" />
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp"
+                  src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp"
                   alt="All five Edwards amps grouped together in a dark stage-style environment"
                   loading="lazy"
                   decoding="async"
@@ -388,7 +388,7 @@ export default function Home() {
           <div className="container grid gap-10 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-28">
             <div className="relative overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp"
+                src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp"
                 alt="Amp builder assembling an Edwards amplifier chassis"
                 className="aspect-[16/11] w-full object-cover"
               />
@@ -484,7 +484,7 @@ export default function Home() {
         <motion.section {...sectionMotion} className="relative overflow-hidden border-y border-white/10">
           <div className="absolute inset-0">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
               alt="Moody listening room with Edwards amplifier and guitar"
               className="h-full w-full object-cover object-center opacity-20"
             />
@@ -640,7 +640,7 @@ export default function Home() {
         <div className="container grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-[61.6px] w-auto sm:h-[70.4px]"
             />
