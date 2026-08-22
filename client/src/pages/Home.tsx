@@ -22,7 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ArrowRight, Gauge, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
+import { ArrowRight, Gauge, Loader2, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
@@ -124,13 +124,13 @@ const sectionMotion = {
 };
 
 export default function Home() {
-  const { addToCart, cart, isAddingToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
+  const { addToCart, cart, isAddingProductToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const cartLines = cart?.lines ?? [];
   const cartCount = cart?.totalQuantity ?? 0;
   const cartSubtotalLabel = cart?.subtotalLabel ?? "$0";
-  const isCartBusy = isAddingToCart || isUpdatingCart;
+  const isCartBusy = isUpdatingCart;
 
   const liveProductsByHandle = useMemo(
     () => Object.fromEntries(liveShopifyProducts.map((product) => [product.handle, product])) as Record<string, (typeof liveShopifyProducts)[number]>,
@@ -598,6 +598,7 @@ export default function Home() {
               {shopAnchorCards.map((product) => {
                 const liveProduct = productsByKey[product.id];
                 const isAvailable = liveProduct?.availableForSale ?? true;
+                const isAddingProduct = isAddingProductToCart(product.id);
 
                 return (
                   <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
@@ -618,10 +619,10 @@ export default function Home() {
                         <Button
                           className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
                           onClick={() => addToCart(product.id)}
-                          disabled={!isAvailable || isCartBusy}
+                          disabled={!isAvailable || isAddingProduct}
                         >
-                          <ShoppingBag className="mr-2 h-4 w-4" />
-                          {isAvailable ? "Add to cart" : "Unavailable"}
+                          {isAddingProduct ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
+                          {!isAvailable ? "Unavailable" : isAddingProduct ? "Adding…" : "Add to cart"}
                         </Button>
                         <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
                           <a href={`/amps/${product.slug}`}>View product</a>
@@ -685,6 +686,7 @@ export default function Home() {
                 const storefrontProduct = liveProductsByHandle[line.productHandle];
                 const lineTitle = storefrontProduct?.name ?? line.productTitle;
                 const lineSubtitle = storefrontProduct?.subtitle ?? line.variantTitle;
+                const isAddingThisProduct = storefrontProduct ? isAddingProductToCart(storefrontProduct.key) : false;
 
                 return (
                   <div key={line.id} className="border border-white/10 bg-black/20 p-4">
@@ -716,9 +718,9 @@ export default function Home() {
                           aria-label={`Increase quantity for ${lineTitle}`}
                           className="inline-flex h-10 w-10 items-center justify-center border-l border-white/10 text-foreground transition-colors hover:text-primary disabled:text-foreground/30"
                           onClick={() => storefrontProduct?.key && addToCart(storefrontProduct.key)}
-                          disabled={isCartBusy || !storefrontProduct?.key}
+                          disabled={isCartBusy || !storefrontProduct?.key || isAddingThisProduct}
                         >
-                          <ShoppingBag className="h-4 w-4" />
+                          {isAddingThisProduct ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingBag className="h-4 w-4" />}
                         </button>
                       </div>
                       <p className="text-sm uppercase tracking-[0.22em] text-foreground/48">{quantityLabel(line.quantity)}</p>

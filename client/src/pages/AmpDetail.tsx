@@ -7,7 +7,7 @@ copy, elegant spacing, and calm confidence. The page should sell the amp itself,
 import { Button } from "@/components/ui/button";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { ampProducts, ampProductsBySlug } from "@/lib/ampData";
-import { ArrowLeft, ArrowRight, Music2, PhoneCall, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2, Music2, PhoneCall, ShoppingBag } from "lucide-react";
 import { SHOPIFY_PRODUCT_OPTIONS_BY_AMP } from "@shared/shopifyCatalog";
 
 export default function AmpDetail({ slug }: { slug: string }) {
@@ -17,7 +17,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
     return null;
   }
 
-  const { addToCart, isAddingToCart, productsByKey } = useShopifyCart();
+  const { addToCart, isAddingProductToCart, productsByKey } = useShopifyCart();
   const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
   const directOrderOptions = SHOPIFY_PRODUCT_OPTIONS_BY_AMP[amp.slug] ?? [];
   const headerCtaLabel = "Shop This Amp";
@@ -223,6 +223,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
                   {directOrderOptions.map((option) => {
                     const liveProduct = productsByKey[option.key];
                     const isAvailable = liveProduct?.availableForSale ?? true;
+                    const isAddingProduct = isAddingProductToCart(option.key);
 
                     return (
                       <div key={option.key} className="border border-white/10 bg-black/20 p-4">
@@ -238,10 +239,10 @@ export default function AmpDetail({ slug }: { slug: string }) {
                           <Button
                             className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
                             onClick={() => addToCart(option.key)}
-                            disabled={!isAvailable || isAddingToCart}
+                            disabled={!isAvailable || isAddingProduct}
                           >
-                            <ShoppingBag className="mr-2 h-4 w-4" />
-                            {isAvailable ? "Add to cart" : "Unavailable"}
+                            {isAddingProduct ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
+                            {!isAvailable ? "Unavailable" : isAddingProduct ? "Adding…" : "Add to cart"}
                           </Button>
                           <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
                             <a href="/#shop">View full shop</a>
