@@ -84,7 +84,7 @@ export const ampProducts: AmpProduct[] = [
     slug: 'king-richard',
     name: 'King Richard',
     shortName: 'King Richard',
-    price: 'From $2,800 USD',
+    price: 'From $2,799 USD',
     heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/king-richard-large-stage_1a0319a2.png',
     heroAlt: 'Edwards King Richard amplifier staged on a large performance stage',
     eyebrow: 'British chime and authority',
@@ -118,13 +118,13 @@ export const ampProducts: AmpProduct[] = [
       'The jumpable channels are a big part of the appeal. Instead of one fixed response, players can blend textures and shape how much chime, body, and urgency they want in the room.',
     ],
     availabilityNote:
-      'King Richard starts around $2,800 USD for the head. Reach out directly for current pricing and build timing.',
+      'King Richard starts at $2,799 USD for the head.',
   },
   {
     slug: 'hot-mama',
     name: 'Hot Mama',
     shortName: 'Hot Mama',
-    price: 'From $1,800 USD',
+    price: 'From $1,999 USD',
     heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/hot-mama-church-rehearsal_ece6a7bf.png',
     heroAlt: 'Edwards Hot Mama combo amplifier staged in a warm church rehearsal room',
     eyebrow: 'Portable British sparkle',
@@ -157,13 +157,13 @@ export const ampProducts: AmpProduct[] = [
       'That balance makes it a smart choice for players who split their time between home, studio, and smaller stages. It feels portable, but it does not sound small.',
     ],
     availabilityNote:
-      'Hot Mama starts at $1,800 USD for the head and $2,000 USD for the combo. Reach out directly for current availability.',
+      'Hot Mama starts at $1,999 USD for the head and $2,199 USD for the combo.',
   },
   {
     slug: 'double-dee-tweed',
     name: 'Double Dee Tweed',
     shortName: 'Double Dee Tweed',
-    price: 'From $2,000 USD',
+    price: 'From $2,199 USD',
     heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/double-dee-coffee-shop_ffb42f11.png',
     heroAlt: 'Edwards Double Dee Tweed combo amplifier staged for an intimate coffee shop performance',
     eyebrow: 'Rootsy tweed character',
@@ -196,13 +196,13 @@ export const ampProducts: AmpProduct[] = [
       'That makes it appealing to guitarists who want old-school character without being boxed into one narrow use case. It can feel intimate at home and still hold its own when the room gets louder.',
     ],
     availabilityNote:
-      'Double Dee Tweed starts at $2,000 USD for the 1x12 combo. Reach out directly for current build timing and speaker options.',
+      'Double Dee Tweed starts at $2,199 USD for the 1x12 combo.',
   },
   {
     slug: 'lil-tyke-tweed',
     name: 'Lil Tyke Tweed Amp',
     shortName: 'Lil Tyke Tweed',
-    price: 'Inquire for pricing',
+    price: 'From $1,499 USD',
     heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/lil-tyke-home-writing-room_6ca542a9.png',
     heroAlt: 'Edwards Lil Tyke Tweed combo amplifier staged in an intimate home writing room',
     eyebrow: 'Small tweed combo format',
@@ -213,24 +213,24 @@ export const ampProducts: AmpProduct[] = [
     voice:
       'Small-format tweed character aimed at direct, uncomplicated playing feel.',
     idealFor:
-      'Players interested in a simpler tweed-style combo and direct conversation with the builder about the exact configuration.',
+      'Players interested in a simpler tweed-style combo with direct, uncomplicated response.',
     format: '5F1 tweed combo amplifier.',
     highlights: [
       'Built as the small-format tweed voice within the Edwards range.',
       'Presented as a compact tweed combo for direct, expressive playing.',
-      'Best approached through direct inquiry because detailed public specifications were not exposed in the retrieved source text.',
+      'A compact 5F1-inspired tweed format for direct, expressive playing.',
     ],
     specs: [
       { label: 'Model type', value: '5F1 tweed combo amplifier' },
-      { label: 'Availability details', value: 'Contact Edwards for the latest configuration, pricing, and build information' },
-      { label: 'Next step', value: 'Contact Edwards for current specs, pricing, and build availability' },
+      { label: 'Availability details', value: 'Available to order through the Edwards store' },
+      { label: 'Starting price', value: '$1,499 USD' },
     ],
     story: [
       'Lil Tyke gives the lineup a smaller tweed-flavored entry point, with the kind of direct response that makes low-volume practice, recording, and simple gig setups feel musical and alive.',
-      'For players who want the finer details on current build options, cabinet choices, and availability, the best next step is to contact Edwards directly.',
+      'Its simple format keeps the focus on the guitar, the hands, and the speaker response.',
     ],
     availabilityNote:
-      'Contact Edwards directly for current pricing, detailed specifications, and build availability.',
+      'Lil Tyke Tweed starts at $1,499 USD and is available to order through the Edwards store.',
   },
 ];
 

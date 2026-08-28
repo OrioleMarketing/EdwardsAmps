@@ -26,12 +26,13 @@ import { ArrowRight, Gauge, Menu, Minus, Music2, PhoneCall, ShieldCheck, Shoppin
 import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
-import { SHOPIFY_PRODUCT_OPTIONS } from "@shared/shopifyCatalog";
+import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductGroup } from "@shared/shopifyCatalog";
 
 const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
-  const amp = ampProducts.find((candidate) => candidate.slug === product.ampSlug);
+  const amp = product.ampSlug ? ampProducts.find((candidate) => candidate.slug === product.ampSlug) : undefined;
 
   return {
+    ...product,
     id: product.key,
     slug: product.ampSlug,
     handle: product.handle,
@@ -45,6 +46,8 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     alt: amp?.heroAlt ?? product.displayName,
   };
 });
+
+const shopGroups: ShopifyProductGroup[] = ["Amplifiers", "Speaker cabinets", "Effects pedals", "Apparel"];
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
 
@@ -590,45 +593,70 @@ export default function Home() {
                 <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Shop the Edwards lineup</h3>
               </div>
               <p className="max-w-xl text-sm leading-6 text-foreground/65">
-                Every model is listed as its own product, including all four Elusive Overdrive options.
+                Amplifiers, speaker cabinets, effects pedals, and Edwards apparel are all listed as separate store items.
               </p>
             </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {shopAnchorCards.map((product) => {
-                const liveProduct = productsByKey[product.id];
-                const isAvailable = liveProduct?.availableForSale ?? true;
+            <div className="mt-10 space-y-14">
+              {shopGroups.map((group) => {
+                const products = shopAnchorCards.filter((product) => product.group === group);
+                if (products.length === 0) return null;
 
                 return (
-                  <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
-                    <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
-                      <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  <section key={group} aria-labelledby={`shop-group-${group.replaceAll(" ", "-").toLowerCase()}`}>
+                    <div className="flex items-center gap-4 border-b border-white/10 pb-4">
+                      <span className="h-px w-8 bg-primary/65" />
+                      <h4 id={`shop-group-${group.replaceAll(" ", "-").toLowerCase()}`} className="text-[0.7rem] uppercase tracking-[0.28em] text-foreground/60">
+                        {group}
+                      </h4>
                     </div>
-                    <div className="flex flex-1 flex-col p-6">
-                      <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">
-                        {liveProduct?.availableForSale ? product.eyebrow : "Temporarily unavailable"}
-                      </p>
-                      <h4 className="mt-3 font-display text-3xl leading-tight text-foreground">{liveProduct?.name ?? product.name}</h4>
-                      <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
-                      <p className="mt-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground/45">Starting at</p>
-                      <p className="mt-2 font-display text-2xl text-primary">{liveProduct?.priceLabel ?? product.priceLabel}</p>
-                      <p className="mt-4 flex-1 text-sm leading-6 text-foreground/62">{product.description}</p>
 
-                      <div className="mt-8 flex flex-col gap-3">
-                        <Button
-                          className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
-                          onClick={() => addToCart(product.id)}
-                          disabled={!isAvailable || isCartBusy}
-                        >
-                          <ShoppingBag className="mr-2 h-4 w-4" />
-                          {isAvailable ? "Add to cart" : "Unavailable"}
-                        </Button>
-                        <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
-                          <a href={`/amps/${product.slug}`}>View product</a>
-                        </Button>
-                      </div>
+                    <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                      {products.map((product) => {
+                        const liveProduct = productsByKey[product.id];
+                        const isAvailable = liveProduct?.availableForSale ?? true;
+
+                        return (
+                          <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
+                            {product.image ? (
+                              <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
+                                <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                              </div>
+                            ) : (
+                              <div className="flex aspect-[4/2.15] flex-col justify-between border-b border-white/10 bg-[radial-gradient(circle_at_78%_18%,rgba(196,157,92,0.15),transparent_38%),linear-gradient(135deg,rgba(34,29,24,0.88),rgba(7,7,6,0.96))] p-6">
+                                <Music2 className="h-7 w-7 text-primary/85" />
+                                <p className="max-w-[12rem] font-display text-3xl leading-tight text-foreground/88">{product.group}</p>
+                              </div>
+                            )}
+                            <div className="flex flex-1 flex-col p-6">
+                              <p className="text-[0.65rem] uppercase tracking-[0.24em] text-primary/80">
+                                {liveProduct?.availableForSale ? product.eyebrow : "Temporarily unavailable"}
+                              </p>
+                              <h5 className="mt-3 font-display text-3xl leading-tight text-foreground">{liveProduct?.name ?? product.name}</h5>
+                              <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
+                              <p className="mt-5 text-[0.7rem] uppercase tracking-[0.24em] text-foreground/45">Starting at</p>
+                              <p className="mt-2 font-display text-2xl text-primary">{liveProduct?.priceLabel ?? product.priceLabel}</p>
+                              <p className="mt-4 flex-1 text-sm leading-6 text-foreground/62">{product.description}</p>
+
+                              <div className="mt-8 flex flex-col gap-3">
+                                <Button
+                                  className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
+                                  onClick={() => addToCart(product.id)}
+                                  disabled={!isAvailable || isCartBusy}
+                                >
+                                  <ShoppingBag className="mr-2 h-4 w-4" />
+                                  {isAvailable ? "Add to cart" : "Unavailable"}
+                                </Button>
+                                <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
+                                  <a href={getProductDetailPath(product)}>View product</a>
+                                </Button>
+                              </div>
+                            </div>
+                          </article>
+                        );
+                      })}
                     </div>
-                  </article>
+                  </section>
                 );
               })}
             </div>

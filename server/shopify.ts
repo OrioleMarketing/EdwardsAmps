@@ -59,7 +59,7 @@ type ShopifyVariantSummary = {
 
 type ShopifyProductSummary = {
   key: ShopifyProductKey;
-  ampSlug: string;
+  ampSlug?: string;
   handle: string;
   name: string;
   eyebrow: string;
@@ -222,7 +222,7 @@ function clearCartId(res: Response, req: Request) {
 
 function buildCatalogQuery() {
   const productSelections = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
-    const alias = product.key.replace(/-/g, "_");
+    const alias = `product_${product.key.replace(/-/g, "_")}`;
     return `${alias}: productByHandle(handle: \"${product.handle}\") {
       handle
       title
@@ -255,7 +255,7 @@ export async function getShopifyCatalog(): Promise<ShopifyProductSummary[]> {
   } | null>>(buildCatalogQuery());
 
   return SHOPIFY_PRODUCT_OPTIONS.map((product) => {
-    const alias = product.key.replace(/-/g, "_");
+    const alias = `product_${product.key.replace(/-/g, "_")}`;
     const liveProduct = data[alias];
     const firstVariant = liveProduct?.variants.nodes[0];
     const priceAmount = firstVariant?.price.amount ?? String(product.fallbackPriceValue);

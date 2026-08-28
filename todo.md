@@ -103,3 +103,8 @@
 
 - [x] Fix the mobile full-screen blank panel below the FAQ so lower-page sections follow their content height.
 - [x] Validate the repaired mobile scroll flow from FAQ through Shop and footer, then save a reviewable checkpoint.
+
+- [x] Inspect the live Shopify catalog and pricing after the user’s latest product updates.
+- [x] Compare live Shopify products with the Edwards website’s current mapped products and identify new storefront listings.
+- [x] Update Shop pricing, product links, and customer-facing product listings to match the live Shopify catalog.
+- [ ] Validate the revised catalog, cart links, and product-page ordering experience, then save a reviewable checkpoint.
