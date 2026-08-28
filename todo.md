@@ -107,4 +107,7 @@
 - [x] Inspect the live Shopify catalog and pricing after the user’s latest product updates.
 - [x] Compare live Shopify products with the Edwards website’s current mapped products and identify new storefront listings.
 - [x] Update Shop pricing, product links, and customer-facing product listings to match the live Shopify catalog.
-- [ ] Validate the revised catalog, cart links, and product-page ordering experience, then save a reviewable checkpoint.
+- [x] Validate the revised catalog, cart links, and product-page ordering experience, then save a reviewable checkpoint.
+
+- [ ] Add a real cart entry point to new Shopify-only product pages instead of routing the cart control back to the Shop anchor.
+- [ ] Validate adding a Shopify-only product to cart and reaching checkout from its product page, then save a fresh checkpoint.

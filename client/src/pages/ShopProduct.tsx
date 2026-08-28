@@ -30,7 +30,7 @@ export default function ShopProduct({ handle }: { handle: string }) {
               className="h-[39.6px] w-auto sm:h-[44px]"
             />
           </a>
-          <a href="/#shop" className="inline-flex items-center gap-2 border border-white/15 bg-card/80 px-4 py-3 text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">
+          <a href="/cart" className="inline-flex items-center gap-2 border border-white/15 bg-card/80 px-4 py-3 text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">
             <ShoppingBag className="h-4 w-4" />
             <span>{`Cart · ${cartCount}`}</span>
           </a>

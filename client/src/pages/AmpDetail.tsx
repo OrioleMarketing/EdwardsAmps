@@ -17,7 +17,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
     return null;
   }
 
-  const { addToCart, isAddingToCart, productsByKey } = useShopifyCart();
+  const { addToCart, cart, isAddingToCart, productsByKey } = useShopifyCart();
   const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
   const directOrderOptions = SHOPIFY_PRODUCT_OPTIONS_BY_AMP[amp.slug] ?? [];
   const headerCtaLabel = "Shop This Amp";
@@ -48,9 +48,17 @@ export default function AmpDetail({ slug }: { slug: string }) {
             <a href="#inquiry" className="transition-colors hover:text-primary">Inquiry</a>
           </nav>
 
-          <Button asChild className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-            <a href={headerCtaHref}>{headerCtaLabel}</a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button asChild variant="outline" className="rounded-none border border-white/15 bg-card/80 px-4 py-5 text-[0.7rem] uppercase tracking-[0.2em] text-foreground hover:border-primary/40 hover:text-primary">
+              <a href="/cart">
+                <ShoppingBag className="mr-2 h-4 w-4" />
+                {`Cart · ${cart?.totalQuantity ?? 0}`}
+              </a>
+            </Button>
+            <Button asChild className="hidden rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 sm:inline-flex">
+              <a href={headerCtaHref}>{headerCtaLabel}</a>
+            </Button>
+          </div>
         </div>
       </header>
 
