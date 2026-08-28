@@ -117,8 +117,8 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "/manus-storage/jon-kammerer-elusive-crossbrand-desktop_4457641d.webp",
-  mobileImage: "/manus-storage/jon-kammerer-elusive-crossbrand-mobile_402c234e.webp",
+  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/XTHWghUqlwobeWZA.webp",
+  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/PYwqGaVBKqJWfNZK.webp",
   alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
 };
 
@@ -126,7 +126,7 @@ const elusiveOverdrive = ampProducts.find((amp) => amp.slug === "elusive-overdri
 
 const nextSectionImageSources = [
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp",
-  "/manus-storage/jon-kammerer-elusive-crossbrand-mobile_402c234e.webp",
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/PYwqGaVBKqJWfNZK.webp",
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp",
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp",
 ];

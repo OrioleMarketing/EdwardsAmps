@@ -151,3 +151,6 @@
 - [x] Restore the approved staged amplifier imagery now, then verify the current product catalog for items that still lack dedicated website visuals before further image research.
 - [x] Audit all current Shopify products and document which ones already have dedicated website imagery versus generic or placeholder treatment.
 - [x] Produce a product-by-product uncovered-visual inventory before starting further image research or image placement.
+
+- [ ] Diagnose and repair the broken approved staged-image delivery visible on EdwardsAmps.com, beginning with the Elusive Overdrive hero image.
+- [ ] Verify the repaired staged image delivery on EdwardsAmps.com at desktop and mobile sizes before resuming client-image research.
