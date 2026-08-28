@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import type { ShopifyProductKey } from "@shared/shopifyCatalog";
@@ -7,6 +7,7 @@ export function useShopifyCart() {
   const utils = trpc.useUtils();
   const catalogQuery = trpc.shopify.catalog.useQuery();
   const cartQuery = trpc.shopify.cart.useQuery();
+  const [pendingProductKeys, setPendingProductKeys] = useState<Set<ShopifyProductKey>>(new Set());
 
   const addToCartMutation = trpc.shopify.addToCart.useMutation({
     onSuccess: async () => {
@@ -47,9 +48,21 @@ export function useShopifyCart() {
     cart,
     isCatalogLoading: catalogQuery.isLoading,
     isCartLoading: cartQuery.isLoading,
-    isAddingToCart: addToCartMutation.isPending,
+    isAddingProductToCart: (productKey: ShopifyProductKey) => pendingProductKeys.has(productKey),
     isUpdatingCart: updateCartLineMutation.isPending,
-    addToCart: (productKey: ShopifyProductKey, quantity = 1) => addToCartMutation.mutate({ productKey, quantity }),
+    addToCart: async (productKey: ShopifyProductKey, quantity = 1) => {
+      setPendingProductKeys(current => new Set(current).add(productKey));
+
+      try {
+        await addToCartMutation.mutateAsync({ productKey, quantity });
+      } finally {
+        setPendingProductKeys(current => {
+          const next = new Set(current);
+          next.delete(productKey);
+          return next;
+        });
+      }
+    },
     updateCartLine: (lineId: string, quantity: number) => updateCartLineMutation.mutate({ lineId, quantity }),
   };
 }
