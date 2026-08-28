@@ -125,10 +125,29 @@
 
 - [x] Add a subtle mobile-friendly loading animation or skeleton placeholder to responsive image frames.
 - [x] Validate the refined loading state at a mobile viewport, run automated checks, and save a reviewable checkpoint.
-- [ ] Push the completed image optimization and loading-state changes to OrioleMarketing/edwardsamps and verify the remote main branch.
+- [x] Push the completed image optimization and loading-state changes to OrioleMarketing/edwardsamps and verify the remote main branch.
 
 - [x] Adjust mobile image scheduling so near-viewport sections begin loading before the visitor reaches them instead of deferring all imagery with lazy loading.
 - [x] Reconcile the merged per-product cart loading API across the homepage, product pages, and cart page so the storefront type-checks again.
-- [ ] Validate the accelerated mobile loading sequence, cart behavior, production build, and GitHub synchronization in a fresh checkpoint.
+- [x] Validate the accelerated mobile loading sequence, cart behavior, production build, and GitHub synchronization in a fresh checkpoint.
 
 - [x] Remove opacity-hidden mobile section entry states so scroll-triggered animations cannot leave content-shaped blank areas while imagery loads.
+
+- [ ] Inventory the client-supplied labeled product photographs and identify the strongest asset for each relevant storefront item.
+- [ ] Map the selected client images to Princess Reverb, effects pedals, apparel, and related Shopify product pages and Shop cards.
+- [ ] Optimize and integrate the approved client photography into the website’s customer-facing product listings and detail pages.
+- [ ] Validate the refreshed product presentation at desktop and mobile sizes, then save a reviewable checkpoint.
+
+- [ ] Verify Shopify administration access for product image and description updates without exposing credentials.
+- [ ] Prepare product-accurate images and customer-facing descriptions for the affected Shopify product catalog.
+- [ ] Present the product-to-image and description mapping for confirmation before publishing changes to Shopify.
+- [ ] Publish the confirmed images and descriptions to the relevant Shopify products and verify the resulting catalog entries.
+
+- [x] Restore the previously approved staged real-product amplifier imagery on all existing amp detail pages and protect those mappings from replacement.
+- [x] Identify only the products without dedicated approved visuals, including Princess Reverb, pedals, and apparel, for use of the newly supplied client photography.
+- [ ] Update the Shop and new product pages with selected client imagery without replacing any restored staged amplifier visuals.
+- [ ] Validate the restored and expanded imagery system at desktop and mobile sizes, then save a reviewable checkpoint.
+
+- [x] Restore the approved staged amplifier imagery now, then verify the current product catalog for items that still lack dedicated website visuals before further image research.
+- [x] Audit all current Shopify products and document which ones already have dedicated website imagery versus generic or placeholder treatment.
+- [x] Produce a product-by-product uncovered-visual inventory before starting further image research or image placement.
