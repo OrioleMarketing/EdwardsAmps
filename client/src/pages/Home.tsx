@@ -25,6 +25,7 @@ import {
 import { ArrowRight, Gauge, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductGroup } from "@shared/shopifyCatalog";
 
@@ -43,6 +44,7 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     priceValue: product.fallbackPriceValue,
     description: product.description,
     image: amp?.heroImage ?? "",
+    mobileImage: amp?.heroImageMobile ?? "",
     alt: amp?.heroAlt ?? product.displayName,
   };
 });
@@ -115,10 +117,12 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/jon-kammerer-elusive-crossbrand_50cba937.png",
+  image: "/manus-storage/jon-kammerer-elusive-crossbrand-desktop_4457641d.webp",
+  mobileImage: "/manus-storage/jon-kammerer-elusive-crossbrand-mobile_402c234e.webp",
   alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
 };
+
+const elusiveOverdrive = ampProducts.find((amp) => amp.slug === "elusive-overdrive");
 
 const sectionMotion = {
   initial: { opacity: 0, y: 32 },
@@ -269,11 +273,16 @@ export default function Home() {
             >
               <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.08),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
                 <div className="relative aspect-[4/3] overflow-hidden border border-white/6 bg-black/20">
-                  <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png"
-                    alt="The real Edwards Elusive Overdrive amplifier staged on a wooden workbench"
-                    className="h-full w-full object-cover"
-                  />
+                  {elusiveOverdrive ? (
+                    <ResponsiveImage
+                      desktopSrc={elusiveOverdrive.heroImage}
+                      mobileSrc={elusiveOverdrive.heroImageMobile}
+                      alt="The real Edwards Elusive Overdrive amplifier staged on a wooden workbench"
+                      className="h-full w-full object-cover"
+                      pictureClassName="block h-full w-full"
+                      priority
+                    />
+                  ) : null}
                 </div>
               </div>
               <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
@@ -310,6 +319,7 @@ export default function Home() {
                   alt="All five Edwards amps grouped together in a dark stage-style environment"
                   loading="lazy"
                   decoding="async"
+                  fetchPriority="low"
                   className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
@@ -370,11 +380,10 @@ export default function Home() {
               </div>
 
               <div className="mt-6 overflow-hidden border border-white/8 bg-black/30">
-                <img
-                  src={collaborationFeature.image}
+                <ResponsiveImage
+                  desktopSrc={collaborationFeature.image}
+                  mobileSrc={collaborationFeature.mobileImage}
                   alt={collaborationFeature.alt}
-                  loading="lazy"
-                  decoding="async"
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
@@ -393,6 +402,9 @@ export default function Home() {
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp"
                 alt="Amp builder assembling an Edwards amplifier chassis"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="aspect-[16/11] w-full object-cover"
               />
             </div>
@@ -486,10 +498,13 @@ export default function Home() {
 
         <motion.section {...sectionMotion} className="relative overflow-hidden border-y border-white/10">
           <div className="absolute inset-0">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
-              alt="Moody listening room with Edwards amplifier and guitar"
-              className="h-full w-full object-cover object-center opacity-20"
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
+                alt="Moody listening room with Edwards amplifier and guitar"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+                className="h-full w-full object-cover object-center opacity-20"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,7,0.84)_0%,rgba(8,8,7,0.92)_100%)]" />
           </div>
@@ -620,7 +635,13 @@ export default function Home() {
                           <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
                             {product.image ? (
                               <div className="aspect-[4/4.8] overflow-hidden border-b border-white/10 bg-black/40">
-                                <img src={product.image} alt={product.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                                <ResponsiveImage
+                                  desktopSrc={product.image}
+                                  mobileSrc={product.mobileImage || product.image}
+                                  alt={product.alt}
+                                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                                  pictureClassName="block h-full w-full"
+                                />
                               </div>
                             ) : (
                               <div className="flex aspect-[4/2.15] flex-col justify-between border-b border-white/10 bg-[radial-gradient(circle_at_78%_18%,rgba(196,157,92,0.15),transparent_38%),linear-gradient(135deg,rgba(34,29,24,0.88),rgba(7,7,6,0.96))] p-6">

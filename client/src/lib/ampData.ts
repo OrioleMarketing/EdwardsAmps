@@ -15,6 +15,7 @@ export type AmpProduct = {
   shortName: string;
   price: string;
   heroImage: string;
+  heroImageMobile: string;
   heroAlt: string;
   eyebrow: string;
   summary: string;
@@ -34,8 +35,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Elusive Overdrive',
     shortName: 'Elusive Overdrive',
     price: 'From $3,000 USD',
-    heroImage:
-      'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/elusive-overdrive-on-table-hero_a3fdf76a.png',
+    heroImage: '/manus-storage/elusive-overdrive-desktop_233d5f72.webp',
+    heroImageMobile: '/manus-storage/elusive-overdrive-mobile_578da0fe.webp',
     heroAlt: 'Edwards Elusive Overdrive amplifier staged on a wooden workbench',
     eyebrow: 'American clean to wild overdrive',
     summary:
@@ -85,7 +86,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,799 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/king-richard-large-stage_1a0319a2.png',
+    heroImage: '/manus-storage/king-richard-desktop_fac541b7.webp',
+    heroImageMobile: '/manus-storage/king-richard-mobile_ee8f5283.webp',
     heroAlt: 'Edwards King Richard amplifier staged on a large performance stage',
     eyebrow: 'British chime and authority',
     summary:
@@ -125,7 +127,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Hot Mama',
     shortName: 'Hot Mama',
     price: 'From $1,999 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/hot-mama-church-rehearsal_ece6a7bf.png',
+    heroImage: '/manus-storage/hot-mama-desktop_25bf73fd.webp',
+    heroImageMobile: '/manus-storage/hot-mama-mobile_a645f7cb.webp',
     heroAlt: 'Edwards Hot Mama combo amplifier staged in a warm church rehearsal room',
     eyebrow: 'Portable British sparkle',
     summary:
@@ -164,7 +167,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Double Dee Tweed',
     shortName: 'Double Dee Tweed',
     price: 'From $2,199 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/double-dee-coffee-shop_ffb42f11.png',
+    heroImage: '/manus-storage/double-dee-tweed-desktop_0737c2fa.webp',
+    heroImageMobile: '/manus-storage/double-dee-tweed-mobile_2e28879c.webp',
     heroAlt: 'Edwards Double Dee Tweed combo amplifier staged for an intimate coffee shop performance',
     eyebrow: 'Rootsy tweed character',
     summary:
@@ -203,7 +207,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'Lil Tyke Tweed Amp',
     shortName: 'Lil Tyke Tweed',
     price: 'From $1,499 USD',
-    heroImage: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/lil-tyke-home-writing-room_6ca542a9.png',
+    heroImage: '/manus-storage/lil-tyke-tweed-desktop_37c04d2e.webp',
+    heroImageMobile: '/manus-storage/lil-tyke-tweed-mobile_59078403.webp',
     heroAlt: 'Edwards Lil Tyke Tweed combo amplifier staged in an intimate home writing room',
     eyebrow: 'Small tweed combo format',
     summary:

@@ -5,6 +5,7 @@ copy, elegant spacing, and calm confidence. The page should sell the amp itself,
 */
 
 import { Button } from "@/components/ui/button";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { ampProducts, ampProductsBySlug } from "@/lib/ampData";
 import { ArrowLeft, ArrowRight, Music2, PhoneCall, ShoppingBag } from "lucide-react";
@@ -65,10 +66,13 @@ export default function AmpDetail({ slug }: { slug: string }) {
       <main>
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
-            <img
-              src={amp.heroImage}
+            <ResponsiveImage
+              desktopSrc={amp.heroImage}
+              mobileSrc={amp.heroImageMobile}
               alt={amp.heroAlt}
               className="h-full w-full object-cover object-center opacity-18"
+              pictureClassName="absolute inset-0 block"
+              priority
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,7,0.96)_0%,rgba(8,8,7,0.88)_48%,rgba(8,8,7,0.72)_100%)]" />
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
@@ -123,7 +127,14 @@ export default function AmpDetail({ slug }: { slug: string }) {
             <div className="relative ml-auto w-full max-w-2xl">
               <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_30%,rgba(196,157,92,0.08),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
                 <div className="relative aspect-[5/4] overflow-hidden border border-white/6 bg-black/20">
-                  <img src={amp.heroImage} alt={amp.heroAlt} className="h-full w-full object-cover object-center" />
+                  <ResponsiveImage
+                    desktopSrc={amp.heroImage}
+                    mobileSrc={amp.heroImageMobile}
+                    alt={amp.heroAlt}
+                    className="h-full w-full object-cover object-center"
+                    pictureClassName="block h-full w-full"
+                    priority
+                  />
                 </div>
               </div>
             </div>

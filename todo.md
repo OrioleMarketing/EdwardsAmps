@@ -109,5 +109,16 @@
 - [x] Update Shop pricing, product links, and customer-facing product listings to match the live Shopify catalog.
 - [x] Validate the revised catalog, cart links, and product-page ordering experience, then save a reviewable checkpoint.
 
-- [ ] Add a real cart entry point to new Shopify-only product pages instead of routing the cart control back to the Shop anchor.
-- [ ] Validate adding a Shopify-only product to cart and reaching checkout from its product page, then save a fresh checkpoint.
+- [x] Add a real cart entry point to new Shopify-only product pages instead of routing the cart control back to the Shop anchor.
+- [x] Validate adding a Shopify-only product to cart and reaching checkout from its product page, then save a fresh checkpoint.
+
+- [ ] Complete the Shopify-only product add-to-cart and checkout-path test once at least one new Shopify-only item is marked available for sale in Shopify.
+- [ ] Save a fresh checkpoint after the explicit Shopify-only product-ordering flow is verified.
+
+- [x] Confirm that the current new Shopify-only products are unavailable for sale and validate their disabled purchase state plus access to the on-site cart.
+
+- [ ] Audit mobile-facing image sources and asset sizes to identify the causes of slow-loading image areas.
+- [ ] Add mobile-appropriate image loading, rendering, and placeholder behavior so images do not create perceived blank gaps.
+- [ ] Validate the improved image-loading experience at a mobile viewport and save a reviewable checkpoint.
+
+- [ ] Configure the project storage proxy so the uploaded optimized image assets can be served safely from the site.
