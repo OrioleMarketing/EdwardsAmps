@@ -7,6 +7,7 @@ type ResponsiveImageProps = {
   className: string;
   pictureClassName?: string;
   priority?: boolean;
+  loadingStrategy?: "eager" | "lazy";
 };
 
 export default function ResponsiveImage({
@@ -16,6 +17,7 @@ export default function ResponsiveImage({
   className,
   pictureClassName = "block",
   priority = false,
+  loadingStrategy,
 }: ResponsiveImageProps) {
   const imageRef = useRef<HTMLImageElement>(null);
   const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
@@ -37,9 +39,9 @@ export default function ResponsiveImage({
           src={desktopSrc}
           alt={alt}
           className={className}
-          loading={priority ? "eager" : "lazy"}
+          loading={loadingStrategy ?? (priority ? "eager" : "lazy")}
           decoding="async"
-          fetchPriority={priority ? "high" : "low"}
+          fetchPriority={priority || loadingStrategy === "eager" ? "high" : "low"}
           onLoad={() => setStatus("loaded")}
           onError={() => setStatus("error")}
         />

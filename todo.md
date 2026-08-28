@@ -126,3 +126,9 @@
 - [x] Add a subtle mobile-friendly loading animation or skeleton placeholder to responsive image frames.
 - [x] Validate the refined loading state at a mobile viewport, run automated checks, and save a reviewable checkpoint.
 - [ ] Push the completed image optimization and loading-state changes to OrioleMarketing/edwardsamps and verify the remote main branch.
+
+- [x] Adjust mobile image scheduling so near-viewport sections begin loading before the visitor reaches them instead of deferring all imagery with lazy loading.
+- [x] Reconcile the merged per-product cart loading API across the homepage, product pages, and cart page so the storefront type-checks again.
+- [ ] Validate the accelerated mobile loading sequence, cart behavior, production build, and GitHub synchronization in a fresh checkpoint.
+
+- [x] Remove opacity-hidden mobile section entry states so scroll-triggered animations cannot leave content-shaped blank areas while imagery loads.

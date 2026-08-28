@@ -6,9 +6,9 @@ import { ArrowLeft, ArrowRight, Minus, Plus, ShoppingBag } from "lucide-react";
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
 
 export default function CartPage() {
-  const { addToCart, cart, isAddingToCart, isCartLoading, isUpdatingCart, productsByKey, updateCartLine } = useShopifyCart();
+  const { addToCart, cart, isAddingProductToCart, isCartLoading, isUpdatingCart, productsByKey, updateCartLine } = useShopifyCart();
   const lines = cart?.lines ?? [];
-  const isBusy = isAddingToCart || isUpdatingCart;
+  const isBusy = isUpdatingCart;
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
@@ -59,6 +59,7 @@ export default function CartPage() {
                   const liveProduct = product ? productsByKey[product.key] : undefined;
                   const title = liveProduct?.name ?? line.productTitle;
                   const productPath = product ? getProductDetailPath(product) : "/#shop";
+                  const isAddingProduct = product ? isAddingProductToCart(product.key) : false;
 
                   return (
                     <article key={line.id} className="border border-white/10 bg-card/45 p-5 sm:p-6">
@@ -92,7 +93,7 @@ export default function CartPage() {
                             aria-label={`Increase quantity for ${title}`}
                             className="inline-flex h-10 w-10 items-center justify-center border-l border-white/10 text-foreground transition-colors hover:text-primary disabled:text-foreground/30"
                             onClick={() => product && addToCart(product.key)}
-                            disabled={isBusy || !product}
+                            disabled={isBusy || isAddingProduct || !product}
                           >
                             <Plus className="h-4 w-4" />
                           </button>

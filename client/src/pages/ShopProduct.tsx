@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
-import { ArrowLeft, ArrowRight, Music2, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2, Music2, ShoppingBag } from "lucide-react";
 import { SHOPIFY_PRODUCT_OPTIONS_BY_HANDLE } from "@shared/shopifyCatalog";
 
 export default function ShopProduct({ handle }: { handle: string }) {
   const product = SHOPIFY_PRODUCT_OPTIONS_BY_HANDLE[handle];
-  const { addToCart, cart, isAddingToCart, isCatalogLoading, productsByKey } = useShopifyCart();
+  const { addToCart, cart, isAddingProductToCart, isCatalogLoading, productsByKey } = useShopifyCart();
 
   if (!product) {
     return null;
@@ -15,6 +15,7 @@ export default function ShopProduct({ handle }: { handle: string }) {
   const title = liveProduct?.name ?? product.displayName;
   const priceLabel = liveProduct?.priceLabel ?? product.fallbackPriceLabel;
   const isAvailable = liveProduct?.availableForSale ?? !isCatalogLoading;
+  const isAddingProduct = isAddingProductToCart(product.key);
   const cartCount = cart?.totalQuantity ?? 0;
 
   return (
@@ -73,10 +74,10 @@ export default function ShopProduct({ handle }: { handle: string }) {
                 <Button
                   className="rounded-none border border-primary/50 bg-primary px-6 py-6 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
                   onClick={() => addToCart(product.key)}
-                  disabled={!isAvailable || isAddingToCart}
+                  disabled={!isAvailable || isAddingProduct}
                 >
-                  <ShoppingBag className="mr-2 h-4 w-4" />
-                  {isAvailable ? "Add to cart" : "Unavailable"}
+                  {isAddingProduct ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
+                  {!isAvailable ? "Unavailable" : isAddingProduct ? "Adding…" : "Add to cart"}
                 </Button>
                 <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-6 py-6 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
                   <a href="/#shop">

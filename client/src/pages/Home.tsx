@@ -5,7 +5,7 @@ print-catalog pacing, tone-led product discovery, and tactile boutique craftsman
 Does each choice reinforce the custom-shop atmosphere rather than a generic marketing site?
 */
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -22,7 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ArrowRight, Gauge, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
+import { ArrowRight, Gauge, Loader2, Menu, Minus, Music2, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Wrench, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
 import ResponsiveImage from "@/components/ResponsiveImage";
@@ -124,25 +124,44 @@ const collaborationFeature = {
 
 const elusiveOverdrive = ampProducts.find((amp) => amp.slug === "elusive-overdrive");
 
+const nextSectionImageSources = [
+  "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp",
+  "/manus-storage/jon-kammerer-elusive-crossbrand-mobile_402c234e.webp",
+  "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp",
+  "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp",
+];
+
 const sectionMotion = {
-  initial: { opacity: 0, y: 32 },
+  initial: false,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
 };
 
 export default function Home() {
-  const { addToCart, cart, isAddingToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
+  const { addToCart, cart, isAddingProductToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const cartLines = cart?.lines ?? [];
   const cartCount = cart?.totalQuantity ?? 0;
   const cartSubtotalLabel = cart?.subtotalLabel ?? "$0";
-  const isCartBusy = isAddingToCart || isUpdatingCart;
+  const isCartBusy = isUpdatingCart;
 
   const liveProductsByHandle = useMemo(
     () => Object.fromEntries(liveShopifyProducts.map((product) => [product.handle, product])) as Record<string, (typeof liveShopifyProducts)[number]>,
     [liveShopifyProducts],
   );
+
+  useEffect(() => {
+    const warmUpcomingVisuals = window.setTimeout(() => {
+      nextSectionImageSources.forEach((src) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+      });
+    }, 600);
+
+    return () => window.clearTimeout(warmUpcomingVisuals);
+  }, []);
 
   return (
     <Sheet>
@@ -630,6 +649,7 @@ export default function Home() {
                       {products.map((product) => {
                         const liveProduct = productsByKey[product.id];
                         const isAvailable = liveProduct?.availableForSale ?? true;
+                        const isAddingProduct = isAddingProductToCart(product.id);
 
                         return (
                           <article key={product.id} className="group flex h-full flex-col border border-white/10 bg-card/55 transition-colors duration-500 hover:border-primary/35 hover:bg-card">
@@ -663,10 +683,10 @@ export default function Home() {
                                 <Button
                                   className="rounded-none border border-primary/50 bg-primary px-5 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-foreground/45"
                                   onClick={() => addToCart(product.id)}
-                                  disabled={!isAvailable || isCartBusy}
+                                  disabled={!isAvailable || isCartBusy || isAddingProduct}
                                 >
-                                  <ShoppingBag className="mr-2 h-4 w-4" />
-                                  {isAvailable ? "Add to cart" : "Unavailable"}
+                                  {isAddingProduct ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <ShoppingBag className="mr-2 h-4 w-4" />}
+                                  {!isAvailable ? "Unavailable" : isAddingProduct ? "Adding…" : "Add to cart"}
                                 </Button>
                                 <Button asChild variant="outline" className="rounded-none border border-white/15 bg-transparent px-5 py-5 text-[0.7rem] uppercase tracking-[0.22em] text-foreground hover:border-primary/40 hover:text-primary">
                                   <a href={getProductDetailPath(product)}>View product</a>
