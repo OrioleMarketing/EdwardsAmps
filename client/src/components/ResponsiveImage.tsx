@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 type ResponsiveImageProps = {
   desktopSrc: string;
   mobileSrc?: string;
@@ -15,17 +17,33 @@ export default function ResponsiveImage({
   pictureClassName = "block",
   priority = false,
 }: ResponsiveImageProps) {
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [status, setStatus] = useState<"loading" | "loaded" | "error">("loading");
+
+  useEffect(() => {
+    setStatus("loading");
+    if (imageRef.current?.complete) {
+      setStatus(imageRef.current.naturalWidth > 0 ? "loaded" : "error");
+    }
+  }, [desktopSrc, mobileSrc]);
+
   return (
-    <picture className={pictureClassName}>
-      {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} type="image/webp" /> : null}
-      <img
-        src={desktopSrc}
-        alt={alt}
-        className={className}
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
-        fetchPriority={priority ? "high" : "low"}
-      />
-    </picture>
+    <span className={`image-loading-shell ${pictureClassName}`} data-loaded={status !== "loading"}>
+      <span className="image-loading-shimmer" aria-hidden="true" />
+      <picture className="block h-full w-full">
+        {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} type="image/webp" /> : null}
+        <img
+          ref={imageRef}
+          src={desktopSrc}
+          alt={alt}
+          className={className}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "low"}
+          onLoad={() => setStatus("loaded")}
+          onError={() => setStatus("error")}
+        />
+      </picture>
+    </span>
   );
 }

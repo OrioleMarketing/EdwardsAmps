@@ -117,8 +117,12 @@
 
 - [x] Confirm that the current new Shopify-only products are unavailable for sale and validate their disabled purchase state plus access to the on-site cart.
 
-- [ ] Audit mobile-facing image sources and asset sizes to identify the causes of slow-loading image areas.
-- [ ] Add mobile-appropriate image loading, rendering, and placeholder behavior so images do not create perceived blank gaps.
-- [ ] Validate the improved image-loading experience at a mobile viewport and save a reviewable checkpoint.
+- [x] Audit mobile-facing image sources and asset sizes to identify the causes of slow-loading image areas.
+- [x] Add mobile-appropriate image loading, rendering, and placeholder behavior so images do not create perceived blank gaps.
+- [x] Validate the improved image-loading experience at a mobile viewport and save a reviewable checkpoint.
 
-- [ ] Configure the project storage proxy so the uploaded optimized image assets can be served safely from the site.
+- [x] Configure the project storage proxy so the uploaded optimized image assets can be served safely from the site.
+
+- [x] Add a subtle mobile-friendly loading animation or skeleton placeholder to responsive image frames.
+- [x] Validate the refined loading state at a mobile viewport, run automated checks, and save a reviewable checkpoint.
+- [ ] Push the completed image optimization and loading-state changes to OrioleMarketing/edwardsamps and verify the remote main branch.
