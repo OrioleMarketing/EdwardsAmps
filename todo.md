@@ -152,5 +152,14 @@
 - [x] Audit all current Shopify products and document which ones already have dedicated website imagery versus generic or placeholder treatment.
 - [x] Produce a product-by-product uncovered-visual inventory before starting further image research or image placement.
 
-- [ ] Diagnose and repair the broken approved staged-image delivery visible on EdwardsAmps.com, beginning with the Elusive Overdrive hero image.
-- [ ] Verify the repaired staged image delivery on EdwardsAmps.com at desktop and mobile sizes before resuming client-image research.
+- [x] Diagnose and repair the broken approved staged-image delivery visible on EdwardsAmps.com, beginning with the Elusive Overdrive hero image.
+- [x] Verify the repaired staged image delivery on EdwardsAmps.com at desktop and mobile sizes before resuming client-image research.
+
+- [x] Build accurate customer-facing pedal information from the supplied client blurbs, retaining only supported claims and control details for each pedal.
+- [x] Integrate the supplied pedal information into the corresponding customer-facing storefront product pages and preparation materials for Shopify.
+- [x] Select, optimize, and apply only clearly matched client imagery for Princess Reverb, effects pedals, apparel, and other uncovered products.
+- [ ] Prepare the resulting confirmed product imagery and descriptions for Shopify publication after Admin authorization and final production confirmation.
+- [x] Confirm the direct-CDN mobile image sources selected by EdwardsAmps.com return valid WebP content for the hero and all staged amplifier pages.
+- [x] Confirm a representative non-Elusive staged amplifier page renders its approved scene on EdwardsAmps.com after the production deployment.
+- [x] Verify the public homepage markup exposes the direct mobile Elusive Overdrive hero source after the CDN repair.
+- [x] Verify every staged legacy amplifier page on EdwardsAmps.com exposes its expected mobile direct-CDN source in production markup.

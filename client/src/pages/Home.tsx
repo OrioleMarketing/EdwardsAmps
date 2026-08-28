@@ -43,9 +43,10 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     priceLabel: product.fallbackPriceLabel,
     priceValue: product.fallbackPriceValue,
     description: product.description,
-    image: amp?.heroImage ?? "",
-    mobileImage: amp?.heroImageMobile ?? "",
-    alt: amp?.heroAlt ?? product.displayName,
+    image: amp?.heroImage ?? product.image ?? "",
+    mobileImage: amp?.heroImageMobile ?? product.image ?? "",
+    alt: amp?.heroAlt ?? product.imageAlt ?? product.displayName,
+    imageFit: amp ? "cover" : product.imageFit ?? "cover",
   };
 });
 
@@ -659,7 +660,7 @@ export default function Home() {
                                   desktopSrc={product.image}
                                   mobileSrc={product.mobileImage || product.image}
                                   alt={product.alt}
-                                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                                  className={`h-full w-full ${product.imageFit === "contain" ? "object-contain p-3" : "object-cover"} transition-transform duration-700 group-hover:scale-[1.03]`}
                                   pictureClassName="block h-full w-full"
                                 />
                               </div>
