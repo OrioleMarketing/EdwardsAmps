@@ -40,7 +40,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
-              className="h-[39.6px] w-auto sm:h-[44px]"
+              className="h-8 w-auto sm:h-[44px]"
             />
           </a>
 

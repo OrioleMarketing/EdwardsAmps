@@ -20,7 +20,7 @@ export default function CartPage() {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
-              className="h-[39.6px] w-auto sm:h-[44px]"
+              className="h-8 w-auto sm:h-[44px]"
             />
           </a>
           <a href="/#shop" className="text-[0.7rem] uppercase tracking-[0.22em] text-foreground/68 transition-colors hover:text-primary">
@@ -126,6 +126,23 @@ export default function CartPage() {
           </aside>
         </div>
       </main>
+
+      <footer className="border-t border-white/10 bg-[#0a0908]">
+        <div className="container flex flex-col gap-8 py-10 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              alt="Edwards Amplification"
+              className="h-11 w-auto sm:h-[52.8px]"
+            />
+            <p className="mt-4 max-w-md text-sm leading-6 text-foreground/55">Hand-built guitar amplifiers and pedals for players who want feel, range, and musical response.</p>
+          </div>
+          <div className="text-sm leading-7 text-foreground/52 sm:text-right">
+            <a href="tel:+12566048721" className="block transition-colors hover:text-primary">(256) 604-8721</a>
+            <p>© {new Date().getFullYear()} Edwards Amplification</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

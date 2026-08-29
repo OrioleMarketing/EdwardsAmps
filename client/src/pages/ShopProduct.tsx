@@ -32,7 +32,7 @@ export default function ShopProduct({ handle }: { handle: string }) {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
-              className="h-[39.6px] w-auto sm:h-[44px]"
+              className="h-8 w-auto sm:h-[44px]"
             />
           </a>
           <a href="/cart" className="inline-flex items-center gap-2 border border-white/15 bg-card/80 px-4 py-3 text-[0.7rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/40 hover:text-primary">

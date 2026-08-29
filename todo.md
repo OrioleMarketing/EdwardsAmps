@@ -186,3 +186,8 @@
 
 - [x] Restore the faithful Edwards Amplification logo asset, including the AMPLIFICATION oval, to all product-page headers and footers.
 - [x] Verify the restored product-page logo at desktop and mobile sizes before publishing.
+
+- [x] Apply the faithful Edwards Amplification logo to the cart-page header and footer, matching product and homepage branding.
+- [x] Add a compact mobile logo presentation that preserves the complete original mark and AMPLIFICATION oval.
+- [x] Add a favicon derived from the original Edwards mark and verify it is referenced by the storefront HTML.
+- [x] Validate cart-page and mobile branding across the storefront before publishing.
