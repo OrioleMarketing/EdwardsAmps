@@ -6,6 +6,8 @@ const cartPagePath = fileURLToPath(new URL("../client/src/pages/CartPage.tsx", i
 const homePagePath = fileURLToPath(new URL("../client/src/pages/Home.tsx", import.meta.url));
 const indexHtmlPath = fileURLToPath(new URL("../client/index.html", import.meta.url));
 const faviconPath = fileURLToPath(new URL("../client/public/favicon.png", import.meta.url));
+const faviconIcoPath = fileURLToPath(new URL("../client/public/favicon.ico", import.meta.url));
+const appleTouchIconPath = fileURLToPath(new URL("../client/public/apple-touch-icon.png", import.meta.url));
 const faithfulLogoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png";
 
 describe("storefront brand identity", () => {
@@ -24,10 +26,14 @@ describe("storefront brand identity", () => {
     expect(cartSource).toContain('className="h-8 w-auto sm:h-[44px]"');
   });
 
-  it("ships a derived Edwards favicon and references it from the page head", () => {
+  it("ships a derived Edwards favicon in browser-compatible formats and references each from the page head", () => {
     const indexHtml = readFileSync(indexHtmlPath, "utf8");
 
     expect(existsSync(faviconPath)).toBe(true);
+    expect(existsSync(faviconIcoPath)).toBe(true);
+    expect(existsSync(appleTouchIconPath)).toBe(true);
+    expect(indexHtml).toContain('rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any"');
     expect(indexHtml).toContain('rel="icon" type="image/png" sizes="128x128" href="/favicon.png"');
+    expect(indexHtml).toContain('rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png"');
   });
 });

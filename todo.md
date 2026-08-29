@@ -191,3 +191,9 @@
 - [x] Add a compact mobile logo presentation that preserves the complete original mark and AMPLIFICATION oval.
 - [x] Add a favicon derived from the original Edwards mark and verify it is referenced by the storefront HTML.
 - [x] Validate cart-page and mobile branding across the storefront before publishing.
+
+- [ ] Repair the public favicon configuration so browsers use an Edwards-derived icon instead of the default globe.
+- [ ] Verify favicon discovery and display from the rendered public site after publishing.
+
+- [ ] Synchronize the latest favicon and storefront changes to the external Vercel deployment; EdwardsAmps.com currently returns its HTML fallback for both favicon paths and contains no icon link.
+- [x] Add browser-compatible `.ico` and Apple touch icon fallbacks alongside the existing PNG favicon before public verification.
