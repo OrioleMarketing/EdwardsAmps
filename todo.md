@@ -183,3 +183,6 @@
 
 - [x] Relabel the Apparel category as Merch and position it last in both the Shop filter controls and full collection order.
 - [x] Replace the remaining customer-facing Apparel group and result-count labels with Merch while retaining Apparel only as the internal Shopify product group value.
+
+- [x] Restore the faithful Edwards Amplification logo asset, including the AMPLIFICATION oval, to all product-page headers and footers.
+- [x] Verify the restored product-page logo at desktop and mobile sizes before publishing.
