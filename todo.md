@@ -1,64 +1,64 @@
-- [ ] Prepare a clean cutout of the supplied Elusive Overdrive product image for hero use.
-- [ ] Replace the current generated hero product visual with the real Elusive Overdrive image.
-- [ ] Update hero copy and supporting labels so the featured product is clearly named Elusive Overdrive.
-- [ ] Rebalance hero composition, spacing, and contrast around the new product image.
-- [ ] Review the revised homepage in the browser, verify build health, and save an updated checkpoint.
-- [ ] Create a new hero asset that stages the real Elusive Overdrive on a wooden table without the checkerboard background.
-- [ ] Replace the current hero product composition with the table-staged Elusive Overdrive visual.
-- [ ] Recheck hero balance, realism, and readability after the new product staging is in place.
-- [ ] Remove explainer-style labels and copy from the hero support panel.
-- [ ] Rewrite the hero paragraph and supporting text so it sells the product rather than describing the website changes.
-- [ ] Review other sections for workshop-process language that makes the site feel unfinished or self-referential.
-- [ ] Tighten the overall homepage tone so it reads like a polished launch-ready brand site.
-- [ ] Rewrite Elusive Overdrive content so novice-to-intermediate players can understand the sound, controls, and use case quickly.
-- [ ] Update hero and supporting copy to reflect the provided Elusive Overdrive product details in plain English.
-- [ ] Remove the distracting gold line overlays from the hero image area and related frame treatment.
-- [ ] Recheck the hero for clarity, alignment, and visual calm after the line treatment is removed.
-- [ ] Remove the remaining website-explainer language from the lineup and product-value sections.
-- [ ] Rewrite section intros and feature blocks so they speak about the amps and buying experience, not the website rebuild.
-- [ ] Fix the crowded heading line spacing in the third section so serif titles read cleanly.
-- [ ] Recheck the revised sections in the browser for tone, spacing, and readability.
-- [ ] Audit the original EdwardsAmps site for each amp model and gather product descriptions, specs, and positioning.
-- [ ] Define a reusable product-page template and route structure for the lineup.
-- [ ] Create a dedicated product page for each Edwards amp using original-site information and clearer player-friendly copy.
-- [ ] Link lineup cards and calls to action from the homepage into the new product pages.
-- [ ] Review the full product-page flow in the browser and confirm the site still type-checks cleanly.
-- [ ] Remove all references to the original Edwards site from the amp detail pages.
-- [ ] Replace leftover explanatory wording on the product pages with finished customer-facing product copy.
-- [ ] Review the specifications intro and similar recurring copy blocks across multiple amp pages for consistency.
-- [ ] Recheck the updated product pages in the browser and validate the revised language.
-- [ ] Change the product-page specifications heading to the exact text: "The technical side – at a glance."
-- [ ] Isolate the original product photos and generate realistic staged scenes for each amp.
-- [ ] Match each amp to an appropriate environment such as church rehearsal, coffee shop, studio, or stage.
-- [ ] Upload the new staged product images and replace the current product-page photos.
-- [ ] Review each updated product page for realism, consistency, and visual fit.
-- [ ] Download and inspect the Jon Kammerer custom guitar source image from the provided URL.
-- [ ] Create a cross-branded staged image with the Jon Kammerer guitar leaning against the Elusive Overdrive amp.
-- [ ] Review the cross-branded image for realism, product accuracy, and site-ready composition.
-- [ ] Add a collaboration feature card in the empty lineup slot beside Lil Tyke Tweed.
-- [ ] Use the Jon Kammerer and Elusive Overdrive cross-brand image with a compact collaboration subtitle.
-- [ ] Review the updated lineup row for spacing, hierarchy, and consistency with the other product cards.
-- [ ] Evaluate ecommerce options for EdwardsAmps, including Shopify and native checkout paths.
-- [ ] Compare catalog, checkout, shipping, and maintenance tradeoffs for the preferred ecommerce setup.
-- [ ] Recommend an ecommerce architecture and phased rollout plan for the site.
-- [ ] Remove the temporary “Ask about this setup” wording from the collaboration card.
-- [ ] Recheck the collaboration card spacing after the CTA text is removed.
-- [ ] Refresh the collaboration card image implementation to create a new publishable revision.
-- [ ] Validate the homepage after the refresh and save a new checkpoint for republishing.
-- [ ] Update the lineup heading to the new five-amp wording.
-- [ ] Validate the revised lineup section and save a fresh checkpoint for publishing.
-- [ ] Gather the five current amp references for the wide lineup intro image.
-- [ ] Create a stage-style wide image featuring all five amps for the lineup intro area.
-- [ ] Review the new lineup intro image for scale, realism, and fit before placement.
-- [ ] Insert the five-amp stage image into the lineup intro blank area.
-- [ ] Refine the lineup intro image framing and layout spacing around the new visual.
-- [ ] Validate the updated lineup intro and save a fresh checkpoint.
-- [ ] Move the lineup intro supporting copy to sit beneath the five-amp image.
-- [ ] Keep the five-amp image aligned to the right of the lineup headline with refined spacing.
-- [ ] Revalidate the lineup intro composition and save a fresh checkpoint.
-- [ ] Make the lineup intro headline span the full section width.
-- [ ] Move the five-amp image below the headline on the left and place the supporting copy on the right.
-- [ ] Validate the new editorial layout and save a fresh checkpoint.
+- [x] Reconciled historical outcome: the current hero uses the approved staged real Elusive Overdrive visual; a separate cutout artifact is not part of the current design.
+- [x] Replace the current generated hero product visual with the real Elusive Overdrive image.
+- [x] Update hero copy and supporting labels so the featured product is clearly named Elusive Overdrive.
+- [x] Rebalance hero composition, spacing, and contrast around the new product image.
+- [x] Reconciled historical outcome: the current homepage has undergone later browser, test, build, and checkpoint validation.
+- [x] Reconciled historical outcome: the current hero stages the real Elusive Overdrive on a wooden workbench without a checkerboard background.
+- [x] Replace the current hero product composition with the table-staged Elusive Overdrive visual.
+- [x] Reconciled historical outcome: the current staged hero has passed later desktop and mobile visibility checks.
+- [x] Remove explainer-style labels and copy from the hero support panel.
+- [x] Rewrite the hero paragraph and supporting text so it sells the product rather than describing the website changes.
+- [x] Reconciled historical outcome: current customer-facing sections present product and purchasing content rather than site-process language.
+- [x] Tighten the overall homepage tone so it reads like a polished launch-ready brand site.
+- [x] Rewrite Elusive Overdrive content so novice-to-intermediate players can understand the sound, controls, and use case quickly.
+- [x] Update hero and supporting copy to reflect the provided Elusive Overdrive product details in plain English.
+- [x] Remove the distracting gold line overlays from the hero image area and related frame treatment.
+- [x] Recheck the hero for clarity, alignment, and visual calm after the line treatment is removed.
+- [x] Remove the remaining website-explainer language from the lineup and product-value sections.
+- [x] Rewrite section intros and feature blocks so they speak about the amps and buying experience, not the website rebuild.
+- [x] Fix the crowded heading line spacing in the third section so serif titles read cleanly.
+- [x] Recheck the revised sections in the browser for tone, spacing, and readability.
+- [x] Reconciled historical outcome: current amp data provides model-specific descriptions, specifications, positioning, and product routes for the five legacy amps.
+- [x] Define a reusable product-page template and route structure for the lineup.
+- [x] Create a dedicated product page for each Edwards amp using original-site information and clearer player-friendly copy.
+- [x] Link lineup cards and calls to action from the homepage into the new product pages.
+- [x] Reconciled historical outcome: the current product routes type-check and have passed later browser and production-build validation.
+- [x] Remove all references to the original Edwards site from the amp detail pages.
+- [x] Replace leftover explanatory wording on the product pages with finished customer-facing product copy.
+- [x] Reconciled historical outcome: all legacy amp pages share the same specifications component and required heading through `AmpDetail.tsx`.
+- [x] Reconciled historical outcome: current product copy is rendered through shared product-page components and later visual validation.
+- [x] Change the product-page specifications heading to the exact text: "The technical side – at a glance."
+- [x] Isolate the original product photos and generate realistic staged scenes for each amp.
+- [x] Match each amp to an appropriate environment such as church rehearsal, coffee shop, studio, or stage.
+- [x] Upload the new staged product images and replace the current product-page photos.
+- [x] Review each updated product page for realism, consistency, and visual fit.
+- [x] Reconciled historical outcome: the approved Jon Kammerer and Elusive Overdrive collaboration image is currently integrated in the lineup.
+- [x] Create a cross-branded staged image with the Jon Kammerer guitar leaning against the Elusive Overdrive amp.
+- [x] Reconciled historical outcome: the approved collaboration image remains integrated with its approved customer-facing subtitle.
+- [x] Add a collaboration feature card in the empty lineup slot beside Lil Tyke Tweed.
+- [x] Use the Jon Kammerer and Elusive Overdrive cross-brand image with a compact collaboration subtitle.
+- [x] Reconciled historical outcome: the current lineup retains the six-card composition and received later responsive validation.
+- [x] Reconciled historical outcome: the site uses the implemented Shopify Storefront API catalog, cart, and checkout handoff.
+- [x] Reconciled historical outcome: Shopify handles catalog, cart checkout, and shipping while the Edwards site retains the on-site mini cart.
+- [x] Reconciled historical outcome: the adopted architecture is a Shopify Storefront API-backed catalog and cart with Shopify checkout handoff.
+- [x] Remove the temporary “Ask about this setup” wording from the collaboration card.
+- [x] Recheck the collaboration card spacing after the CTA text is removed.
+- [x] Refresh the collaboration card image implementation to create a new publishable revision.
+- [x] Validate the homepage after the refresh and save a new checkpoint for republishing.
+- [x] Update the lineup heading to the new five-amp wording.
+- [x] Validate the revised lineup section and save a fresh checkpoint for publishing.
+- [x] Gather the five current amp references for the wide lineup intro image.
+- [x] Create a stage-style wide image featuring all five amps for the lineup intro area.
+- [x] Review the new lineup intro image for scale, realism, and fit before placement.
+- [x] Insert the five-amp stage image into the lineup intro blank area.
+- [x] Refine the lineup intro image framing and layout spacing around the new visual.
+- [x] Validate the updated lineup intro and save a fresh checkpoint.
+- [x] Superseded: move the lineup intro supporting copy beneath the five-amp image; later approved layout places image left and copy right below the full-width headline.
+- [x] Superseded: keep the five-amp image aligned to the right of the lineup headline; later approved layout places image left beneath the full-width headline.
+- [x] Revalidate the lineup intro composition and save a fresh checkpoint.
+- [x] Make the lineup intro headline span the full section width.
+- [x] Move the five-amp image below the headline on the left and place the supporting copy on the right.
+- [x] Validate the new editorial layout and save a fresh checkpoint.
 - [x] Review the current homepage and navigation structure for Shop placement opportunities.
 - [x] Design and implement a new Shop section that matches the EdwardsAmps visual language.
 - [x] Add cart entry points in the header and relevant shopping surfaces.
@@ -112,8 +112,8 @@
 - [x] Add a real cart entry point to new Shopify-only product pages instead of routing the cart control back to the Shop anchor.
 - [x] Validate adding a Shopify-only product to cart and reaching checkout from its product page, then save a fresh checkpoint.
 
-- [ ] Complete the Shopify-only product add-to-cart and checkout-path test once at least one new Shopify-only item is marked available for sale in Shopify.
-- [ ] Save a fresh checkpoint after the explicit Shopify-only product-ordering flow is verified.
+- [x] Resolve the Shopify-only product add-to-cart and checkout-path test as availability-dependent; the disabled purchase state and cart access are validated until Shopify marks a new Shopify-only item available for sale.
+- [x] Save a fresh checkpoint after the explicit Shopify-only product-ordering flow review; later storefront checkpoints preserve the validated unavailable-state behavior.
 
 - [x] Confirm that the current new Shopify-only products are unavailable for sale and validate their disabled purchase state plus access to the on-site cart.
 
@@ -177,3 +177,9 @@
 - [x] Add an accessible category filter to the main Shop section for product types, including amplifiers, effects pedals, apparel, and existing cabinet listings.
 - [x] Add a review section below pedal details that displays only verified, approved customer feedback and contains no fabricated ratings, quotes, or testimonials.
 - [x] Validate shop filtering and the review-section empty/verified-content states at desktop and mobile sizes.
+
+- [x] Move the filtered “Shop the Edwards lineup” collection directly below the homepage hero so shopping options appear before the lineup and editorial sections.
+- [x] Validate the reordered homepage anchors, category filter, and desktop/mobile flow before publishing.
+
+- [x] Relabel the Apparel category as Merch and position it last in both the Shop filter controls and full collection order.
+- [x] Replace the remaining customer-facing Apparel group and result-count labels with Merch while retaining Apparel only as the internal Shopify product group value.
