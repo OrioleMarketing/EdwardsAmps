@@ -133,20 +133,30 @@
 
 - [x] Remove opacity-hidden mobile section entry states so scroll-triggered animations cannot leave content-shaped blank areas while imagery loads.
 
-- [ ] Inventory the client-supplied labeled product photographs and identify the strongest asset for each relevant storefront item.
-- [ ] Map the selected client images to Princess Reverb, effects pedals, apparel, and related Shopify product pages and Shop cards.
-- [ ] Optimize and integrate the approved client photography into the website’s customer-facing product listings and detail pages.
-- [ ] Validate the refreshed product presentation at desktop and mobile sizes, then save a reviewable checkpoint.
+- [x] Inventory the client-supplied labeled product photographs and identify the strongest asset for each relevant storefront item.
+- [x] Map the selected client images to Princess Reverb, effects pedals, apparel, and related Shopify product pages and Shop cards.
+- [x] Optimize and integrate the approved client photography into the website’s customer-facing product listings and detail pages.
+- [x] Validate the refreshed product presentation at desktop and mobile sizes, then save a reviewable checkpoint.
 
-- [ ] Verify Shopify administration access for product image and description updates without exposing credentials.
-- [ ] Prepare product-accurate images and customer-facing descriptions for the affected Shopify product catalog.
-- [ ] Present the product-to-image and description mapping for confirmation before publishing changes to Shopify.
-- [ ] Publish the confirmed images and descriptions to the relevant Shopify products and verify the resulting catalog entries.
+- [x] Verify Shopify administration access for product image and description updates without exposing credentials.
+- [x] Resolve the apparent Shopify Admin credential mismatch: Shopify returns `nj1se1-w0.myshopify.com` as the canonical Admin identity for the confirmed Edwards Amplification store.
+- [x] Verify a read-only Admin identity query returns the confirmed Edwards Amplification shop name and its canonical Admin domain before any Shopify product write.
+- [x] Diagnose the blank Shopify OAuth authorization page encountered while connecting the Shopify integration.
+- [x] Confirm the correct Shopify authorization request includes the required redirect destination and targets the Edwards Amplification shop.
+- [x] Stop repeated Shopify credential entry and diagnose why the project still authenticates to `nj1se1-w0.myshopify.com` despite the active `store-access-2` app configuration.
+- [x] Provide one evidence-based remediation step for the Shopify app/store association before requesting any further user action.
+- [x] Verify the existing active `store-access-2` app is already installed on `edwards-amplification.myshopify.com`; the canonical Admin domain differs from the storefront subdomain.
+- [x] Verify the app log and read-only Admin identity resolve to Edwards Amplification before any catalog write.
+- [x] Reconcile the confirmed `store-access-2` install on Edwards Amplification with the incorrect `nj1se1-w0` identity returned by the project’s Admin request; do not ask for further credential entry or installation changes until this is diagnosed.
+- [x] Update the Shopify Admin validation to recognize `nj1se1-w0.myshopify.com` as the canonical domain returned for the confirmed Edwards Amplification store while continuing to use `edwards-amplification.myshopify.com` as its storefront endpoint.
+- [x] Prepare product-accurate images and customer-facing descriptions for the affected Shopify product catalog.
+- [x] Present the product-to-image and description mapping for confirmation before publishing changes to Shopify.
+- [x] Publish the confirmed images and descriptions to the relevant Shopify products and verify the resulting catalog entries.
 
 - [x] Restore the previously approved staged real-product amplifier imagery on all existing amp detail pages and protect those mappings from replacement.
 - [x] Identify only the products without dedicated approved visuals, including Princess Reverb, pedals, and apparel, for use of the newly supplied client photography.
-- [ ] Update the Shop and new product pages with selected client imagery without replacing any restored staged amplifier visuals.
-- [ ] Validate the restored and expanded imagery system at desktop and mobile sizes, then save a reviewable checkpoint.
+- [x] Update the Shop and new product pages with selected client imagery without replacing any restored staged amplifier visuals.
+- [x] Validate the restored and expanded imagery system at desktop and mobile sizes, then save a reviewable checkpoint.
 
 - [x] Restore the approved staged amplifier imagery now, then verify the current product catalog for items that still lack dedicated website visuals before further image research.
 - [x] Audit all current Shopify products and document which ones already have dedicated website imagery versus generic or placeholder treatment.
@@ -158,7 +168,7 @@
 - [x] Build accurate customer-facing pedal information from the supplied client blurbs, retaining only supported claims and control details for each pedal.
 - [x] Integrate the supplied pedal information into the corresponding customer-facing storefront product pages and preparation materials for Shopify.
 - [x] Select, optimize, and apply only clearly matched client imagery for Princess Reverb, effects pedals, apparel, and other uncovered products.
-- [ ] Prepare the resulting confirmed product imagery and descriptions for Shopify publication after Admin authorization and final production confirmation.
+- [x] Prepare the resulting confirmed product imagery and descriptions for Shopify publication after Admin authorization and final production confirmation.
 - [x] Confirm the direct-CDN mobile image sources selected by EdwardsAmps.com return valid WebP content for the hero and all staged amplifier pages.
 - [x] Confirm a representative non-Elusive staged amplifier page renders its approved scene on EdwardsAmps.com after the production deployment.
 - [x] Verify the public homepage markup exposes the direct mobile Elusive Overdrive hero source after the CDN repair.

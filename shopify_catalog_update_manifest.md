@@ -1,8 +1,8 @@
 # Shopify Catalog Update Manifest
 
-**Status:** Prepared for production publication after verified Shopify Admin authorization and final confirmation.
+**Status:** Published and verified on August 29, 2026.
 
-This manifest uses only the client-supplied product information and clearly labeled product images. It does not replace the approved staged photography for the five legacy amplifier models. Products with no unambiguous client image remain unchanged.
+This manifest uses only the client-supplied product information and clearly labeled product images. It does not replace the approved staged photography for the five legacy amplifier models. Products with no unambiguous client image remain unchanged. Shopify's Admin API verified the store as **Edwards Amplification** with canonical Admin domain `nj1se1-w0.myshopify.com`; the project continues using `edwards-amplification.myshopify.com` for its Shopify endpoint.
 
 | Shopify handle | Product | Media action | Description action |
 | --- | --- | --- | --- |
@@ -60,3 +60,15 @@ Controls are volume, fuzz, and bias. Internal trim pots adjust the voltage suppl
 ## Intentionally excluded products
 
 Blackjack Overdrive, Edwards Amps and Effects T-Shirt, Queen Reverb Combo, 69.73 Head, 69/73 Combo, and the three cabinet listings do not have an exact, clearly labeled client image in the reviewed set. No image upload is proposed for them at this time.
+
+## Publication verification
+
+| Product | Description status | Media status |
+| --- | --- | --- |
+| Princess Reverb Combo | Intentionally unchanged | `READY` |
+| Elusive Overdrive Pedal | Updated from supplied blurb | `READY` |
+| Mystery Drive Pedal | Updated from supplied blurb | `READY` |
+| Blackjack Overdrive Pedal | Updated from supplied blurb | Intentionally unchanged (no matched image) |
+| Fuzzy Octave Pedal | Updated from supplied blurb | `READY` |
+| Evil Grin Fuzz Pedal | Updated from supplied blurb | `READY` |
+| Elusive Overdrive T-Shirt | Intentionally unchanged | `READY` |

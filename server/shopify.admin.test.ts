@@ -27,7 +27,7 @@ async function postWithRetry(
 }
 
 describe("Shopify Admin client credentials", () => {
-  it("exchanges the configured app credentials for Admin API access and reads the store identity", async () => {
+  it("exchanges the configured app credentials for Admin API access and reads the confirmed Edwards store identity", async () => {
     const domain = process.env.SHOPIFY_STORE_DOMAIN;
     const clientId = process.env.SHOPIFY_ADMIN_API_CLIENT_ID;
     const clientSecret = process.env.SHOPIFY_ADMIN_API_CLIENT_SECRET;
@@ -72,7 +72,7 @@ describe("Shopify Admin client credentials", () => {
     };
 
     expect(payload.errors ?? []).toHaveLength(0);
-    expect(payload.data?.shop?.name).toBeTruthy();
-    expect(payload.data?.shop?.myshopifyDomain).toBe(domain);
+    expect(payload.data?.shop?.name).toBe("Edwards Amplification");
+    expect(payload.data?.shop?.myshopifyDomain).toBe("nj1se1-w0.myshopify.com");
   }, 120_000);
 });
