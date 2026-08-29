@@ -27,7 +27,8 @@ import { motion } from "framer-motion";
 import { ampProducts } from "@/lib/ampData";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
-import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductGroup } from "@shared/shopifyCatalog";
+import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS } from "@shared/shopifyCatalog";
+import { getVisibleShopGroups, SHOP_CATEGORY_FILTERS, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
   const amp = product.ampSlug ? ampProducts.find((candidate) => candidate.slug === product.ampSlug) : undefined;
@@ -49,8 +50,6 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     imageFit: amp ? "cover" : product.imageFit ?? "cover",
   };
 });
-
-const shopGroups: ShopifyProductGroup[] = ["Amplifiers", "Speaker cabinets", "Effects pedals", "Apparel"];
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
 
@@ -141,6 +140,7 @@ const sectionMotion = {
 export default function Home() {
   const { addToCart, cart, isAddingProductToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [shopCategoryFilter, setShopCategoryFilter] = useState<ShopCategoryFilter>("all");
 
   const cartLines = cart?.lines ?? [];
   const cartCount = cart?.totalQuantity ?? 0;
@@ -150,6 +150,12 @@ export default function Home() {
   const liveProductsByHandle = useMemo(
     () => Object.fromEntries(liveShopifyProducts.map((product) => [product.handle, product])) as Record<string, (typeof liveShopifyProducts)[number]>,
     [liveShopifyProducts],
+  );
+
+  const visibleShopGroups = useMemo(() => getVisibleShopGroups(shopCategoryFilter), [shopCategoryFilter]);
+  const visibleShopProductCount = useMemo(
+    () => shopAnchorCards.filter((product) => shopCategoryFilter === "all" || product.group === shopCategoryFilter).length,
+    [shopCategoryFilter],
   );
 
   useEffect(() => {
@@ -633,7 +639,32 @@ export default function Home() {
             </div>
 
             <div className="mt-10 space-y-14">
-              {shopGroups.map((group) => {
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Filter the Edwards shop by category">
+                {SHOP_CATEGORY_FILTERS.map((filter) => {
+                  const isSelected = shopCategoryFilter === filter.value;
+
+                  return (
+                    <button
+                      key={filter.value}
+                      type="button"
+                      aria-pressed={isSelected}
+                      onClick={() => setShopCategoryFilter(filter.value)}
+                      className={`rounded-none border px-4 py-3 text-[0.67rem] uppercase tracking-[0.2em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                        isSelected
+                          ? "border-primary/70 bg-primary text-primary-foreground"
+                          : "border-white/15 bg-black/20 text-foreground/70 hover:border-primary/45 hover:text-primary"
+                      }`}
+                    >
+                      {filter.label}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="-mt-7 text-sm text-foreground/55" aria-live="polite">
+                Showing {visibleShopProductCount} {visibleShopProductCount === 1 ? "product" : "products"}
+                {shopCategoryFilter === "all" ? " across the full collection." : ` in ${shopCategoryFilter.toLowerCase()}.`}
+              </p>
+              {visibleShopGroups.map((group) => {
                 const products = shopAnchorCards.filter((product) => product.group === group);
                 if (products.length === 0) return null;
 

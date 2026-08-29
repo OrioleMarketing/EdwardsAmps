@@ -173,3 +173,7 @@
 - [x] Confirm a representative non-Elusive staged amplifier page renders its approved scene on EdwardsAmps.com after the production deployment.
 - [x] Verify the public homepage markup exposes the direct mobile Elusive Overdrive hero source after the CDN repair.
 - [x] Verify every staged legacy amplifier page on EdwardsAmps.com exposes its expected mobile direct-CDN source in production markup.
+
+- [x] Add an accessible category filter to the main Shop section for product types, including amplifiers, effects pedals, apparel, and existing cabinet listings.
+- [x] Add a review section below pedal details that displays only verified, approved customer feedback and contains no fabricated ratings, quotes, or testimonials.
+- [x] Validate shop filtering and the review-section empty/verified-content states at desktop and mobile sizes.

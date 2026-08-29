@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { ArrowLeft, ArrowRight, Loader2, Music2, ShoppingBag } from "lucide-react";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import VerifiedReviews from "@/components/VerifiedReviews";
 import { SHOPIFY_PRODUCT_OPTIONS_BY_HANDLE } from "@shared/shopifyCatalog";
 import { STORE_PRODUCT_INFO_BY_KEY } from "@shared/storeProductInfo";
 
@@ -143,6 +144,8 @@ export default function ShopProduct({ handle }: { handle: string }) {
               </div>
             </section>
           ) : null}
+
+          {productInfo ? <VerifiedReviews productKey={product.key} productName={title} /> : null}
         </section>
       </main>
     </div>
