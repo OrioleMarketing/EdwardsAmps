@@ -197,3 +197,7 @@
 
 - [x] Synchronize the latest favicon and storefront changes to the external Vercel deployment; EdwardsAmps.com now returns browser-readable image responses for all favicon paths and contains explicit icon links.
 - [x] Add browser-compatible `.ico` and Apple touch icon fallbacks alongside the existing PNG favicon before public verification.
+
+- [x] Replace the single homepage hero product image with a three-image category pathway: amplifiers first, pedals second, and speaker cabinets third.
+- [x] Use only approved real-product imagery for the three hero categories and preserve the existing staged amplifier scene.
+- [x] Validate the three-image hero composition, category links, and mobile layout before publishing.

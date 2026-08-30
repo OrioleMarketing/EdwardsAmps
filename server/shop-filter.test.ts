@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getShopGroupLabel, getVisibleShopGroups, SHOP_CATEGORY_FILTERS } from "../client/src/lib/shopFilters";
+import { getShopGroupLabel, getVisibleShopGroups, HERO_SHOP_CATEGORIES, isShopCategoryFilter, SHOP_CATEGORY_FILTERS } from "../client/src/lib/shopFilters";
 
 describe("shop category filtering", () => {
   it("offers all requested shopper categories and preserves the existing cabinet category", () => {
@@ -21,5 +21,15 @@ describe("shop category filtering", () => {
   it("uses Merch for customer-facing Apparel labels while retaining the Shopify group value", () => {
     expect(getShopGroupLabel("Apparel")).toBe("Merch");
     expect(getShopGroupLabel("Effects pedals")).toBe("Effects pedals");
+  });
+
+  it("keeps the hero category pathway in the requested order", () => {
+    expect(HERO_SHOP_CATEGORIES.map((category) => category.value)).toEqual([
+      "Amplifiers",
+      "Effects pedals",
+      "Speaker cabinets",
+    ]);
+    expect(isShopCategoryFilter("Effects pedals")).toBe(true);
+    expect(isShopCategoryFilter("Not a category")).toBe(false);
   });
 });

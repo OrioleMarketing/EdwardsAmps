@@ -28,6 +28,7 @@ import { ampProducts } from "@/lib/ampData";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import ShopCollection from "@/components/ShopCollection";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
+import { HERO_SHOP_CATEGORIES, type HeroShopCategory } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
 
@@ -128,6 +129,30 @@ export default function Home() {
     () => Object.fromEntries(liveShopifyProducts.map((product) => [product.handle, product])) as Record<string, (typeof liveShopifyProducts)[number]>,
     [liveShopifyProducts],
   );
+
+  const heroCategoryImages: Record<HeroShopCategory, { desktopSrc: string; mobileSrc: string; alt: string; imageClassName?: string }> = {
+    Amplifiers: {
+      desktopSrc: elusiveOverdrive?.heroImage ?? "",
+      mobileSrc: elusiveOverdrive?.heroImageMobile ?? "",
+      alt: "Edwards Elusive Overdrive amplifier staged on a wooden workbench",
+    },
+    "Effects pedals": {
+      desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rkUmWrMSENMpokwY.webp",
+      mobileSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rkUmWrMSENMpokwY.webp",
+      alt: "Edwards Elusive Overdrive Pedal",
+      imageClassName: "object-contain p-4",
+    },
+    "Speaker cabinets": {
+      desktopSrc: elusiveOverdrive?.heroImage ?? "",
+      mobileSrc: elusiveOverdrive?.heroImageMobile ?? "",
+      alt: "Close cabinet grille detail from an Edwards amplifier setup",
+      imageClassName: "object-cover object-[50%_72%] scale-[1.42]",
+    },
+  };
+
+  const selectHeroShopCategory = (category: HeroShopCategory) => {
+    window.dispatchEvent(new CustomEvent("edwards:select-shop-category", { detail: category }));
+  };
 
   useEffect(() => {
     const warmUpcomingVisuals = window.setTimeout(() => {
@@ -234,69 +259,63 @@ export default function Home() {
             <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
           </div>
 
-          <div className="container relative grid min-h-[calc(100vh-5rem)] items-end gap-16 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
-            <motion.div {...sectionMotion} className="max-w-3xl pb-8 lg:pb-16">
+          <div className="container relative py-16 lg:py-20">
+            <motion.div {...sectionMotion} className="max-w-4xl">
               <p className="mb-5 inline-flex items-center gap-2 border border-white/10 bg-white/5 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground/72 backdrop-blur">
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
                 Handcrafted boutique tube amplifiers and pedals
               </p>
 
               <h1 className="font-display text-4xl leading-[0.94] text-balance text-foreground sm:text-6xl lg:text-7xl">
-                Elusive Overdrive, the amp that can replace a room full of favorites.
+                Find the Edwards setup that fits the way you play.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/78 sm:text-xl">
-                If you want one amp that can give you beautiful clean tones, smooth breakup, and bold overdrive without feeling harsh or stiff, the Elusive Overdrive is built for exactly that job. It has the clarity many players love in classic American amps, but with a much bigger gain range when you want to push it.
+                Start with the part of the rig you are building: an amp with the right voice, a pedal with the right response, or a speaker cabinet that gives the setup its foundation.
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button asChild className="rounded-none border border-primary/60 bg-primary px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-primary-foreground hover:bg-primary/90">
-                  <a href="#lineup">
-                    Explore the Lineup
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline" className="rounded-none border-white/20 bg-black/20 px-7 py-6 text-[0.74rem] uppercase tracking-[0.24em] text-foreground hover:bg-white/8">
-                  <a href="#shop">Shop the Collection</a>
-                </Button>
-              </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 36 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              className="relative ml-auto w-full max-w-2xl self-center"
-            >
-              <div className="relative overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_35%,rgba(196,157,92,0.08),rgba(17,15,12,0.92)_58%,rgba(10,9,8,1)_100%)] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop-blur">
-                <div className="relative aspect-[4/3] overflow-hidden border border-white/6 bg-black/20">
-                  {elusiveOverdrive ? (
-                    <ResponsiveImage
-                      desktopSrc={elusiveOverdrive.heroImage}
-                      mobileSrc={elusiveOverdrive.heroImageMobile}
-                      alt="The real Edwards Elusive Overdrive amplifier staged on a wooden workbench"
-                      className="h-full w-full object-cover"
-                      pictureClassName="block h-full w-full"
-                      priority
-                    />
-                  ) : null}
-                </div>
-              </div>
-              <div className="mt-6 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-3">
-                <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Sound</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Blackface-style cleans to mild or wild overdrive.</p>
-                </div>
-                <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Power</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">Available in 24W or 40W with 6V6 or 6L6 tubes.</p>
-                </div>
-                <div>
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/50">Starts at</p>
-                  <p className="mt-2 text-sm leading-6 text-foreground/78">$3,000 USD for a hand-built head.</p>
-                </div>
-              </div>
-            </motion.div>
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {HERO_SHOP_CATEGORIES.map((category, index) => {
+                const image = heroCategoryImages[category.value];
+
+                return (
+                  <motion.a
+                    key={category.value}
+                    href="#shop-products"
+                    onClick={() => selectHeroShopCategory(category.value)}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ delay: index * 0.08, duration: 0.45 }}
+                    className="group relative overflow-hidden border border-white/12 bg-card/65 shadow-[0_24px_80px_rgba(0,0,0,0.38)] transition-colors hover:border-primary/55"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-black/30">
+                      <ResponsiveImage
+                        desktopSrc={image.desktopSrc}
+                        mobileSrc={image.mobileSrc}
+                        alt={image.alt}
+                        className={`h-full w-full ${image.imageClassName ?? "object-cover"} transition-transform duration-700 group-hover:scale-[1.04]`}
+                        pictureClassName="block h-full w-full"
+                        priority={index === 0}
+                        loadingStrategy={index === 0 ? "eager" : "lazy"}
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <p className="text-[0.66rem] uppercase tracking-[0.26em] text-primary/80">0{index + 1}</p>
+                      <h2 className="mt-3 font-display text-3xl leading-tight text-foreground">{category.title}</h2>
+                      <p className="mt-3 min-h-12 text-sm leading-6 text-foreground/70">{category.description}</p>
+                      <span className="mt-6 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.22em] text-primary">
+                        {category.action}
+                        <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
         </section>
 

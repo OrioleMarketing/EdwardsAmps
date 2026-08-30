@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Loader2, Music2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { ampProducts } from "@/lib/ampData";
-import { getShopGroupLabel, getVisibleShopGroups, SHOP_CATEGORY_FILTERS, type ShopCategoryFilter } from "@/lib/shopFilters";
+import { getShopGroupLabel, getVisibleShopGroups, isShopCategoryFilter, SHOP_CATEGORY_FILTERS, type ShopCategoryFilter } from "@/lib/shopFilters";
 import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductKey } from "@shared/shopifyCatalog";
 
 const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
@@ -49,6 +49,16 @@ export default function ShopCollection({
     [shopCategoryFilter],
   );
   const selectedCategoryLabel = SHOP_CATEGORY_FILTERS.find((filter) => filter.value === shopCategoryFilter)?.label ?? "All products";
+
+  useEffect(() => {
+    const selectCategory = (event: Event) => {
+      const category = (event as CustomEvent<unknown>).detail;
+      if (isShopCategoryFilter(category)) setShopCategoryFilter(category);
+    };
+
+    window.addEventListener("edwards:select-shop-category", selectCategory);
+    return () => window.removeEventListener("edwards:select-shop-category", selectCategory);
+  }, []);
 
   return (
     <section id="shop" className="container border-b border-white/10 py-12 lg:py-16">
