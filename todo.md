@@ -206,3 +206,6 @@
 - [x] Integrate the Shop category controls and concise shopping context into the hero pathway without duplicating the lower collection intro.
 - [x] Remove the redundant “Built to be played, ready to be ordered” View Cart prompt section while retaining the primary cart access in the site header.
 - [x] Validate the simplified desktop/mobile homepage flow and category navigation before publishing.
+
+- [ ] Synchronize the latest hero-and-shop consolidation to the Vercel-linked GitHub main branch for EdwardsAmps.com.
+- [ ] Verify the latest Vercel deployment is live and serves the revised hero on EdwardsAmps.com before confirming completion.
