@@ -28,7 +28,7 @@ import { ampProducts } from "@/lib/ampData";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import ShopCollection from "@/components/ShopCollection";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
-import { HERO_SHOP_CATEGORIES, type HeroShopCategory } from "@/lib/shopFilters";
+import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
 
@@ -119,6 +119,7 @@ const sectionMotion = {
 export default function Home() {
   const { addToCart, cart, isAddingProductToCart, isUpdatingCart, products: liveShopifyProducts, productsByKey, updateCartLine } = useShopifyCart();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [shopCategoryFilter, setShopCategoryFilter] = useState<ShopCategoryFilter>("all");
 
   const cartLines = cart?.lines ?? [];
   const cartCount = cart?.totalQuantity ?? 0;
@@ -151,7 +152,7 @@ export default function Home() {
   };
 
   const selectHeroShopCategory = (category: HeroShopCategory) => {
-    window.dispatchEvent(new CustomEvent("edwards:select-shop-category", { detail: category }));
+    setShopCategoryFilter(category);
   };
 
   useEffect(() => {
@@ -316,11 +317,42 @@ export default function Home() {
                 );
               })}
             </div>
+
+            <div className="mt-8 border-t border-white/10 pt-8 lg:mt-10 lg:grid lg:grid-cols-[0.86fr_1.14fr] lg:items-end lg:gap-10">
+              <div>
+                <p className="section-kicker">Shop</p>
+                <h2 className="mt-3 font-display text-3xl leading-tight text-foreground sm:text-4xl">Built to be played, ready to be ordered.</h2>
+              </div>
+              <div>
+                <p className="max-w-2xl text-sm leading-6 text-foreground/68">Browse amplifiers, effects pedals, speaker cabinets, and Edwards merch as separate store items. Choose a category to see the matching products below.</p>
+                <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter the Edwards shop by category">
+                  {SHOP_CATEGORY_FILTERS.map((filter) => {
+                    const isSelected = shopCategoryFilter === filter.value;
+
+                    return (
+                      <a
+                        key={filter.value}
+                        href="#shop-products"
+                        aria-current={isSelected ? "true" : undefined}
+                        onClick={() => setShopCategoryFilter(filter.value)}
+                        className={`rounded-none border px-4 py-3 text-[0.67rem] uppercase tracking-[0.2em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                          isSelected
+                            ? "border-primary/70 bg-primary text-primary-foreground"
+                            : "border-white/15 bg-black/20 text-foreground/70 hover:border-primary/45 hover:text-primary"
+                        }`}
+                      >
+                        {filter.label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <ShopCollection
-          cartCount={cartCount}
+          shopCategoryFilter={shopCategoryFilter}
           productsByKey={productsByKey}
           isCartBusy={isCartBusy}
           isAddingProductToCart={isAddingProductToCart}

@@ -201,3 +201,8 @@
 - [x] Replace the single homepage hero product image with a three-image category pathway: amplifiers first, pedals second, and speaker cabinets third.
 - [x] Use only approved real-product imagery for the three hero categories and preserve the existing staged amplifier scene.
 - [x] Validate the three-image hero composition, category links, and mobile layout before publishing.
+
+- [x] Remove the redundant “Full Collection / Shop the Edwards lineup” introduction now that the category-first hero leads visitors into Shop.
+- [x] Integrate the Shop category controls and concise shopping context into the hero pathway without duplicating the lower collection intro.
+- [x] Remove the redundant “Built to be played, ready to be ordered” View Cart prompt section while retaining the primary cart access in the site header.
+- [x] Validate the simplified desktop/mobile homepage flow and category navigation before publishing.

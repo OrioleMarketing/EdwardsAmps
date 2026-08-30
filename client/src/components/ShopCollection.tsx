@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Loader2, Music2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { ampProducts } from "@/lib/ampData";
-import { getShopGroupLabel, getVisibleShopGroups, isShopCategoryFilter, SHOP_CATEGORY_FILTERS, type ShopCategoryFilter } from "@/lib/shopFilters";
+import { getShopGroupLabel, getVisibleShopGroups, type ShopCategoryFilter } from "@/lib/shopFilters";
 import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductKey } from "@shared/shopifyCatalog";
 
 const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
@@ -28,7 +28,7 @@ type LiveProduct = {
 };
 
 type ShopCollectionProps = {
-  cartCount: number;
+  shopCategoryFilter: ShopCategoryFilter;
   productsByKey: Record<string, LiveProduct>;
   isCartBusy: boolean;
   isAddingProductToCart: (productKey: ShopifyProductKey) => boolean;
@@ -36,81 +36,21 @@ type ShopCollectionProps = {
 };
 
 export default function ShopCollection({
-  cartCount,
+  shopCategoryFilter,
   productsByKey,
   isCartBusy,
   isAddingProductToCart,
   addToCart,
 }: ShopCollectionProps) {
-  const [shopCategoryFilter, setShopCategoryFilter] = useState<ShopCategoryFilter>("all");
   const visibleShopGroups = useMemo(() => getVisibleShopGroups(shopCategoryFilter), [shopCategoryFilter]);
   const visibleShopProductCount = useMemo(
     () => shopAnchorCards.filter((product) => shopCategoryFilter === "all" || product.group === shopCategoryFilter).length,
     [shopCategoryFilter],
   );
-  const selectedCategoryLabel = SHOP_CATEGORY_FILTERS.find((filter) => filter.value === shopCategoryFilter)?.label ?? "All products";
-
-  useEffect(() => {
-    const selectCategory = (event: Event) => {
-      const category = (event as CustomEvent<unknown>).detail;
-      if (isShopCategoryFilter(category)) setShopCategoryFilter(category);
-    };
-
-    window.addEventListener("edwards:select-shop-category", selectCategory);
-    return () => window.removeEventListener("edwards:select-shop-category", selectCategory);
-  }, []);
-
   return (
     <section id="shop" className="container border-b border-white/10 py-12 lg:py-16">
-      <div className="flex flex-col gap-6 border border-white/10 bg-card/35 p-8 lg:flex-row lg:items-end lg:justify-between lg:p-10">
-        <div className="max-w-3xl">
-          <p className="section-kicker">Shop</p>
-          <h2 className="section-title">Built to be played, ready to be ordered.</h2>
-          <p className="section-copy mt-6">Browse the full Edwards lineup, choose the format that fits your rig, and add it to the cart when you are ready.</p>
-        </div>
-        <a href="/cart" className="inline-flex items-center justify-center border border-primary/50 bg-primary px-6 py-5 text-[0.72rem] uppercase tracking-[0.24em] text-primary-foreground transition-colors hover:bg-primary/90">
-          <ShoppingBag className="mr-2 h-4 w-4" />
-          View cart · {cartCount}
-        </a>
-      </div>
-
-      <div className="mt-8" id="shop-products">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Full collection</p>
-            <h3 className="mt-3 font-display text-4xl leading-tight text-foreground">Shop the Edwards lineup</h3>
-          </div>
-          <p className="max-w-xl text-sm leading-6 text-foreground/65">Amplifiers, effects pedals, speaker cabinets, and Edwards merch are all listed as separate store items.</p>
-        </div>
-
-        <div className="mt-10 space-y-14">
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter the Edwards shop by category">
-            {SHOP_CATEGORY_FILTERS.map((filter) => {
-              const isSelected = shopCategoryFilter === filter.value;
-
-              return (
-                <button
-                  key={filter.value}
-                  type="button"
-                  aria-pressed={isSelected}
-                  onClick={() => setShopCategoryFilter(filter.value)}
-                  className={`rounded-none border px-4 py-3 text-[0.67rem] uppercase tracking-[0.2em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                    isSelected
-                      ? "border-primary/70 bg-primary text-primary-foreground"
-                      : "border-white/15 bg-black/20 text-foreground/70 hover:border-primary/45 hover:text-primary"
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
-          <p className="-mt-7 text-sm text-foreground/55" aria-live="polite">
-            Showing {visibleShopProductCount} {visibleShopProductCount === 1 ? "product" : "products"}
-            {shopCategoryFilter === "all" ? " across the full collection." : ` in ${selectedCategoryLabel.toLowerCase()}.`}
-          </p>
-
-          {visibleShopGroups.map((group) => {
+      <div id="shop-products" className="space-y-14">
+        {visibleShopGroups.map((group) => {
             const products = shopAnchorCards.filter((product) => product.group === group);
             if (products.length === 0) return null;
 
@@ -175,8 +115,7 @@ export default function ShopCollection({
                 </div>
               </section>
             );
-          })}
-        </div>
+        })}
       </div>
     </section>
   );
