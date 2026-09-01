@@ -207,12 +207,12 @@
 - [x] Remove the redundant “Built to be played, ready to be ordered” View Cart prompt section while retaining the primary cart access in the site header.
 - [x] Validate the simplified desktop/mobile homepage flow and category navigation before publishing.
 
-- [ ] Synchronize the latest hero-and-shop consolidation to the Vercel-linked GitHub main branch for EdwardsAmps.com.
-- [ ] Verify the latest Vercel deployment is live and serves the revised hero on EdwardsAmps.com before confirming completion.
+- [x] Synchronize the latest hero-and-shop consolidation to the Vercel-linked GitHub main branch for EdwardsAmps.com.
+- [x] Verify the latest Vercel deployment is live and serves the revised hero on EdwardsAmps.com before confirming completion.
 
-- [ ] Correct the 4x10 Oval Open-Back Speaker Cabinet price to $999 USD in Shopify and verify the storefront reflects the live catalog price.
+- [x] Correct the 4x10 Oval Open-Back Speaker Cabinet price to $999 USD in Shopify and verify the storefront reflects the live catalog price.
 
-- [ ] Resolve the stale public storefront response showing $229 for the 4x10 cabinet after Shopify was verified at $999 USD.
+- [x] Resolve the stale public storefront response showing $229 for the 4x10 cabinet after Shopify was verified at $999 USD.
 
-- [ ] Enable Railway auto deploy for `OrioleMarketing/EdwardsAmps` main and verify the public backend deploys the current catalog source.
+- [x] Enable Railway auto deploy for `OrioleMarketing/EdwardsAmps` main and verify the public backend deploys the current catalog source.
 - [x] Add a $999 USD static fallback and regression coverage for the 4x10 Oval Open-Back Speaker Cabinet so the public product page remains accurate while catalog delivery recovers.
