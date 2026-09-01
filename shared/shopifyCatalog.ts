@@ -229,8 +229,8 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     eyebrow: "Speaker cabinet",
     subtitle: "A 4x10 open-back cabinet for a broader stage footprint.",
     description: "An Edwards 4x10 oval open-back speaker cabinet, listed as its own store item.",
-    fallbackPriceLabel: "$229 USD",
-    fallbackPriceValue: 229,
+    fallbackPriceLabel: "$999 USD",
+    fallbackPriceValue: 999,
   },
   {
     key: "elusive-overdrive-pedal",
