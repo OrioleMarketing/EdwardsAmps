@@ -312,4 +312,4 @@
 - [x] Apply only the supplied blue floral material to the confirmed Elusive Overdrive Combo image while preserving the approved stage background and exact client amp form.
 
 - [x] Deliver the approved black exact-amp 24 Watt stage composite and blue floral exact-amp 40 Watt stage composite as responsive public CDN assets.
-- [ ] Replace the live Elusive Overdrive 24 Watt and 40 Watt Combo image mappings with the approved stage composites and verify them on EdwardsAmps.com.
+- [x] Replace the live Elusive Overdrive 24 Watt and 40 Watt Combo image mappings with the approved stage composites and verify them on EdwardsAmps.com.
