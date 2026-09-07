@@ -263,3 +263,5 @@
 - [x] Restore the approved shared Elusive imagery used by combos and the top Amplifiers and Speaker cabinets category cards, while retaining the new images only on Elusive head products and King Richard Head.
 
 - [x] Replace the King Richard tailgate image with a faithful British-pub scene featuring warm wood, amber light, and a subtly blurred dartboard, then verify live delivery without a placeholder.
+
+- [ ] Create a faithful left-facing speaker-cabinet stage scene from the supplied cabinet reference and use it only for the top Speaker cabinets category image.
