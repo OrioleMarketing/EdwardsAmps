@@ -237,4 +237,4 @@
 
 - [x] Add the approved 69/73 combo coffee-shop image to its storefront product placement through an externally reachable URL and verify the public page renders the actual image rather than a placeholder.
 
-- [ ] Remove the 69/73 Head from all public storefront catalog and product-route surfaces while retaining the 69/73 Combo listing and coffee-shop image.
+- [x] Remove the 69/73 Head from all public storefront catalog and product-route surfaces while retaining the 69/73 Combo listing and coffee-shop image.
