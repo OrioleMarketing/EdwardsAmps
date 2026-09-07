@@ -232,3 +232,7 @@
 - [x] Replace the applicable Elusive Overdrive head image placements with the approved wooden-platform product scene and verify responsive presentation.
 
 - [x] Repair the broken public delivery of the approved King Richard and Elusive Overdrive wooden-platform images by replacing deployment-internal asset paths with externally reachable production URLs and verifying the live Shop cards.
+
+- [x] Generate a faithful 69/73 combo image staged in a warm coffee-shop performance environment, preserving the supplied black cabinet, diamond grille, and Edwards badge.
+
+- [ ] Add the approved 69/73 combo coffee-shop image to its storefront product placement through an externally reachable URL and verify the public page renders the actual image rather than a placeholder.

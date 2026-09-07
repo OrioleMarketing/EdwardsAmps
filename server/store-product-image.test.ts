@@ -35,4 +35,14 @@ describe("client product-image mapping", () => {
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"].image).toBeUndefined();
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-combo"].image).toBeUndefined();
   });
+
+  it("uses the approved public coffee-shop scene for the 69/73 combo", () => {
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/YaXwzjrutnydogit.png";
+    const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["69-73-combo"];
+
+    expect(combo.image).toBe(approvedComboImage);
+    expect(combo.imageFit).toBe("cover");
+    expect(combo.imageAlt).toContain("coffee-shop performance setting");
+    expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
+  });
 });
