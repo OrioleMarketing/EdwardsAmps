@@ -316,4 +316,4 @@
 
 - [x] Correct the Elusive Overdrive Combo grille-badge angle in both approved stage composites to match the newly supplied exact client reference.
 - [x] Preserve the black 24 Watt treatment, supplied blue floral 40 Watt treatment, and approved stage backgrounds while updating only the grille badge angle.
-- [ ] Deliver, validate, publish, and publicly verify the corrected badge-angle images on EdwardsAmps.com.
+- [x] Deliver, validate, publish, and publicly verify the corrected badge-angle images on EdwardsAmps.com.

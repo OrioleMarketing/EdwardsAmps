@@ -11,4 +11,4 @@ The 24 Watt source uses the exact black client Combo treatment in the approved s
 
 The final corrected-angle WebP derivatives are approximately 321 KB and 323 KB for desktop, and approximately 75 KB and 82 KB for mobile, respectively.
 
-Public verification on 2026-09-07 confirmed that the Vercel production deployment `dpl_Hk7Z2fBnWcFTubYa4859b8cfFv2q` reached `READY` for `edwardsamps.com`. The visible live storefront rendered the exact black-client 24 Watt Combo and the matching user-supplied-blue-floral 40 Watt Combo in the approved warm stage composition, with level centered Edwards grille badges and no placeholder images.
+Public verification on 2026-09-07 confirmed that the Vercel production deployment `dpl_8SkQ88ga4kSHXtBDjv2qvgucjS1Y` reached `READY` for `edwardsamps.com`. The visible live storefront rendered the exact black-client 24 Watt Combo and the matching user-supplied-blue-floral 40 Watt Combo in the approved warm stage composition, with centered Edwards grille badges angled upward from lower-left to upper-right to match the supplied client reference, and no placeholder images.
