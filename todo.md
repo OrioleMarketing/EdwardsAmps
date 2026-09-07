@@ -257,5 +257,5 @@
 - [x] Standardize all Shopify and storefront head titles by removing “Amp” and using “Head,” and standardize all combo titles by removing “Amp” and including “Combo.”
 - [x] Generate a faithful Queen Reverb Combo scene in a college dorm-room setting and add it to the public product listing through an externally reachable URL.
 
-- [ ] Replace the Elusive Overdrive head imagery with performance-stage scenes that preserve the distinct 24 Watt and 40 Watt treatments.
-- [ ] Replace the King Richard Head imagery with a pickup-tailgate product scene and verify it is delivered publicly without a placeholder.
+- [x] Replace the Elusive Overdrive head imagery with performance-stage scenes that preserve the distinct 24 Watt and 40 Watt treatments.
+- [x] Replace the King Richard Head imagery with a pickup-tailgate product scene and verify it is delivered publicly without a placeholder.
