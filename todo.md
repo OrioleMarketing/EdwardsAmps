@@ -249,4 +249,4 @@
 
 - [x] Generate a faithful Hot Mama Head-only product scene in a warm British pub environment and add the approved image to the live product listing through an externally reachable URL.
 
-- [ ] Replace the fixed “Five distinct amps” lineup headline with inclusive language describing multiple Edwards amplifier voices and musical uses.
+- [x] Replace the fixed “Five distinct amps” lineup headline with inclusive language describing multiple Edwards amplifier voices and musical uses.
