@@ -282,3 +282,5 @@
 - [x] Replace the Elusive Overdrive featured-pairing guitar with the supplied Neville Guitar custom build, retain the Elusive Overdrive amp, and update the title and copy to the Neville pairing.
 
 - [x] Audit every customer-facing amplifier listing and recommendation surface against the current public amplifier catalog, restore missing entries, and verify the full lineup live.
+
+- [x] Apply the supplied black Edwards Amps & Effects T-Shirt image to the matching public product listing and verify delivery without a placeholder.
