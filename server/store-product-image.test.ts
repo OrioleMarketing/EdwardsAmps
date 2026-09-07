@@ -95,19 +95,19 @@ describe("client product-image mapping", () => {
   });
 
   it("uses the exact black client reference on the approved stage only for the Elusive Overdrive 24 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/orhJYWjuwILmOWiQ.webp";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rTkQHLzPLMFYJqHA.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("Exact black client");
     expect(combo.imageAlt).toContain("approved warm performance stage");
-    expect(combo.imageAlt).toContain("level, centered Edwards script grille badge");
+    expect(combo.imageAlt).toContain("centered Edwards script grille badge angled to match the client reference");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
   it("uses the supplied blue floral client-reference stage scene only for the Elusive Overdrive 40 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RbiRyGNWPUepZjxJ.webp";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jYgjlGavOMHbRyAp.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
@@ -115,7 +115,7 @@ describe("client product-image mapping", () => {
     expect(combo.imageAlt).toContain("blue floral Tolex");
     expect(combo.imageAlt).toContain("supplied blue floral Tolex covering");
     expect(combo.imageAlt).toContain("approved warm performance stage");
-    expect(combo.imageAlt).toContain("level, centered Edwards script grille badge");
+    expect(combo.imageAlt).toContain("centered Edwards script grille badge angled to match the client reference");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
