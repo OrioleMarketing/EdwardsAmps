@@ -33,7 +33,7 @@ export default function ResponsiveImage({
     <span className={`image-loading-shell ${pictureClassName}`} data-loaded={status !== "loading"}>
       <span className="image-loading-shimmer" aria-hidden="true" />
       <picture className="block h-full w-full">
-        {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} type="image/webp" /> : null}
+        {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} type={mobileSrc.includes(".webp") ? "image/webp" : undefined} /> : null}
         <img
           ref={imageRef}
           src={desktopSrc}

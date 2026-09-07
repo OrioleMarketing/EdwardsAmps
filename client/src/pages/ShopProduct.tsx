@@ -57,7 +57,7 @@ export default function ShopProduct({ handle }: { handle: string }) {
               {product.image ? (
                 <ResponsiveImage
                   desktopSrc={product.image}
-                  mobileSrc={product.image}
+                  mobileSrc={product.imageMobile ?? product.image}
                   alt={product.imageAlt ?? product.displayName}
                   className="h-full w-full object-contain p-2"
                   pictureClassName="absolute inset-0 block h-full w-full"

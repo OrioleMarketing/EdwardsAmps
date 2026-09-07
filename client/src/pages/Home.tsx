@@ -31,8 +31,12 @@ import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with a Neville Guitar custom build";
-const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/HxWvXrXByRutKLRu.png";
-const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/oyCouNzgwsXcCoCJ.png";
+const amplifiersCategoryImage = "/manus-storage/amplifiers-category-desktop_cd6c648a.webp";
+const amplifiersCategoryImageMobile = "/manus-storage/amplifiers-category-mobile_925db6de.webp";
+const speakerCabinetCategoryImage = "/manus-storage/speaker-cabinets-category-desktop_f9332c34.webp";
+const speakerCabinetCategoryImageMobile = "/manus-storage/speaker-cabinets-category-mobile_5aee3f6f.webp";
+const effectsPedalsCategoryImage = "/manus-storage/effects-pedals-category-desktop_20f9fa40.webp";
+const effectsPedalsCategoryImageMobile = "/manus-storage/effects-pedals-category-mobile_9c1e3c94.webp";
 
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
 
@@ -98,8 +102,8 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yAHIhJMJHoggjcEH.png",
-  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yAHIhJMJHoggjcEH.png",
+  image: "/manus-storage/neville-featured-pairing-desktop_33352faf.webp",
+  mobileImage: "/manus-storage/neville-featured-pairing-mobile_539b087a.webp",
   alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier",
 };
 
@@ -136,18 +140,18 @@ export default function Home() {
   const heroCategoryImages: Record<HeroShopCategory, { desktopSrc: string; mobileSrc: string; alt: string; imageClassName?: string }> = {
     Amplifiers: {
       desktopSrc: amplifiersCategoryImage,
-      mobileSrc: amplifiersCategoryImage,
+      mobileSrc: amplifiersCategoryImageMobile,
       alt: "Edwards amplifier and matching cabinet on a warm performance stage",
     },
     "Effects pedals": {
-      desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png",
-      mobileSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png",
+      desktopSrc: effectsPedalsCategoryImage,
+      mobileSrc: effectsPedalsCategoryImageMobile,
       alt: "Edwards pedalboard on stage from a performer's viewpoint with Elusive Overdrive centered",
       imageClassName: "object-cover",
     },
     "Speaker cabinets": {
       desktopSrc: speakerCabinetCategoryImage,
-      mobileSrc: speakerCabinetCategoryImage,
+      mobileSrc: speakerCabinetCategoryImageMobile,
       alt: "Edwards speaker cabinet on a warm performance stage, angled slightly left",
       imageClassName: "object-cover",
     },

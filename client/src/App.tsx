@@ -6,6 +6,7 @@ boutique contrast, restrained drama, and premium readability from the first pain
 
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import BackToTop from "@/components/BackToTop";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -45,6 +46,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <BackToTop />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

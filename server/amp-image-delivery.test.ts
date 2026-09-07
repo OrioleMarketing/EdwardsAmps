@@ -6,8 +6,8 @@ describe("responsive amplifier imagery", () => {
     expect(ampProducts).toHaveLength(5);
 
     for (const amp of ampProducts) {
-      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$/);
-      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$/);
+      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^(\/manus-storage\/.+|https:\/\/files\.manuscdn\.com\/.+\.(png|webp))$/);
+      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^(\/manus-storage\/.+|https:\/\/files\.manuscdn\.com\/.+\.(png|webp))$/);
     }
   });
 
@@ -22,8 +22,8 @@ describe("responsive amplifier imagery", () => {
         mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
       },
       "king-richard": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png",
+        desktop: "/manus-storage/king-richard-head-desktop_ed60817b.webp",
+        mobile: "/manus-storage/king-richard-head-mobile_d6bca3ea.webp",
       },
       "hot-mama": {
         desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/iATUaSsbPuhgrdpr.webp",

@@ -15,7 +15,7 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     name: product.displayName,
     priceLabel: product.fallbackPriceLabel,
     image: product.image ?? amp?.heroImage ?? "",
-    mobileImage: product.image ?? amp?.heroImageMobile ?? "",
+    mobileImage: product.imageMobile ?? product.image ?? amp?.heroImageMobile ?? "",
     alt: product.imageAlt ?? amp?.heroAlt ?? product.displayName,
     imageFit: product.image ? product.imageFit ?? "cover" : amp ? "cover" : "cover",
   };

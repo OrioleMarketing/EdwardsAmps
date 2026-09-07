@@ -89,8 +89,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,799 USD',
-    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png',
-    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png',
+    heroImage: '/manus-storage/king-richard-head-desktop_ed60817b.webp',
+    heroImageMobile: '/manus-storage/king-richard-head-mobile_d6bca3ea.webp',
     heroAlt: 'Edwards King Richard Head in a warm British pub with a dartboard in the background',
     eyebrow: 'British chime and authority',
     summary:

@@ -292,3 +292,9 @@
 - [x] Add a consistent customer-facing note to every Edwards head product that it is custom built to be paired with an Edwards Amplification Speaker Cabinet, without adding the note to combo products.
 
 - [x] Add the supplied Neville Guitars external hyperlink to the Featured Pairing and verify its public behavior.
+
+- [x] Audit live storefront image formats, payload sizes, and loading behavior to identify the largest visual delivery bottlenecks.
+- [x] Create optimized responsive derivatives for approved product and category imagery, preserving visual fidelity and public CDN delivery.
+- [x] Validate faster image delivery, responsive rendering, and loading states before publishing the optimization update.
+
+- [x] Add an accessible lower-right Back to top control that appears after scrolling and respects reduced-motion preferences.
