@@ -302,4 +302,4 @@
 - [x] Review the newly supplied exact Elusive Overdrive Combo reference against the two current Combo storefront images.
 - [x] Create faithful 24 Watt and blue floral 40 Watt Combo visual variants with correct centered grille-logo placement.
 - [x] Replace both Elusive Overdrive Combo storefront image mappings and update regression coverage.
-- [ ] Validate, publish, and publicly verify the corrected Combo images on EdwardsAmps.com.
+- [x] Validate, publish, and publicly verify the corrected Combo images on EdwardsAmps.com.
