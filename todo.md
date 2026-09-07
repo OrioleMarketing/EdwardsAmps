@@ -251,4 +251,4 @@
 
 - [x] Replace the fixed “Five distinct amps” lineup headline with inclusive language describing multiple Edwards amplifier voices and musical uses.
 
-- [ ] Generate a distinct Elusive Overdrive 40 Watt Head image with traditional black vinyl in a warm bar setting, then map it only to the 40 Watt head product while retaining the 24 Watt head image.
+- [x] Generate a distinct Elusive Overdrive 40 Watt Head image with traditional black vinyl in a warm bar setting, then map it only to the 40 Watt head product while retaining the 24 Watt head image.
