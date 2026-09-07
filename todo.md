@@ -247,4 +247,4 @@
 
 - [x] Update only the Shopify Hot Mama Head product title to exactly “Hot Mama Amp — Head” and verify the live catalog resolves the corrected casing.
 
-- [ ] Generate a faithful Hot Mama Head-only product scene in a warm British pub environment and add the approved image to the live product listing through an externally reachable URL.
+- [x] Generate a faithful Hot Mama Head-only product scene in a warm British pub environment and add the approved image to the live product listing through an externally reachable URL.
