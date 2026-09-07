@@ -45,4 +45,15 @@ describe("client product-image mapping", () => {
     expect(combo.imageAlt).toContain("coffee-shop performance setting");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
   });
+
+  it("uses the approved public British-pub scene only for the Hot Mama Head", () => {
+    const approvedHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RfPFxYKPksLKfmbf.png";
+    const head = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["hot-mama-head"];
+
+    expect(head.image).toBe(approvedHeadImage);
+    expect(head.imageFit).toBe("cover");
+    expect(head.imageAlt).toContain("warm wooden pub table");
+    expect(approvedHeadImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
+    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["hot-mama-combo"].image).toBeUndefined();
+  });
 });

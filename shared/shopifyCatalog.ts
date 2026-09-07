@@ -149,6 +149,9 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     description: "A travel-friendly head with chiming cleans, smooth gain, and a recording-ready breakup character.",
     fallbackPriceLabel: "$1,999 USD",
     fallbackPriceValue: 1999,
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RfPFxYKPksLKfmbf.png",
+    imageAlt: "Edwards Hot Mama Amp Head staged on a warm wooden pub table",
+    imageFit: "cover",
   },
   {
     key: "hot-mama-combo",
