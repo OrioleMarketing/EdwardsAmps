@@ -278,3 +278,5 @@
 - [x] Create a performer-view Edwards pedalboard scene with all five supplied pedals, Elusive Overdrive centered, and a microphone-stand base visible on stage.
 - [x] Create professional, client-faithful individual product images for the Fuzzy Octave, Evil Grin Fuzz, Elusive Overdrive, Mystery Drive, and Blackjack Drive pedals.
 - [x] Apply the verified individual pedal images to their matching storefront listings with product-specific regression coverage and public CDN delivery.
+
+- [x] Replace the Elusive Overdrive featured-pairing guitar with the supplied Neville Guitar custom build, retain the Elusive Overdrive amp, and update the title and copy to the Neville pairing.
