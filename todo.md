@@ -219,6 +219,6 @@
 
 - [x] Verify that the Elusive Overdrive Pedal price of $349 in Shopify automatically propagates to the public EdwardsAmps.com storefront, and correct a static fallback only if live catalog delivery is unavailable.
 
-- [ ] Integrate the supplied Princess Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
-- [ ] Integrate the supplied Queen Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
-- [ ] Add regression coverage and validate the two updated product pages across the storefront before publishing.
+- [x] Integrate the supplied Princess Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
+- [x] Integrate the supplied Queen Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
+- [x] Add regression coverage and validate the two updated product pages across the storefront before publishing.
