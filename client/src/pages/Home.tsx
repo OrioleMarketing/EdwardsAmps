@@ -363,7 +363,7 @@ export default function Home() {
           <div className="grid gap-8 lg:gap-10">
             <div className="max-w-6xl">
               <p className="section-kicker">The Lineup</p>
-              <h2 className="section-title max-w-none">Five distinct amps, each built around a different feel, voice, and musical job.</h2>
+              <h2 className="section-title max-w-none">A lineup of distinct amps, each voiced for a different feel, sound, and musical job.</h2>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
