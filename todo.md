@@ -271,3 +271,5 @@
 - [x] Replace the inaccurate generated Amplifiers category image with a client-faithful stage scene based on the prior approved image, oriented slightly to the right.
 
 - [x] Create a client-faithful Elusive Overdrive 40 Watt Combo image with the supplied blue floral Tolex, a slight left-facing orientation, and a setting distinct from the 24 Watt Combo.
+
+- [ ] Restage the existing Elusive Overdrive 24 Watt Combo in a warm honky-tonk room on a subtly elevated performance platform while preserving the client amplifier unchanged.

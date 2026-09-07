@@ -38,7 +38,16 @@ describe("client product-image mapping", () => {
     expect(fortyWattHead.imageAlt).toContain("warm live performance");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"].imageFit).toBe("cover");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].imageFit).toBe("cover");
-    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"].image).toBeUndefined();
+  });
+
+  it("uses the honky-tonk stage scene only for the Elusive Overdrive 24 Watt Combo", () => {
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/NCjaDFQyAjNcjxrk.png";
+    const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"];
+
+    expect(combo.image).toBe(approvedComboImage);
+    expect(combo.imageFit).toBe("cover");
+    expect(combo.imageAlt).toContain("elevated honky-tonk performance stage");
+    expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
   });
 
   it("uses the blue floral stage scene only for the Elusive Overdrive 40 Watt Combo", () => {
