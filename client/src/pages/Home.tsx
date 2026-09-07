@@ -419,8 +419,7 @@ export default function Home() {
               </a>
             ))}
 
-            <a
-              href="#consultation"
+            <article
               className="group relative flex h-full flex-col overflow-hidden border border-primary/22 bg-[linear-gradient(180deg,rgba(33,27,21,0.9)_0%,rgba(16,13,11,0.96)_100%)] p-6 transition-transform duration-500 hover:-translate-y-1 hover:border-primary/40"
             >
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-65 transition-opacity duration-500 group-hover:opacity-100" />
@@ -450,7 +449,16 @@ export default function Home() {
                 A premium crossover pairing that presents the Elusive Overdrive alongside a Neville Guitar custom build for players who want a single setup that speaks to touch, craft, and statement tone.
               </p>
 
-            </a>
+              <a
+                href="https://www.nevilleguitars.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-fit items-center gap-2 border-b border-primary/50 pb-1 text-sm uppercase tracking-[0.18em] text-primary transition-colors hover:border-primary hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#100d0b]"
+              >
+                Visit Neville Guitars
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </article>
           </div>
         </motion.section>
 

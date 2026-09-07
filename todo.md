@@ -290,3 +290,5 @@
 - [x] Assign the supplied open-back speaker photograph to the 1x12 Speaker Cabinet and use the supplied finished-cabinet and cabinet-construction photographs for the other two Speaker Cabinet product cards, with verified public delivery.
 
 - [x] Add a consistent customer-facing note to every Edwards head product that it is custom built to be paired with an Edwards Amplification Speaker Cabinet, without adding the note to combo products.
+
+- [ ] Add the supplied Neville Guitars external hyperlink to the Featured Pairing and verify its public behavior.

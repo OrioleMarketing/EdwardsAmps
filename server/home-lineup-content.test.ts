@@ -46,4 +46,13 @@ describe("homepage lineup copy", () => {
     expect(homePage).toContain('Elusive Overdrive alongside a Neville Guitar custom build');
     expect(homePage).not.toContain("Jon Kammerer");
   });
+
+  it("links the Neville Guitar featured pairing to the supplied external website", () => {
+    const homePage = readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8");
+
+    expect(homePage).toContain('href="https://www.nevilleguitars.com/"');
+    expect(homePage).toContain('target="_blank"');
+    expect(homePage).toContain('rel="noreferrer"');
+    expect(homePage).toContain("Visit Neville Guitars");
+  });
 });
