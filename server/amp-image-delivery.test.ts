@@ -18,12 +18,12 @@ describe("responsive amplifier imagery", () => {
 
     expect(imageSources).toEqual({
       "elusive-overdrive": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/AkIGNUKzXVdWQQRV.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
+        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png",
+        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png",
       },
       "king-richard": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jkVhhSGELNXSSgyW.png",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jkVhhSGELNXSSgyW.png",
+        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bossoRptSpfdulIE.png",
+        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bossoRptSpfdulIE.png",
       },
       "hot-mama": {
         desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/iATUaSsbPuhgrdpr.webp",

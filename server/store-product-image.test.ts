@@ -25,18 +25,17 @@ describe("client product-image mapping", () => {
   });
 
   it("uses distinct staged scenes for the Elusive Overdrive 24 Watt and 40 Watt head variants", () => {
-    const twentyFourWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bCQyoIDyqDYQJKcL.png";
-    const fortyWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/InuYBTvXElMHhNEh.png";
+    const twentyFourWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png";
+    const fortyWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/SAaBUSeQdkolQktJ.png";
     const twentyFourWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"];
     const fortyWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"];
 
     expect(twentyFourWattHead.image).toBe(twentyFourWattHeadImage);
     expect(fortyWattHead.image).toBe(fortyWattHeadImage);
     expect(twentyFourWattHead.image).not.toBe(fortyWattHead.image);
-    expect(twentyFourWattHead.imageAlt).toContain("wooden workshop platform");
+    expect(twentyFourWattHead.imageAlt).toContain("warm live performance");
     expect(fortyWattHead.imageAlt).toContain("traditional black vinyl");
-    expect(fortyWattHead.imageAlt).toContain("blue-head-matched proportions");
-    expect(fortyWattHead.imageAlt).toContain("warm bar setting");
+    expect(fortyWattHead.imageAlt).toContain("warm live performance");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"].imageFit).toBe("cover");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].imageFit).toBe("cover");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"].image).toBeUndefined();
