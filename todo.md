@@ -284,3 +284,5 @@
 - [x] Audit every customer-facing amplifier listing and recommendation surface against the current public amplifier catalog, restore missing entries, and verify the full lineup live.
 
 - [x] Apply the supplied black Edwards Amps & Effects T-Shirt image to the matching public product listing and verify delivery without a placeholder.
+
+- [x] Add the centered Edwards script logo to the speaker grille in both Elusive Overdrive Combo product images while preserving their distinct 24 Watt and 40 Watt designs and settings.
