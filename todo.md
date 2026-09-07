@@ -298,3 +298,8 @@
 - [x] Validate faster image delivery, responsive rendering, and loading states before publishing the optimization update.
 
 - [x] Add an accessible lower-right Back to top control that appears after scrolling and respects reduced-motion preferences.
+
+- [x] Review the newly supplied exact Elusive Overdrive Combo reference against the two current Combo storefront images.
+- [x] Create faithful 24 Watt and blue floral 40 Watt Combo visual variants with correct centered grille-logo placement.
+- [x] Replace both Elusive Overdrive Combo storefront image mappings and update regression coverage.
+- [ ] Validate, publish, and publicly verify the corrected Combo images on EdwardsAmps.com.

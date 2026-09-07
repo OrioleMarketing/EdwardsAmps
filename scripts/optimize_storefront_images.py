@@ -31,6 +31,15 @@ IMAGE_SOURCES = {
     "evil-grin-fuzz-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/YTRvttdlyAenIgMH.png",
 }
 
+LOCAL_IMAGE_SOURCES = {
+    "elusive-overdrive-24w-combo-exact": Path(
+        "/home/ubuntu/webdev-static-assets/elusiveoverdrivecombo1-reference.png"
+    ),
+    "elusive-overdrive-40w-combo-blue-floral-exact": Path(
+        "/home/ubuntu/webdev-static-assets/elusive-overdrive-40w-combo-exact-blue-floral.png"
+    ),
+}
+
 DERIVATIVES = {
     "desktop": {"max_width": 1440, "quality": 84},
     "mobile": {"max_width": 720, "quality": 78},
@@ -64,11 +73,22 @@ def main() -> None:
     DERIVATIVES_DIR.mkdir(parents=True, exist_ok=True)
     manifest_lines = ["asset\tvariant\twidth\theight\tbytes\tpath"]
 
+    source_paths: dict[str, Path] = {}
+
     for key, url in IMAGE_SOURCES.items():
         original_path = ORIGINALS_DIR / f"{key}.png"
         if not original_path.exists():
             download(url, original_path)
 
+        source_paths[key] = original_path
+
+    for key, local_path in LOCAL_IMAGE_SOURCES.items():
+        if not local_path.exists():
+            raise FileNotFoundError(f"Generated source is not ready: {local_path}")
+
+        source_paths[key] = local_path
+
+    for key, original_path in source_paths.items():
         for variant, settings in DERIVATIVES.items():
             output_path = DERIVATIVES_DIR / f"{key}-{variant}.webp"
             width, height = make_webp(

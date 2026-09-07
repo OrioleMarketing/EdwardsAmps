@@ -94,26 +94,25 @@ describe("client product-image mapping", () => {
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].imageFit).toBe("cover");
   });
 
-  it("uses the honky-tonk stage scene only for the Elusive Overdrive 24 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/fTFWazvEFJpVFXcz.webp";
+  it("uses the exact client reference only for the Elusive Overdrive 24 Watt Combo", () => {
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/gaskNWDFWDWWHkov.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
-    expect(combo.imageAlt).toContain("elevated honky-tonk performance stage");
-    expect(combo.imageAlt).toContain("centered Edwards script grille logo");
+    expect(combo.imageAlt).toContain("Exact client");
+    expect(combo.imageAlt).toContain("level, centered Edwards script grille badge");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
-  it("uses the blue floral stage scene only for the Elusive Overdrive 40 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/xizHtuUtVtaDkzoa.webp";
+  it("uses the blue floral client-reference scene only for the Elusive Overdrive 40 Watt Combo", () => {
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/sPJUAHJpJcoHjPHH.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("blue floral Tolex");
-    expect(combo.imageAlt).toContain("centered Edwards script grille logo");
-    expect(combo.imageAlt).toContain("angled slightly left");
+    expect(combo.imageAlt).toContain("level, centered Edwards script grille badge");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
