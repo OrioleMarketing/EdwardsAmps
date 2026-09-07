@@ -274,7 +274,7 @@
 
 - [x] Restage the existing Elusive Overdrive 24 Watt Combo in a warm honky-tonk room on a subtly elevated performance platform while preserving the client amplifier unchanged.
 
-- [ ] Create a client-faithful Princess Reverb Combo image in a warm late-night rehearsal room and apply it to the public product listing.
-- [ ] Create a performer-view Edwards pedalboard scene with all five supplied pedals, Elusive Overdrive centered, and a microphone-stand base visible on stage.
-- [ ] Create professional, client-faithful individual product images for the Fuzzy Octave, Evil Grin Fuzz, Elusive Overdrive, Mystery Drive, and Blackjack Drive pedals.
-- [ ] Apply the verified individual pedal images to their matching storefront listings with product-specific regression coverage and public CDN delivery.
+- [x] Create a client-faithful Princess Reverb Combo image in a warm late-night rehearsal room and apply it to the public product listing.
+- [x] Create a performer-view Edwards pedalboard scene with all five supplied pedals, Elusive Overdrive centered, and a microphone-stand base visible on stage.
+- [x] Create professional, client-faithful individual product images for the Fuzzy Octave, Evil Grin Fuzz, Elusive Overdrive, Mystery Drive, and Blackjack Drive pedals.
+- [x] Apply the verified individual pedal images to their matching storefront listings with product-specific regression coverage and public CDN delivery.
