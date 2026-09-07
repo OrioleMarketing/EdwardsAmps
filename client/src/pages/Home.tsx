@@ -98,8 +98,8 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "/manus-storage/elusive-overdrive-neville-guitar-pairing_611375f5.png",
-  mobileImage: "/manus-storage/elusive-overdrive-neville-guitar-pairing_611375f5.png",
+  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yAHIhJMJHoggjcEH.png",
+  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yAHIhJMJHoggjcEH.png",
   alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier",
 };
 
