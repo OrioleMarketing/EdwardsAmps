@@ -25,11 +25,18 @@ describe("client product-image mapping", () => {
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["edwards-amps-effects-t-shirt"].image).toBeUndefined();
   });
 
-  it("uses the approved wooden-platform Elusive Overdrive image only for the two head variants", () => {
-    const approvedHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bCQyoIDyqDYQJKcL.png";
+  it("uses distinct staged scenes for the Elusive Overdrive 24 Watt and 40 Watt head variants", () => {
+    const twentyFourWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bCQyoIDyqDYQJKcL.png";
+    const fortyWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/kWaZoNRRXBKhaLMH.png";
+    const twentyFourWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"];
+    const fortyWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"];
 
-    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"].image).toBe(approvedHeadImage);
-    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].image).toBe(approvedHeadImage);
+    expect(twentyFourWattHead.image).toBe(twentyFourWattHeadImage);
+    expect(fortyWattHead.image).toBe(fortyWattHeadImage);
+    expect(twentyFourWattHead.image).not.toBe(fortyWattHead.image);
+    expect(twentyFourWattHead.imageAlt).toContain("wooden workshop platform");
+    expect(fortyWattHead.imageAlt).toContain("traditional black vinyl");
+    expect(fortyWattHead.imageAlt).toContain("bar counter");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"].imageFit).toBe("cover");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].imageFit).toBe("cover");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"].image).toBeUndefined();

@@ -250,3 +250,5 @@
 - [x] Generate a faithful Hot Mama Head-only product scene in a warm British pub environment and add the approved image to the live product listing through an externally reachable URL.
 
 - [x] Replace the fixed “Five distinct amps” lineup headline with inclusive language describing multiple Edwards amplifier voices and musical uses.
+
+- [ ] Generate a distinct Elusive Overdrive 40 Watt Head image with traditional black vinyl in a warm bar setting, then map it only to the 40 Watt head product while retaining the 24 Watt head image.
