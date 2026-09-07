@@ -9,7 +9,7 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { ampProducts, ampProductsBySlug } from "@/lib/ampData";
 import { ArrowLeft, ArrowRight, Loader2, Music2, PhoneCall, ShoppingBag } from "lucide-react";
-import { SHOPIFY_PRODUCT_OPTIONS_BY_AMP } from "@shared/shopifyCatalog";
+import { orderShopProducts, SHOPIFY_PRODUCT_OPTIONS, SHOPIFY_PRODUCT_OPTIONS_BY_AMP } from "@shared/shopifyCatalog";
 
 export default function AmpDetail({ slug }: { slug: string }) {
   const amp = ampProductsBySlug[slug];
@@ -19,8 +19,12 @@ export default function AmpDetail({ slug }: { slug: string }) {
   }
 
   const { addToCart, cart, isAddingProductToCart, productsByKey } = useShopifyCart();
-  const relatedAmps = ampProducts.filter((product) => product.slug !== amp.slug);
   const directOrderOptions = SHOPIFY_PRODUCT_OPTIONS_BY_AMP[amp.slug] ?? [];
+  const relatedAmpOptions = orderShopProducts(
+    SHOPIFY_PRODUCT_OPTIONS.filter(
+      (option) => option.group === "Amplifiers" && option.ampSlug !== amp.slug,
+    ),
+  );
   const headerCtaLabel = "Shop This Amp";
   const headerCtaHref = "#shop-path";
   const heroPrimaryLabel = "View order options";
@@ -304,23 +308,23 @@ export default function AmpDetail({ slug }: { slug: string }) {
             </div>
 
             <div className="border border-white/10 bg-[#11100e] p-8 lg:p-10">
-              <p className="section-kicker">Other Edwards models</p>
-              <h3 className="font-display text-4xl leading-[1.08] text-foreground">Explore the rest of the lineup.</h3>
+              <p className="section-kicker">Full amplifier lineup</p>
+              <h3 className="font-display text-4xl leading-[1.08] text-foreground">Explore every other Edwards amp.</h3>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/68">
-                Every Edwards amp is built around a different response and use case. If this is not the exact fit, the rest of the lineup gives you a different path without leaving the same build philosophy behind.
+                Every current Edwards amplifier is listed here. The order choices above cover this model’s formats; these cards cover the rest of the range, from heads and portable combos to Princess, Queen, and 69/73.
               </p>
 
-              <div className="mt-8 grid gap-4">
-                {relatedAmps.map((product) => (
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {relatedAmpOptions.map((product) => (
                   <a
-                    key={product.slug}
-                    href={`/amps/${product.slug}`}
+                    key={product.key}
+                    href={`/shop/${product.handle}`}
                     className="group flex items-start justify-between gap-6 border border-white/10 bg-card/45 p-5 transition-colors duration-500 hover:border-primary/30 hover:bg-card/75"
                   >
                     <div>
                       <p className="text-[0.68rem] uppercase tracking-[0.22em] text-foreground/46">{product.eyebrow}</p>
-                      <p className="mt-2 font-display text-2xl leading-[1.08] text-foreground">{product.name}</p>
-                      <p className="mt-3 text-sm leading-6 text-foreground/68">{product.summary}</p>
+                      <p className="mt-2 font-display text-2xl leading-[1.08] text-foreground">{product.displayName}</p>
+                      <p className="mt-3 text-sm leading-6 text-foreground/68">{product.subtitle}</p>
                     </div>
                     <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-primary transition-transform duration-500 group-hover:translate-x-1" />
                   </a>
