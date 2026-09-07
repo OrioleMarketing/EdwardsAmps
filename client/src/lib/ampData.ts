@@ -86,9 +86,9 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,799 USD',
-    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bossoRptSpfdulIE.png',
-    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bossoRptSpfdulIE.png',
-    heroAlt: 'Edwards King Richard Head resting on a vintage pickup tailgate at golden hour',
+    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png',
+    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yzvzYwHkmOboYgNE.png',
+    heroAlt: 'Edwards King Richard Head in a warm British pub with a dartboard in the background',
     eyebrow: 'British chime and authority',
     summary:
       'King Richard is Edwards’ bigger British-leaning head, built for players who want punch, dimension, and the richer complexity that comes from running two distinct channels.',
