@@ -291,4 +291,4 @@
 
 - [x] Add a consistent customer-facing note to every Edwards head product that it is custom built to be paired with an Edwards Amplification Speaker Cabinet, without adding the note to combo products.
 
-- [ ] Add the supplied Neville Guitars external hyperlink to the Featured Pairing and verify its public behavior.
+- [x] Add the supplied Neville Guitars external hyperlink to the Featured Pairing and verify its public behavior.
