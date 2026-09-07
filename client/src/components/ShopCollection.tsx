@@ -14,10 +14,10 @@ const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
     id: product.key,
     name: product.displayName,
     priceLabel: product.fallbackPriceLabel,
-    image: amp?.heroImage ?? product.image ?? "",
-    mobileImage: amp?.heroImageMobile ?? product.image ?? "",
-    alt: amp?.heroAlt ?? product.imageAlt ?? product.displayName,
-    imageFit: amp ? "cover" : product.imageFit ?? "cover",
+    image: product.image ?? amp?.heroImage ?? "",
+    mobileImage: product.image ?? amp?.heroImageMobile ?? "",
+    alt: product.imageAlt ?? amp?.heroAlt ?? product.displayName,
+    imageFit: product.image ? product.imageFit ?? "cover" : amp ? "cover" : "cover",
   };
 });
 

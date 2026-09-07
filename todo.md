@@ -226,3 +226,7 @@
 - [x] Generate a faithful King Richard Amp Head product image staged on a warm wooden platform that matches the supplied Edwards reference scene, without altering the provided product design.
 
 - [x] Replace both King Richard Amp Head image placements with the approved generated wooden-platform product scene and verify desktop and mobile presentation.
+
+- [x] Generate a faithful Elusive Overdrive amplifier image staged on the same warm wooden platform style, preserving the supplied turquoise patterned cabinet, front panel, and full Edwards mark.
+
+- [x] Replace the applicable Elusive Overdrive head image placements with the approved wooden-platform product scene and verify responsive presentation.
