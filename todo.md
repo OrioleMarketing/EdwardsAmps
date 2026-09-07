@@ -264,4 +264,4 @@
 
 - [x] Replace the King Richard tailgate image with a faithful British-pub scene featuring warm wood, amber light, and a subtly blurred dartboard, then verify live delivery without a placeholder.
 
-- [ ] Create a faithful left-facing speaker-cabinet stage scene from the supplied cabinet reference and use it only for the top Speaker cabinets category image.
+- [x] Create a faithful left-facing speaker-cabinet stage scene from the supplied cabinet reference and use it only for the top Speaker cabinets category image.
