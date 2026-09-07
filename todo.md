@@ -259,3 +259,5 @@
 
 - [x] Replace the Elusive Overdrive head imagery with performance-stage scenes that preserve the distinct 24 Watt and 40 Watt treatments.
 - [x] Replace the King Richard Head imagery with a pickup-tailgate product scene and verify it is delivered publicly without a placeholder.
+
+- [ ] Restore the approved shared Elusive imagery used by combos and the top Amplifiers and Speaker cabinets category cards, while retaining the new images only on Elusive head products and King Richard Head.

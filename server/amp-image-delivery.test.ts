@@ -18,8 +18,8 @@ describe("responsive amplifier imagery", () => {
 
     expect(imageSources).toEqual({
       "elusive-overdrive": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png",
+        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/AkIGNUKzXVdWQQRV.webp",
+        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
       },
       "king-richard": {
         desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bossoRptSpfdulIE.png",

@@ -35,9 +35,9 @@ export const ampProducts: AmpProduct[] = [
     name: 'Elusive Overdrive',
     shortName: 'Elusive Overdrive',
     price: 'From $3,000 USD',
-    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png',
-    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png',
-    heroAlt: 'Edwards Elusive Overdrive 24 Watt Head staged for a warm live performance',
+    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/AkIGNUKzXVdWQQRV.webp',
+    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp',
+    heroAlt: 'Edwards Elusive Overdrive amplifier staged on a wooden workbench',
     eyebrow: 'American clean to wild overdrive',
     summary:
       'The Elusive Overdrive is the broadest-range amp in the Edwards lineup, built for players who want beautiful clean tone, smooth breakup, and a convincing lead voice from one hand-built platform.',
