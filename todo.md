@@ -280,3 +280,5 @@
 - [x] Apply the verified individual pedal images to their matching storefront listings with product-specific regression coverage and public CDN delivery.
 
 - [x] Replace the Elusive Overdrive featured-pairing guitar with the supplied Neville Guitar custom build, retain the Elusive Overdrive amp, and update the title and copy to the Neville pairing.
+
+- [x] Audit every customer-facing amplifier listing and recommendation surface against the current public amplifier catalog, restore missing entries, and verify the full lineup live.
