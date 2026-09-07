@@ -140,10 +140,10 @@ export default function Home() {
       alt: "Edwards amplifier and matching cabinet on a warm performance stage",
     },
     "Effects pedals": {
-      desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rkUmWrMSENMpokwY.webp",
-      mobileSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rkUmWrMSENMpokwY.webp",
-      alt: "Edwards Elusive Overdrive Pedal",
-      imageClassName: "object-contain p-4",
+      desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png",
+      mobileSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png",
+      alt: "Edwards pedalboard on stage from a performer's viewpoint with Elusive Overdrive centered",
+      imageClassName: "object-cover",
     },
     "Speaker cabinets": {
       desktopSrc: speakerCabinetCategoryImage,

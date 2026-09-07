@@ -27,4 +27,13 @@ describe("homepage lineup copy", () => {
     expect(homePage).toContain('mobileSrc: amplifiersCategoryImage');
     expect(homePage).toContain('alt: "Edwards amplifier and matching cabinet on a warm performance stage"');
   });
+
+  it("uses the performer-view pedalboard scene only for the Effects pedals category", () => {
+    const homePage = readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8");
+
+    expect(homePage).toContain('desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png"');
+    expect(homePage).toContain('mobileSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/neTvaNnewbtGWlJi.png"');
+    expect(homePage).toContain('alt: "Edwards pedalboard on stage from a performer\'s viewpoint with Elusive Overdrive centered"');
+    expect(homePage).toContain('imageClassName: "object-cover"');
+  });
 });

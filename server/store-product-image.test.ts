@@ -5,23 +5,47 @@ const expectedImageKeys = [
   "princess-reverb-combo",
   "elusive-overdrive-pedal",
   "mystery-drive-pedal",
+  "blackjack-overdrive-pedal",
   "fuzzy-octave-pedal",
   "evil-grin-fuzz-pedal",
   "elusive-overdrive-t-shirt",
 ] as const;
 
 describe("client product-image mapping", () => {
-  it("assigns uploaded client photography only to clearly matched products", () => {
+  it("assigns product-specific imagery only to clearly matched products", () => {
     for (const key of expectedImageKeys) {
       const product = SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key];
 
-      expect(product.image, `${key} image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$/);
+      expect(product.image, `${key} image`).toMatch(/^(\/manus-storage\/|https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$)/);
       expect(product.imageAlt, `${key} alt text`).toBeTruthy();
-      expect(product.imageFit, `${key} product-preserving fit`).toBe("contain");
+      expect(product.imageFit, `${key} product presentation fit`).toMatch(/^(contain|cover)$/);
     }
 
-    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["blackjack-overdrive-pedal"].image).toBeUndefined();
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["edwards-amps-effects-t-shirt"].image).toBeUndefined();
+  });
+
+  it("keeps the professional pedal-image mapping exclusive to the five supplied pedal products", () => {
+    const expectedProfessionalPedalImages = {
+      "elusive-overdrive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/JSHSnkrQfwrskOmq.png",
+      "mystery-drive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/UKXgPRWjTOPghZqv.png",
+      "blackjack-overdrive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/JenULkvLoYWtSgAx.png",
+      "fuzzy-octave-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/koAMOaCtVLfXRpWf.png",
+      "evil-grin-fuzz-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/YTRvttdlyAenIgMH.png",
+    } as const;
+
+    for (const [key, image] of Object.entries(expectedProfessionalPedalImages)) {
+      expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key as keyof typeof SHOPIFY_PRODUCT_OPTIONS_BY_KEY].image).toBe(image);
+      expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key as keyof typeof SHOPIFY_PRODUCT_OPTIONS_BY_KEY].imageAlt).toContain("professional studio product image");
+      expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key as keyof typeof SHOPIFY_PRODUCT_OPTIONS_BY_KEY].imageFit).toBe("cover");
+    }
+  });
+
+  it("uses the rehearsal-room scene only for the Princess Reverb Combo", () => {
+    const princess = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["princess-reverb-combo"];
+
+    expect(princess.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jwOShzdTobsIfyDg.png");
+    expect(princess.imageAlt).toContain("late-night rehearsal room");
+    expect(princess.imageFit).toBe("cover");
   });
 
   it("uses distinct staged scenes for the Elusive Overdrive 24 Watt and 40 Watt head variants", () => {
