@@ -303,3 +303,13 @@
 - [x] Create faithful 24 Watt and blue floral 40 Watt Combo visual variants with correct centered grille-logo placement.
 - [x] Replace both Elusive Overdrive Combo storefront image mappings and update regression coverage.
 - [x] Validate, publish, and publicly verify the corrected Combo images on EdwardsAmps.com.
+
+- [x] Locate the prior approved Elusive Overdrive 24 Watt Combo stage background and preserve it exactly.
+- [x] Replace only the 24 Watt Combo amplifier within that approved stage image using the newly supplied exact client amp reference.
+- [x] Present the 24 Watt stage composite for review before changing the 40 Watt Combo image.
+
+- [x] Confirm whether the supplied real blue floral material applies to the 24 Watt draft, the 40 Watt Combo, or both.
+- [x] Apply only the supplied blue floral material to the confirmed Elusive Overdrive Combo image while preserving the approved stage background and exact client amp form.
+
+- [x] Deliver the approved black exact-amp 24 Watt stage composite and blue floral exact-amp 40 Watt stage composite as responsive public CDN assets.
+- [ ] Replace the live Elusive Overdrive 24 Watt and 40 Watt Combo image mappings with the approved stage composites and verify them on EdwardsAmps.com.

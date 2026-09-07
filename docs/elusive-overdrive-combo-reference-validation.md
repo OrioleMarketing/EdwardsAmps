@@ -4,11 +4,11 @@ The supplied client photograph is the source of truth for the 24 Watt Combo’s 
 
 | Product | Desktop source | Mobile source | Delivery detail |
 | --- | --- | --- | --- |
-| Elusive Overdrive — 24 Watt Combo | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/gaskNWDFWDWWHkov.webp` | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/lfMeEQvUycYyUYYL.webp` | Exact supplied amp photograph, WebP derivatives at 1440×1920 and 720×960. |
-| Elusive Overdrive — 40 Watt Combo | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/sPJUAHJpJcoHjPHH.webp` | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ZFvJYGvFWZDrLobI.webp` | Faithful reference-based version with blue floral/paisley cabinet covering and a level, centered grille badge. |
+| Elusive Overdrive — 24 Watt Combo | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/orhJYWjuwILmOWiQ.webp` | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/FEaIDIzDgbOvaGKf.webp` | Exact black client amp in the approved warm stage composition, WebP derivatives at 1440×1920 and 720×960. |
+| Elusive Overdrive — 40 Watt Combo | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RbiRyGNWPUepZjxJ.webp` | `https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/AlZPYHHCMBWxYRwm.webp` | Exact client amp with the user-supplied blue floral material in the approved warm stage composition, with a level centered grille badge. |
 
-The 24 Watt source retains the client-provided visual without generated modification. The 40 Watt variant changes only the requested cabinet covering while retaining the product’s front-facing geometry, diamond grille treatment, control layout, and centered grille badge.
+The 24 Watt source uses the exact black client Combo treatment in the approved stage composition. The 40 Watt variant is the only applied blue floral variant, and uses the user-supplied material while retaining the client Combo’s geometry, diamond grille treatment, control layout, and centered grille badge.
 
-Local storefront verification on 2026-09-07 confirmed that the 24 Watt and 40 Watt card mappings resolve to the four public CDN WebP derivatives above. Each CDN URL returned `200 image/webp`; the desktop variants are approximately 752 KB and 728 KB, while the mobile variants are approximately 151 KB and 154 KB.
+The final stage-composite WebP derivatives are approximately 345 KB and 338 KB for desktop, and approximately 73 KB and 77 KB for mobile, respectively.
 
 Public verification on 2026-09-07 confirmed that the Vercel production deployment `dpl_BDcSRYrgFwFY3aVFdE33hvEjkFPe` reached `READY` for `edwardsamps.com`. The visible live storefront rendered the exact client 24 Watt Combo and the matching blue floral 40 Watt Combo, with level centered Edwards grille badges and no placeholder images.

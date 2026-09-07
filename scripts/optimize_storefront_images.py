@@ -38,6 +38,12 @@ LOCAL_IMAGE_SOURCES = {
     "elusive-overdrive-40w-combo-blue-floral-exact": Path(
         "/home/ubuntu/webdev-static-assets/elusive-overdrive-40w-combo-exact-blue-floral.png"
     ),
+    "elusive-overdrive-24w-combo-stage-exact": Path(
+        "/home/ubuntu/webdev-static-assets/elusive-overdrive-24w-combo-stage-exact-client.png"
+    ),
+    "elusive-overdrive-40w-combo-stage-exact-blue-floral": Path(
+        "/home/ubuntu/webdev-static-assets/elusive-overdrive-40w-combo-stage-exact-blue-floral.png"
+    ),
 }
 
 DERIVATIVES = {
