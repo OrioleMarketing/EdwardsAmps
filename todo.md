@@ -222,3 +222,7 @@
 - [x] Integrate the supplied Princess Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
 - [x] Integrate the supplied Queen Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
 - [x] Add regression coverage and validate the two updated product pages across the storefront before publishing.
+
+- [x] Generate a faithful King Richard Amp Head product image staged on a warm wooden platform that matches the supplied Edwards reference scene, without altering the provided product design.
+
+- [x] Replace both King Richard Amp Head image placements with the approved generated wooden-platform product scene and verify desktop and mobile presentation.

@@ -86,9 +86,9 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,799 USD',
-    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/FskotkbyWnSwzneo.webp',
-    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DqgMMemmxyyfaHUl.webp',
-    heroAlt: 'Edwards King Richard amplifier staged on a large performance stage',
+    heroImage: '/manus-storage/king-richard-head-wood-platform_5709f660.png',
+    heroImageMobile: '/manus-storage/king-richard-head-wood-platform_5709f660.png',
+    heroAlt: 'Edwards King Richard Amp Head staged on a warm wooden workshop platform',
     eyebrow: 'British chime and authority',
     summary:
       'King Richard is Edwards’ bigger British-leaning head, built for players who want punch, dimension, and the richer complexity that comes from running two distinct channels.',

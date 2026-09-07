@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest";
 import { ampProducts } from "../client/src/lib/ampData";
 
 describe("responsive amplifier imagery", () => {
-  it("uses optimized direct WebP sources for desktop and mobile", () => {
+  it("uses optimized direct WebP sources or managed static assets for desktop and mobile", () => {
     expect(ampProducts).toHaveLength(5);
 
     for (const amp of ampProducts) {
-      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
-      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
+      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^(https:\/\/files\.manuscdn\.com\/.+\.webp|\/manus-storage\/.+\.(png|webp))$/);
+      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^(https:\/\/files\.manuscdn\.com\/.+\.webp|\/manus-storage\/.+\.(png|webp))$/);
     }
   });
 
@@ -22,8 +22,8 @@ describe("responsive amplifier imagery", () => {
         mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
       },
       "king-richard": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/FskotkbyWnSwzneo.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DqgMMemmxyyfaHUl.webp",
+        desktop: "/manus-storage/king-richard-head-wood-platform_5709f660.png",
+        mobile: "/manus-storage/king-richard-head-wood-platform_5709f660.png",
       },
       "hot-mama": {
         desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/iATUaSsbPuhgrdpr.webp",
