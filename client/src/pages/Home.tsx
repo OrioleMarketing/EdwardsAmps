@@ -31,6 +31,7 @@ import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
+const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jovIpmYiJyBvEsGj.png";
 const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/oyCouNzgwsXcCoCJ.png";
 
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
@@ -134,9 +135,9 @@ export default function Home() {
 
   const heroCategoryImages: Record<HeroShopCategory, { desktopSrc: string; mobileSrc: string; alt: string; imageClassName?: string }> = {
     Amplifiers: {
-      desktopSrc: elusiveOverdrive?.heroImage ?? "",
-      mobileSrc: elusiveOverdrive?.heroImageMobile ?? "",
-      alt: "Edwards Elusive Overdrive amplifier staged on a wooden workbench",
+      desktopSrc: amplifiersCategoryImage,
+      mobileSrc: amplifiersCategoryImage,
+      alt: "Edwards amplifier and matching cabinet on a warm performance stage",
     },
     "Effects pedals": {
       desktopSrc: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/rkUmWrMSENMpokwY.webp",

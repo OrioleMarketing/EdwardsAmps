@@ -18,4 +18,13 @@ describe("homepage lineup copy", () => {
     expect(homePage).toContain('mobileSrc: speakerCabinetCategoryImage');
     expect(homePage).toContain('alt: "Edwards speaker cabinet on a warm performance stage, angled slightly left"');
   });
+
+  it("uses a dedicated stage image for the Amplifiers category card", () => {
+    const homePage = readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8");
+
+    expect(homePage).toContain('const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jovIpmYiJyBvEsGj.png";');
+    expect(homePage).toContain('desktopSrc: amplifiersCategoryImage');
+    expect(homePage).toContain('mobileSrc: amplifiersCategoryImage');
+    expect(homePage).toContain('alt: "Edwards amplifier and matching cabinet on a warm performance stage"');
+  });
 });
