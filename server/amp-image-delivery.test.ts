@@ -22,8 +22,8 @@ describe("responsive amplifier imagery", () => {
         mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
       },
       "king-richard": {
-        desktop: "/manus-storage/king-richard-head-desktop_ed60817b.webp",
-        mobile: "/manus-storage/king-richard-head-mobile_d6bca3ea.webp",
+        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/VKakUxtgcftJEoAU.webp",
+        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/dOBbgyGQynTzsgac.webp",
       },
       "hot-mama": {
         desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/iATUaSsbPuhgrdpr.webp",

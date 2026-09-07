@@ -31,12 +31,12 @@ import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with a Neville Guitar custom build";
-const amplifiersCategoryImage = "/manus-storage/amplifiers-category-desktop_cd6c648a.webp";
-const amplifiersCategoryImageMobile = "/manus-storage/amplifiers-category-mobile_925db6de.webp";
-const speakerCabinetCategoryImage = "/manus-storage/speaker-cabinets-category-desktop_f9332c34.webp";
-const speakerCabinetCategoryImageMobile = "/manus-storage/speaker-cabinets-category-mobile_5aee3f6f.webp";
-const effectsPedalsCategoryImage = "/manus-storage/effects-pedals-category-desktop_20f9fa40.webp";
-const effectsPedalsCategoryImageMobile = "/manus-storage/effects-pedals-category-mobile_9c1e3c94.webp";
+const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ZPyYfaSjcTVZaqIP.webp";
+const amplifiersCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/knqfHvhehEaCcoEx.webp";
+const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/QZxNmKvYnOHoENlZ.webp";
+const speakerCabinetCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/kZffwAGRJsOnchsO.webp";
+const effectsPedalsCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/KeJvMTcYDDOXenQu.webp";
+const effectsPedalsCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/hvLWdtudqPiJInKQ.webp";
 
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
 
@@ -102,8 +102,8 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "/manus-storage/neville-featured-pairing-desktop_33352faf.webp",
-  mobileImage: "/manus-storage/neville-featured-pairing-mobile_539b087a.webp",
+  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/gfnyIPpyeyUrqmWb.webp",
+  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/OiDEUFpMVypMFwSu.webp",
   alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier",
 };
 

@@ -25,8 +25,8 @@ describe("optimized storefront image delivery", () => {
     for (const key of optimizedProductKeys) {
       const product = SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key];
 
-      expect(product.image, `${key} desktop image`).toMatch(/^\/manus-storage\/.+-desktop_[a-z0-9]+\.webp$/);
-      expect(product.imageMobile, `${key} mobile image`).toMatch(/^\/manus-storage\/.+-mobile_[a-z0-9]+\.webp$/);
+      expect(product.image, `${key} desktop image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
+      expect(product.imageMobile, `${key} mobile image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
     }
   });
 

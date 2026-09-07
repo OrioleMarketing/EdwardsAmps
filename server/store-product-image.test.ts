@@ -55,11 +55,11 @@ describe("client product-image mapping", () => {
 
   it("keeps the professional pedal-image mapping exclusive to the five supplied pedal products", () => {
     const expectedProfessionalPedalImages = {
-      "elusive-overdrive-pedal": "/manus-storage/elusive-overdrive-pedal-desktop_99e1cc30.webp",
-      "mystery-drive-pedal": "/manus-storage/mystery-drive-pedal-desktop_7436de8a.webp",
-      "blackjack-overdrive-pedal": "/manus-storage/blackjack-overdrive-pedal-desktop_ff558d78.webp",
-      "fuzzy-octave-pedal": "/manus-storage/fuzzy-octave-pedal-desktop_e1841588.webp",
-      "evil-grin-fuzz-pedal": "/manus-storage/evil-grin-fuzz-pedal-desktop_c267de9b.webp",
+      "elusive-overdrive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/fhbPESNqBjvZbMNG.webp",
+      "mystery-drive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/XSAIqVVPeADveZdo.webp",
+      "blackjack-overdrive-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/qNdjzJzcBgJueXBp.webp",
+      "fuzzy-octave-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/TxOoNlhoEokFRYfg.webp",
+      "evil-grin-fuzz-pedal": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/MBKDeOcIFWKhSrOx.webp",
     } as const;
 
     for (const [key, image] of Object.entries(expectedProfessionalPedalImages)) {
@@ -72,15 +72,15 @@ describe("client product-image mapping", () => {
   it("uses the rehearsal-room scene only for the Princess Reverb Combo", () => {
     const princess = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["princess-reverb-combo"];
 
-    expect(princess.image).toBe("/manus-storage/princess-reverb-combo-desktop_04b93aa0.webp");
-    expect(princess.imageMobile).toBe("/manus-storage/princess-reverb-combo-mobile_1f01843f.webp");
+    expect(princess.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ZIvLClynsIEkyIHG.webp");
+    expect(princess.imageMobile).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/vdPnzerNiGLHaOSH.webp");
     expect(princess.imageAlt).toContain("late-night rehearsal room");
     expect(princess.imageFit).toBe("cover");
   });
 
   it("uses distinct staged scenes for the Elusive Overdrive 24 Watt and 40 Watt head variants", () => {
-    const twentyFourWattHeadImage = "/manus-storage/elusive-overdrive-24w-head-desktop_194f2c3c.webp";
-    const fortyWattHeadImage = "/manus-storage/elusive-overdrive-40w-head-desktop_128a2749.webp";
+    const twentyFourWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/nDzAqCYQcBnYIVOW.webp";
+    const fortyWattHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/aGmjpTKSTMbsRtrf.webp";
     const twentyFourWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"];
     const fortyWattHead = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"];
 
@@ -95,18 +95,18 @@ describe("client product-image mapping", () => {
   });
 
   it("uses the honky-tonk stage scene only for the Elusive Overdrive 24 Watt Combo", () => {
-    const approvedComboImage = "/manus-storage/elusive-overdrive-24w-combo-desktop_4022791b.webp";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/fTFWazvEFJpVFXcz.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("elevated honky-tonk performance stage");
     expect(combo.imageAlt).toContain("centered Edwards script grille logo");
-    expect(approvedComboImage).toMatch(/^\/manus-storage\/.+\.webp$/);
+    expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
   it("uses the blue floral stage scene only for the Elusive Overdrive 40 Watt Combo", () => {
-    const approvedComboImage = "/manus-storage/elusive-overdrive-40w-combo-desktop_5b170815.webp";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/xizHtuUtVtaDkzoa.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
@@ -114,37 +114,37 @@ describe("client product-image mapping", () => {
     expect(combo.imageAlt).toContain("blue floral Tolex");
     expect(combo.imageAlt).toContain("centered Edwards script grille logo");
     expect(combo.imageAlt).toContain("angled slightly left");
-    expect(approvedComboImage).toMatch(/^\/manus-storage\/.+\.webp$/);
+    expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
   it("uses the approved public coffee-shop scene for the 69/73 combo", () => {
-    const approvedComboImage = "/manus-storage/69-73-combo-desktop_5fb2f423.webp";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ggLMfyLGOTmWMBOj.webp";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["69-73-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("coffee-shop performance setting");
-    expect(approvedComboImage).toMatch(/^\/manus-storage\/.+\.webp$/);
+    expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 
   it("uses the approved public British-pub scene only for the Hot Mama Head", () => {
-    const approvedHeadImage = "/manus-storage/hot-mama-head-desktop_38e7bfc0.webp";
+    const approvedHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/NnSnPXJouLnSLNXL.webp";
     const head = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["hot-mama-head"];
 
     expect(head.image).toBe(approvedHeadImage);
     expect(head.imageFit).toBe("cover");
     expect(head.imageAlt).toContain("warm wooden pub table");
-    expect(approvedHeadImage).toMatch(/^\/manus-storage\/.+\.webp$/);
+    expect(approvedHeadImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["hot-mama-combo"].image).toBeUndefined();
   });
 
   it("uses the approved public college-dorm scene only for the Queen Reverb Combo", () => {
-    const approvedQueenImage = "/manus-storage/queen-reverb-combo-desktop_c640eaf6.webp";
+    const approvedQueenImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/TzhmtXmCjOcKnmoy.webp";
     const queen = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["queen-reverb-combo"];
 
     expect(queen.image).toBe(approvedQueenImage);
     expect(queen.imageFit).toBe("cover");
     expect(queen.imageAlt).toContain("warm college dorm room");
-    expect(approvedQueenImage).toMatch(/^\/manus-storage\/.+\.webp$/);
+    expect(approvedQueenImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
   });
 });
