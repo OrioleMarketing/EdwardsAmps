@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { ampProducts } from "@/lib/ampData";
 import { getShopGroupLabel, getVisibleShopGroups, type ShopCategoryFilter } from "@/lib/shopFilters";
-import { getProductDetailPath, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductKey } from "@shared/shopifyCatalog";
+import { getProductDetailPath, orderShopProducts, SHOPIFY_PRODUCT_OPTIONS, type ShopifyProductKey } from "@shared/shopifyCatalog";
 
 const shopAnchorCards = SHOPIFY_PRODUCT_OPTIONS.map((product) => {
   const amp = product.ampSlug ? ampProducts.find((candidate) => candidate.slug === product.ampSlug) : undefined;
@@ -51,7 +51,7 @@ export default function ShopCollection({
     <section id="shop" className="container border-b border-white/10 py-12 lg:py-16">
       <div id="shop-products" className="space-y-14">
         {visibleShopGroups.map((group) => {
-            const products = shopAnchorCards.filter((product) => product.group === group);
+            const products = orderShopProducts(shopAnchorCards.filter((product) => product.group === group));
             if (products.length === 0) return null;
 
             return (

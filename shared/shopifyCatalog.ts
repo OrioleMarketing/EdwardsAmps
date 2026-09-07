@@ -40,6 +40,35 @@ export type ShopifyProductOption = {
   fallbackPriceValue: number;
 };
 
+export const AMPLIFIER_SHOP_DISPLAY_ORDER = [
+  "elusive-overdrive-24w-head",
+  "elusive-overdrive-40w-head",
+  "king-richard-head",
+  "hot-mama-head",
+  "elusive-overdrive-24w-combo",
+  "elusive-overdrive-40w-combo",
+  "hot-mama-combo",
+  "double-dee-tweed-combo",
+  "lil-tyke-tweed-combo",
+  "princess-reverb-combo",
+  "queen-reverb-combo",
+  "69-73-combo",
+] as const satisfies readonly ShopifyProductKey[];
+
+const amplifierShopDisplayPositions = new Map<ShopifyProductKey, number>(
+  AMPLIFIER_SHOP_DISPLAY_ORDER.map((key, index) => [key, index]),
+);
+
+export function orderShopProducts<T extends Pick<ShopifyProductOption, "key" | "group">>(products: T[]) {
+  return [...products].sort((left, right) => {
+    if (left.group !== "Amplifiers" || right.group !== "Amplifiers") return 0;
+
+    const leftPosition = amplifierShopDisplayPositions.get(left.key) ?? Number.MAX_SAFE_INTEGER;
+    const rightPosition = amplifierShopDisplayPositions.get(right.key) ?? Number.MAX_SAFE_INTEGER;
+    return leftPosition - rightPosition;
+  });
+}
+
 const STORE_PATH = (handle: string) => `/shop/${handle}`;
 
 export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [

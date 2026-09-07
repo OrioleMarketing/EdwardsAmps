@@ -240,3 +240,5 @@
 - [x] Remove the 69/73 Head from all public storefront catalog and product-route surfaces while retaining the 69/73 Combo listing and coffee-shop image.
 
 - [x] Unpublish only the 69/73 Head in Shopify and verify its sales-channel publication is removed while the 69/73 Combo remains unchanged.
+
+- [ ] Reorder the homepage Amplifiers collection to show Elusive, King Richard, and Hot Mama heads first, followed by their corresponding combo units in the same order.
