@@ -8,6 +8,7 @@ const expectedImageKeys = [
   "blackjack-overdrive-pedal",
   "fuzzy-octave-pedal",
   "evil-grin-fuzz-pedal",
+  "edwards-amps-effects-t-shirt",
   "elusive-overdrive-t-shirt",
 ] as const;
 
@@ -16,12 +17,19 @@ describe("client product-image mapping", () => {
     for (const key of expectedImageKeys) {
       const product = SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key];
 
-      expect(product.image, `${key} image`).toMatch(/^(\/manus-storage\/|https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$)/);
+      expect(product.image, `${key} image`).toMatch(/^(\/manus-storage\/|https:\/\/files\.manuscdn\.com\/.+\.(jpg|png|webp))$/);
       expect(product.imageAlt, `${key} alt text`).toBeTruthy();
       expect(product.imageFit, `${key} product presentation fit`).toMatch(/^(contain|cover)$/);
     }
+  });
 
-    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["edwards-amps-effects-t-shirt"].image).toBeUndefined();
+  it("uses the supplied black Edwards Amps and Effects shirt image only for the matching apparel listing", () => {
+    const shirt = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["edwards-amps-effects-t-shirt"];
+
+    expect(shirt.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/uXmDiOvONEgvVbYi.jpg");
+    expect(shirt.imageAlt).toContain("Black Edwards Amps and Effects T-Shirt");
+    expect(shirt.imageFit).toBe("contain");
+    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-t-shirt"].image).not.toBe(shirt.image);
   });
 
   it("keeps the professional pedal-image mapping exclusive to the five supplied pedal products", () => {
