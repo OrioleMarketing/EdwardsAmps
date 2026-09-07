@@ -266,4 +266,4 @@
 
 - [x] Create a faithful left-facing speaker-cabinet stage scene from the supplied cabinet reference and use it only for the top Speaker cabinets category image.
 
-- [ ] Restage the current top Amplifiers category image in a performance-stage environment while preserving the existing amplifier subject and limiting the change to that category card.
+- [x] Restage the current top Amplifiers category image in a performance-stage environment while preserving the existing amplifier subject and limiting the change to that category card.
