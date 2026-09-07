@@ -41,6 +41,11 @@ describe("Shopify catalog mapping", () => {
         priceValue: 999,
         currencyCode: "USD",
       });
+
+      expect(products.find((entry) => entry.key === "hot-mama-head")).toMatchObject({
+        handle: "hot-mama-amp-head",
+        name: "Hot Mama Amp — Head",
+      });
     },
     30000,
   );

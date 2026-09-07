@@ -242,3 +242,7 @@
 - [x] Unpublish only the 69/73 Head in Shopify and verify its sales-channel publication is removed while the 69/73 Combo remains unchanged.
 
 - [x] Reorder the homepage Amplifiers collection to show Elusive, King Richard, and Hot Mama heads first, followed by their corresponding combo units in the same order.
+
+- [x] Correct the Hot Mama title to exactly “Hot Mama Amp — Head,” capitalizing both “Amp” and “Head” consistently with the collection.
+
+- [x] Update only the Shopify Hot Mama Head product title to exactly “Hot Mama Amp — Head” and verify the live catalog resolves the corrected casing.
