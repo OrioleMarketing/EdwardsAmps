@@ -216,3 +216,9 @@
 
 - [x] Enable Railway auto deploy for `OrioleMarketing/EdwardsAmps` main and verify the public backend deploys the current catalog source.
 - [x] Add a $999 USD static fallback and regression coverage for the 4x10 Oval Open-Back Speaker Cabinet so the public product page remains accurate while catalog delivery recovers.
+
+- [x] Verify that the Elusive Overdrive Pedal price of $349 in Shopify automatically propagates to the public EdwardsAmps.com storefront, and correct a static fallback only if live catalog delivery is unavailable.
+
+- [ ] Integrate the supplied Princess Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
+- [ ] Integrate the supplied Queen Reverb Amp narrative and technical specifications into its public product page using the established Edwards description format.
+- [ ] Add regression coverage and validate the two updated product pages across the storefront before publishing.

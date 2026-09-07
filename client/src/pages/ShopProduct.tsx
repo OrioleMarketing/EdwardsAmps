@@ -21,6 +21,9 @@ export default function ShopProduct({ handle }: { handle: string }) {
   const isAddingProduct = isAddingProductToCart(product.key);
   const cartCount = cart?.totalQuantity ?? 0;
   const productInfo = STORE_PRODUCT_INFO_BY_KEY[product.key];
+  const detailKicker = productInfo?.sectionKicker ?? "Pedal details";
+  const detailHeading = productInfo?.sectionHeading ?? "Designed for a more deliberate drive and feel.";
+  const hasSpecifications = Boolean(productInfo?.specifications?.length);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary-foreground">
@@ -110,8 +113,8 @@ export default function ShopProduct({ handle }: { handle: string }) {
             <section className="mt-8 overflow-hidden border border-white/10 bg-card/35">
               <div className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.05fr_0.95fr]">
                 <div>
-                  <p className="section-kicker">Pedal details</p>
-                  <h2 className="mt-4 font-display text-4xl leading-tight text-foreground">Designed for a more deliberate drive and feel.</h2>
+                  <p className="section-kicker">{detailKicker}</p>
+                  <h2 className="mt-4 font-display text-4xl leading-tight text-foreground">{detailHeading}</h2>
                   <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/76">{productInfo.overview}</p>
 
                   <div className="mt-8 grid gap-3 border-t border-white/10 pt-6">
@@ -125,12 +128,23 @@ export default function ShopProduct({ handle }: { handle: string }) {
                 </div>
 
                 <div className="border border-white/10 bg-black/20 p-6 sm:p-8">
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">Controls and adjustment</p>
-                  <div className="mt-5 grid gap-3">
-                    {productInfo.controls.map((control) => (
-                      <p key={control} className="border-b border-white/8 pb-3 text-sm leading-6 text-foreground/75 last:border-b-0 last:pb-0">{control}</p>
-                    ))}
-                  </div>
+                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-primary/80">{hasSpecifications ? "Specifications" : "Controls and adjustment"}</p>
+                  {hasSpecifications ? (
+                    <dl className="mt-5 divide-y divide-white/8">
+                      {productInfo.specifications?.map((spec) => (
+                        <div key={spec.label} className="grid gap-1 py-3 first:pt-0 sm:grid-cols-[0.42fr_0.58fr] sm:gap-4">
+                          <dt className="text-[0.66rem] uppercase tracking-[0.18em] text-foreground/48">{spec.label}</dt>
+                          <dd className="text-sm leading-6 text-foreground/75">{spec.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  ) : (
+                    <div className="mt-5 grid gap-3">
+                      {productInfo.controls?.map((control) => (
+                        <p key={control} className="border-b border-white/8 pb-3 text-sm leading-6 text-foreground/75 last:border-b-0 last:pb-0">{control}</p>
+                      ))}
+                    </div>
+                  )}
                   {productInfo.internalAdjustments ? (
                     <div className="mt-7 border-t border-white/10 pt-6">
                       <p className="text-[0.65rem] uppercase tracking-[0.24em] text-foreground/48">Internal adjustment</p>

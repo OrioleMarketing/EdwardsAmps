@@ -1,12 +1,76 @@
 export type StoreProductInfo = {
+  sectionKicker?: string;
+  sectionHeading?: string;
   overview: string;
   features: string[];
-  controls: string[];
+  controls?: string[];
+  specifications?: Array<{
+    label: string;
+    value: string;
+  }>;
   internalAdjustments?: string;
   availabilityNote?: string;
 };
 
 export const STORE_PRODUCT_INFO_BY_KEY: Partial<Record<string, StoreProductInfo>> = {
+  "princess-reverb-combo": {
+    sectionKicker: "Princess Reverb details",
+    sectionHeading: "A more flexible take on the single-channel blackface combo.",
+    overview:
+      "The Princess Reverb is Edwards' 17-watt take on the classic single-channel blackface combo, refined with a more controllable reverb and tremolo deep enough to create a seasick-style modulation. It carries the headroom to stand up on stage, then moves into a more pleasing overdrive when pushed, giving players the familiar sounds they want with a wider range to explore.",
+    features: [
+      "Single-channel, 17-watt Class A circuit with cathode-biased 6V6 output tubes.",
+      "More controllable reverb and tremolo with a deep, expressive modulation range.",
+      "Built for usable headroom on stage and a more pleasing overdrive when pushed.",
+      "Finger-jointed white-pine 1x12 cabinet, available in a choice of tolex and grill-cloth options.",
+    ],
+    specifications: [
+      { label: "Amplifier class", value: "Class A, cathode biased" },
+      { label: "Power", value: "17 watts" },
+      { label: "Channels", value: "One channel" },
+      { label: "Controls", value: "Volume, Bass, Treble, Reverb, Tremolo Speed, Tremolo Intensity" },
+      { label: "Preamp tubes", value: "Three 12AX7s; one 12AT7" },
+      { label: "Output tubes", value: "Two 6V6s" },
+      { label: "Rectifier", value: "Tube rectifier: one 5U4GB" },
+      { label: "Speaker outputs", value: "8-ohm main and extension" },
+      { label: "Board", value: "Black fiberboard with eyelets" },
+      { label: "Transformers", value: "Custom-wound Heyboer" },
+      { label: "Chassis", value: "18-gauge steel" },
+      { label: "Cabinet", value: "Finger-jointed white pine" },
+      { label: "Speaker", value: "WGS G12C, 8 ohm" },
+      { label: "Shipping weight", value: "Approximately 32 lb" },
+    ],
+    availabilityNote: "Choose from available tolex and grill-cloth options to make the 1x12 cabinet your own.",
+  },
+  "queen-reverb-combo": {
+    sectionKicker: "Queen Reverb details",
+    sectionHeading: "A broader, two-channel take on the blackface combo.",
+    overview:
+      "The Queen Reverb is Edwards' 24-watt take on the classic two-channel blackface combo, refined with a more controllable reverb and tremolo capable of seasick-style modulation. With the headroom to stand up on stage and a more pleasing overdrive when pushed, it retains the sought-after character of the original platform while putting more sounds within reach.",
+    features: [
+      "Two-channel, 24-watt Class AB circuit with fixed-biased 6V6 output tubes.",
+      "More controllable reverb and tremolo with a deep, expressive modulation range.",
+      "Designed for confident stage headroom and a musical overdrive when pushed.",
+      "Finger-jointed white-pine 1x12 cabinet, available in a choice of tolex and grill-cloth options.",
+    ],
+    specifications: [
+      { label: "Amplifier class", value: "Class AB, fixed biased" },
+      { label: "Power", value: "24 watts" },
+      { label: "Channels", value: "Two channels" },
+      { label: "Controls", value: "Volume (2), Bass (2), Treble (2), Reverb, Tremolo Speed, Tremolo Intensity" },
+      { label: "Preamp tubes", value: "Four 12AX7s; two 12AT7s" },
+      { label: "Output tubes", value: "Two 6V6s" },
+      { label: "Rectifier", value: "Tube rectifier: one GZ34" },
+      { label: "Speaker outputs", value: "8-ohm main and extension" },
+      { label: "Board", value: "Black fiberboard with eyelets" },
+      { label: "Transformers", value: "Custom-wound Heyboer" },
+      { label: "Chassis", value: "18-gauge steel" },
+      { label: "Cabinet", value: "Finger-jointed white pine" },
+      { label: "Speaker", value: "WGS G12C, 8 ohm" },
+      { label: "Shipping weight", value: "Approximately 36 lb" },
+    ],
+    availabilityNote: "Choose from available tolex and grill-cloth options to make the 1x12 cabinet your own.",
+  },
   "elusive-overdrive-pedal": {
     overview:
       "The Elusive Overdrive Pedal pairs two independently voiced overdrive sides in one enclosure. Use either side on its own for rhythm or lead work, or combine them and shape the blend for a broader range of drive textures.",
