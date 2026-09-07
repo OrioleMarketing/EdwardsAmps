@@ -253,6 +253,6 @@
 
 - [x] Generate a distinct Elusive Overdrive 40 Watt Head image with traditional black vinyl in a warm bar setting, then map it only to the 40 Watt head product while retaining the 24 Watt head image.
 
-- [ ] Regenerate the Elusive Overdrive 40 Watt Head in black vinyl with the same physical dimensions and proportions as the blue 24 Watt Head, retaining its distinct bar setting.
-- [ ] Standardize all Shopify and storefront head titles by removing “Amp” and using “Head,” and standardize all combo titles by removing “Amp” and including “Combo.”
-- [ ] Generate a faithful Queen Reverb Combo scene in a college dorm-room setting and add it to the public product listing through an externally reachable URL.
+- [x] Regenerate the Elusive Overdrive 40 Watt Head in black vinyl with the same physical dimensions and proportions as the blue 24 Watt Head, retaining its distinct bar setting.
+- [x] Standardize all Shopify and storefront head titles by removing “Amp” and using “Head,” and standardize all combo titles by removing “Amp” and including “Combo.”
+- [x] Generate a faithful Queen Reverb Combo scene in a college dorm-room setting and add it to the public product listing through an externally reachable URL.
