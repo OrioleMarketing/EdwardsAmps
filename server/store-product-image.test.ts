@@ -10,6 +10,9 @@ const expectedImageKeys = [
   "evil-grin-fuzz-pedal",
   "edwards-amps-effects-t-shirt",
   "elusive-overdrive-t-shirt",
+  "elusive-1x12-oval-cabinet",
+  "oval-2x12-cabinet",
+  "oval-4x10-cabinet",
 ] as const;
 
 describe("client product-image mapping", () => {
@@ -30,6 +33,24 @@ describe("client product-image mapping", () => {
     expect(shirt.imageAlt).toContain("Black Edwards Amps and Effects T-Shirt");
     expect(shirt.imageFit).toBe("contain");
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-t-shirt"].image).not.toBe(shirt.image);
+  });
+
+  it("uses the supplied cabinet photographs for the three Speaker Cabinet listings", () => {
+    const oneByTwelve = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-1x12-oval-cabinet"];
+    const twoByTwelve = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["oval-2x12-cabinet"];
+    const fourByTen = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["oval-4x10-cabinet"];
+
+    expect(oneByTwelve.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/QckMXgUVOqlWXGaC.jpg");
+    expect(oneByTwelve.imageAlt).toContain("British Vintage speaker");
+    expect(oneByTwelve.imageFit).toBe("contain");
+
+    expect(twoByTwelve.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DNvxQDBRYSZxHjAT.webp");
+    expect(twoByTwelve.imageAlt).toContain("embossed black covering");
+    expect(twoByTwelve.imageFit).toBe("cover");
+
+    expect(fourByTen.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/xGsXtDiARMawdoPk.webp");
+    expect(fourByTen.imageAlt).toContain("handcrafted workshop construction");
+    expect(fourByTen.imageFit).toBe("cover");
   });
 
   it("keeps the professional pedal-image mapping exclusive to the five supplied pedal products", () => {
