@@ -286,3 +286,7 @@
 - [x] Apply the supplied black Edwards Amps & Effects T-Shirt image to the matching public product listing and verify delivery without a placeholder.
 
 - [x] Add the centered Edwards script logo to the speaker grille in both Elusive Overdrive Combo product images while preserving their distinct 24 Watt and 40 Watt designs and settings.
+
+- [ ] Assign the supplied open-back speaker photograph to the 1x12 Speaker Cabinet and use the supplied finished-cabinet and cabinet-construction photographs for the other two Speaker Cabinet product cards, with verified public delivery.
+
+- [ ] Add a consistent customer-facing note to every Edwards head product that it is custom built to be paired with an Edwards Amplification Speaker Cabinet, without adding the note to combo products.

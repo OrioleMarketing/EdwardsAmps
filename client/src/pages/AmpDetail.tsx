@@ -156,6 +156,12 @@ export default function AmpDetail({ slug }: { slug: string }) {
             </div>
             <div>
               <p className="section-copy max-w-none">{amp.intro}</p>
+              {amp.cabinetPairingNote ? (
+                <aside className="mt-8 border-l-2 border-primary/70 bg-primary/5 px-6 py-5">
+                  <p className="text-[0.66rem] uppercase tracking-[0.24em] text-primary/85">Cabinet pairing</p>
+                  <p className="mt-3 text-base leading-7 text-foreground/78">{amp.cabinetPairingNote}</p>
+                </aside>
+              ) : null}
               <div className="mt-10 grid gap-5 md:grid-cols-2">
                 <div className="border border-white/10 bg-card/55 p-6">
                   <p className="text-[0.68rem] uppercase tracking-[0.26em] text-foreground/48">Voice</p>

@@ -79,6 +79,12 @@ export default function ShopProduct({ handle }: { handle: string }) {
               <h1 className="mt-4 font-display text-5xl leading-[0.98] text-foreground sm:text-6xl">{title}</h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/76">{product.subtitle}</p>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/62">{product.description}</p>
+              {product.cabinetPairingNote ? (
+                <aside className="mt-6 border-l-2 border-primary/70 bg-primary/5 px-5 py-4">
+                  <p className="text-[0.66rem] uppercase tracking-[0.24em] text-primary/85">Cabinet pairing</p>
+                  <p className="mt-2 text-sm leading-6 text-foreground/78">{product.cabinetPairingNote}</p>
+                </aside>
+              ) : null}
 
               <div className="mt-8 flex flex-wrap items-end justify-between gap-5 border-y border-white/10 py-6">
                 <div>

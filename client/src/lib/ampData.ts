@@ -27,6 +27,7 @@ export type AmpProduct = {
   specs: AmpSpec[];
   story: string[];
   availabilityNote: string;
+  cabinetPairingNote?: string;
 };
 
 export const ampProducts: AmpProduct[] = [
@@ -80,6 +81,8 @@ export const ampProducts: AmpProduct[] = [
     ],
     availabilityNote:
       'Base pricing starts at $3,000 USD. Reach out directly for wattage, cabinet options, and current build availability.',
+    cabinetPairingNote:
+      'Each Elusive Overdrive head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Ask about matching cabinet options to complete your rig.',
   },
   {
     slug: 'king-richard',
@@ -121,6 +124,8 @@ export const ampProducts: AmpProduct[] = [
     ],
     availabilityNote:
       'King Richard starts at $2,799 USD for the head.',
+    cabinetPairingNote:
+      'King Richard Head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Ask about matching cabinet options to complete your rig.',
   },
   {
     slug: 'hot-mama',
@@ -161,6 +166,8 @@ export const ampProducts: AmpProduct[] = [
     ],
     availabilityNote:
       'Hot Mama starts at $1,999 USD for the head and $2,199 USD for the combo.',
+    cabinetPairingNote:
+      'The Hot Mama Head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Ask about matching cabinet options to complete your rig.',
   },
   {
     slug: 'double-dee-tweed',

@@ -36,6 +36,7 @@ export type ShopifyProductOption = {
   eyebrow: string;
   subtitle: string;
   description: string;
+  cabinetPairingNote?: string;
   fallbackPriceLabel: string;
   fallbackPriceValue: number;
 };
@@ -96,6 +97,7 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     eyebrow: "Elusive Overdrive",
     subtitle: "The compact Elusive head for a cabinet-ready rig.",
     description: "A versatile 24-watt head with sparkling clean response, touch sensitivity, and a convincing lead voice.",
+    cabinetPairingNote: "This head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Explore matching cabinet options to complete your rig.",
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DZCtJmZcueXeWWHH.png",
     imageAlt: "Edwards Elusive Overdrive 24 Watt Head in turquoise paisley covering, staged for a warm live performance",
     imageFit: "cover",
@@ -126,6 +128,7 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     eyebrow: "Elusive Overdrive",
     subtitle: "The high-headroom Elusive platform for a separate cabinet rig.",
     description: "A 40-watt head that pairs the Elusive Overdrive’s broad gain range with the flexibility of a separate cabinet setup.",
+    cabinetPairingNote: "This head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Explore matching cabinet options to complete your rig.",
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/SAaBUSeQdkolQktJ.png",
     imageAlt: "Edwards Elusive Overdrive 40 Watt Head in traditional black vinyl, staged for a warm live performance",
     imageFit: "cover",
@@ -141,6 +144,7 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     eyebrow: "King Richard",
     subtitle: "A British-leaning stage head with punch, chime, and depth.",
     description: "A hand-built head for players who want big projection, rich upper-mid character, and expressive two-channel response.",
+    cabinetPairingNote: "This head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Explore matching cabinet options to complete your rig.",
     fallbackPriceLabel: "$2,799 USD",
     fallbackPriceValue: 2799,
   },
@@ -153,6 +157,7 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     eyebrow: "Hot Mama",
     subtitle: "Portable British sparkle in a compact head format.",
     description: "A travel-friendly head with chiming cleans, smooth gain, and a recording-ready breakup character.",
+    cabinetPairingNote: "This head is custom built to be paired with an Edwards Amplification Speaker Cabinet. Explore matching cabinet options to complete your rig.",
     fallbackPriceLabel: "$1,999 USD",
     fallbackPriceValue: 1999,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RfPFxYKPksLKfmbf.png",
