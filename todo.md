@@ -230,3 +230,5 @@
 - [x] Generate a faithful Elusive Overdrive amplifier image staged on the same warm wooden platform style, preserving the supplied turquoise patterned cabinet, front panel, and full Edwards mark.
 
 - [x] Replace the applicable Elusive Overdrive head image placements with the approved wooden-platform product scene and verify responsive presentation.
+
+- [ ] Repair the broken public delivery of the approved King Richard and Elusive Overdrive wooden-platform images by replacing deployment-internal asset paths with externally reachable production URLs and verifying the live Shop cards.

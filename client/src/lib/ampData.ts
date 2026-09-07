@@ -86,8 +86,8 @@ export const ampProducts: AmpProduct[] = [
     name: 'King Richard',
     shortName: 'King Richard',
     price: 'From $2,799 USD',
-    heroImage: '/manus-storage/king-richard-head-wood-platform_5709f660.png',
-    heroImageMobile: '/manus-storage/king-richard-head-wood-platform_5709f660.png',
+    heroImage: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jkVhhSGELNXSSgyW.png',
+    heroImageMobile: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jkVhhSGELNXSSgyW.png',
     heroAlt: 'Edwards King Richard Amp Head staged on a warm wooden workshop platform',
     eyebrow: 'British chime and authority',
     summary:

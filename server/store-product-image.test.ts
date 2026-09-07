@@ -15,7 +15,7 @@ describe("client product-image mapping", () => {
     for (const key of expectedImageKeys) {
       const product = SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key];
 
-      expect(product.image, `${key} image`).toMatch(/^(https:\/\/files\.manuscdn\.com\/.+\.webp|\/manus-storage\/.+\.(png|webp))$/);
+      expect(product.image, `${key} image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.(png|webp)$/);
       expect(product.imageAlt, `${key} alt text`).toBeTruthy();
       expect(product.imageFit, `${key} product-preserving fit`).toBe("contain");
     }
@@ -26,7 +26,7 @@ describe("client product-image mapping", () => {
   });
 
   it("uses the approved wooden-platform Elusive Overdrive image only for the two head variants", () => {
-    const approvedHeadImage = "/manus-storage/elusive-overdrive-wood-platform_bae60c49.png";
+    const approvedHeadImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/bCQyoIDyqDYQJKcL.png";
 
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-head"].image).toBe(approvedHeadImage);
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-head"].image).toBe(approvedHeadImage);
