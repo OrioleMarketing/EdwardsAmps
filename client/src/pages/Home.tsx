@@ -31,7 +31,7 @@ import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
-const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/jovIpmYiJyBvEsGj.png";
+const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/HxWvXrXByRutKLRu.png";
 const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/oyCouNzgwsXcCoCJ.png";
 
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
