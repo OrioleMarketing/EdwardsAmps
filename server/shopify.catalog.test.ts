@@ -44,7 +44,7 @@ describe("Shopify catalog mapping", () => {
 
       expect(products.find((entry) => entry.key === "hot-mama-head")).toMatchObject({
         handle: "hot-mama-amp-head",
-        name: "Hot Mama Amp — Head",
+        name: "Hot Mama Head",
       });
     },
     30000,
