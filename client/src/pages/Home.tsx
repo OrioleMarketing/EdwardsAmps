@@ -30,7 +30,7 @@ import ShopCollection from "@/components/ShopCollection";
 import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
-const collaborationCardSubtitle = "Elusive Overdrive with Jon Kammerer custom guitar featuring TonePod™ technology";
+const collaborationCardSubtitle = "Elusive Overdrive with a Neville Guitar custom build";
 const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/HxWvXrXByRutKLRu.png";
 const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/oyCouNzgwsXcCoCJ.png";
 
@@ -98,9 +98,9 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/XTHWghUqlwobeWZA.webp",
-  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/PYwqGaVBKqJWfNZK.webp",
-  alt: "Jon Kammerer custom guitar leaning against the Edwards Elusive Overdrive amplifier",
+  image: "/manus-storage/elusive-overdrive-neville-guitar-pairing_611375f5.png",
+  mobileImage: "/manus-storage/elusive-overdrive-neville-guitar-pairing_611375f5.png",
+  alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier",
 };
 
 const elusiveOverdrive = ampProducts.find((amp) => amp.slug === "elusive-overdrive");

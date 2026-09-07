@@ -36,4 +36,13 @@ describe("homepage lineup copy", () => {
     expect(homePage).toContain('alt: "Edwards pedalboard on stage from a performer\'s viewpoint with Elusive Overdrive centered"');
     expect(homePage).toContain('imageClassName: "object-cover"');
   });
+
+  it("features the Neville Guitar custom build with the Elusive Overdrive amp", () => {
+    const homePage = readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8");
+
+    expect(homePage).toContain('Elusive Overdrive with a Neville Guitar custom build');
+    expect(homePage).toContain('image: "/manus-storage/elusive-overdrive-neville-guitar-pairing_611375f5.png"');
+    expect(homePage).toContain('alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier"');
+    expect(homePage).not.toContain("Jon Kammerer custom guitar");
+  });
 });
