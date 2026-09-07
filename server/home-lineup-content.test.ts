@@ -43,6 +43,7 @@ describe("homepage lineup copy", () => {
     expect(homePage).toContain('Elusive Overdrive with a Neville Guitar custom build');
     expect(homePage).toContain('image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/yAHIhJMJHoggjcEH.png"');
     expect(homePage).toContain('alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier"');
-    expect(homePage).not.toContain("Jon Kammerer custom guitar");
+    expect(homePage).toContain('Elusive Overdrive alongside a Neville Guitar custom build');
+    expect(homePage).not.toContain("Jon Kammerer");
   });
 });
