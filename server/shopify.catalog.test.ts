@@ -11,6 +11,14 @@ describe("Shopify catalog mapping", () => {
     });
   });
 
+  it("excludes the 69/73 Head while retaining the 69/73 Combo", () => {
+    expect(SHOPIFY_PRODUCT_OPTIONS.some((product) => product.key === "69-73-head")).toBe(false);
+    expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["69-73-combo"]).toMatchObject({
+      handle: "69-73-combo",
+      displayName: "69/73 Combo",
+    });
+  });
+
   it(
     "resolves every current Edwards store product to a live Shopify variant and price",
     async () => {

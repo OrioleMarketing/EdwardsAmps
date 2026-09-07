@@ -10,7 +10,6 @@ export type ShopifyProductKey =
   | "lil-tyke-tweed-combo"
   | "princess-reverb-combo"
   | "queen-reverb-combo"
-  | "69-73-head"
   | "69-73-combo"
   | "elusive-1x12-oval-cabinet"
   | "oval-2x12-cabinet"
@@ -182,17 +181,6 @@ export const SHOPIFY_PRODUCT_OPTIONS: ShopifyProductOption[] = [
     description: "The Queen Reverb expands the blackface-inspired platform with two channels, confident headroom, musical overdrive, and a broad range of tones on tap.",
     fallbackPriceLabel: "$2,499 USD",
     fallbackPriceValue: 2499,
-  },
-  {
-    key: "69-73-head",
-    handle: "69-73-head",
-    displayName: "69.73 Head",
-    group: "Amplifiers",
-    eyebrow: "Edwards Amplification",
-    subtitle: "The 69.73 in a head format.",
-    description: "A distinct Edwards head configuration available through the store.",
-    fallbackPriceLabel: "$2,199 USD",
-    fallbackPriceValue: 2199,
   },
   {
     key: "69-73-combo",
