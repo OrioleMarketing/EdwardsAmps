@@ -73,22 +73,24 @@ describe("client product-image mapping", () => {
   });
 
   it("uses the honky-tonk stage scene only for the Elusive Overdrive 24 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/NCjaDFQyAjNcjxrk.png";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/JACFUyXnlETZXiPN.png";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-24w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("elevated honky-tonk performance stage");
+    expect(combo.imageAlt).toContain("centered Edwards script grille logo");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
   });
 
   it("uses the blue floral stage scene only for the Elusive Overdrive 40 Watt Combo", () => {
-    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/wygYIWtLgoHSlazm.png";
+    const approvedComboImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/IkpsGzIgZaNNBWvN.png";
     const combo = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-40w-combo"];
 
     expect(combo.image).toBe(approvedComboImage);
     expect(combo.imageFit).toBe("cover");
     expect(combo.imageAlt).toContain("blue floral Tolex");
+    expect(combo.imageAlt).toContain("centered Edwards script grille logo");
     expect(combo.imageAlt).toContain("angled slightly left");
     expect(approvedComboImage).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.png$/);
   });
