@@ -235,4 +235,4 @@
 
 - [x] Generate a faithful 69/73 combo image staged in a warm coffee-shop performance environment, preserving the supplied black cabinet, diamond grille, and Edwards badge.
 
-- [ ] Add the approved 69/73 combo coffee-shop image to its storefront product placement through an externally reachable URL and verify the public page renders the actual image rather than a placeholder.
+- [x] Add the approved 69/73 combo coffee-shop image to its storefront product placement through an externally reachable URL and verify the public page renders the actual image rather than a placeholder.
