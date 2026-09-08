@@ -328,4 +328,4 @@
 
 - [x] Create a clean workbench scene from the supplied Elusive 1x12 Oval Open-Back Speaker Cabinet reference without changing its rear-open oval design, gold covering, hardware, or proportions.
 - [x] Replace the current 1x12 Elusive Oval Open-Back Speaker Cabinet storefront image with the approved workbench scene and add regression coverage.
-- [ ] Validate responsive delivery, publish, and publicly verify the updated 1x12 cabinet image on EdwardsAmps.com.
+- [x] Validate responsive delivery, publish, and publicly verify the updated 1x12 cabinet image on EdwardsAmps.com.
