@@ -71,6 +71,36 @@ export const STORE_PRODUCT_INFO_BY_KEY: Partial<Record<string, StoreProductInfo>
     ],
     availabilityNote: "Choose from available tolex and grill-cloth options to make the 1x12 cabinet your own.",
   },
+  "69-73-combo": {
+    sectionKicker: "69/73 details",
+    sectionHeading: "Classic recording character with practical gain control.",
+    overview:
+      "The 69/73 Amp was designed to sound like the recordings on Led Zeppelin I and II. Its 24-watt, Class A cathode-biased circuit has plenty of headroom for cleans and moves into a pleasing amp overdrive when pushed. Squash the Master Volume and turn up the Volume for bedroom-level overdrive, then use the Hi Cut, rotary bass-shelf tone control, pull boost, and bright switch to tailor the response. The result sounds great with single coils and humbuckers alike.",
+    features: [
+      "24-watt, Class A cathode-biased circuit with one channel.",
+      "Plenty of clean headroom with a pleasing overdrive when pushed.",
+      "Master Volume and Volume control work together for bedroom-level overdrive.",
+      "Hi Cut, rotary bass-shelf tone control, pull boost, and bright switch for practical tonal adjustment.",
+      "1x12 birch-ply combo cabinet available in a range of tolex and grill-cloth options.",
+    ],
+    specifications: [
+      { label: "Amplifier class", value: "Class A, cathode biased" },
+      { label: "Power option", value: "24 watts" },
+      { label: "Channels", value: "One channel" },
+      { label: "Controls", value: "Master Volume, Hi Cut, rotary bass-shelf tone control, Volume with pull boost, bright switch" },
+      { label: "Preamp tubes", value: "One EF86; one 12AX7" },
+      { label: "Output tubes", value: "Two 6973s" },
+      { label: "Rectifier", value: "Tube rectifier: one 5U4GB" },
+      { label: "Speaker output", value: "8 ohm and 16 ohm" },
+      { label: "Board", value: "GPO-3 fiberboard with turrets" },
+      { label: "Transformers", value: "Custom-wound Heyboer" },
+      { label: "Chassis", value: "0.90 aluminum" },
+      { label: "Cabinet", value: "1x12 combo birch ply" },
+      { label: "Speaker", value: "WGS Veteran 30, 8 ohm" },
+      { label: "Shipping weight", value: "Approximately 36 lb" },
+    ],
+    availabilityNote: "The 1x12 birch-ply combo cabinet is available in a range of tolex and grill-cloth options.",
+  },
   "elusive-overdrive-pedal": {
     overview:
       "The Elusive Overdrive Pedal pairs two independently voiced overdrive sides in one enclosure. Use either side on its own for rhythm or lead work, or combine them and shape the blend for a broader range of drive textures.",

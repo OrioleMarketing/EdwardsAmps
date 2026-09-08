@@ -16,6 +16,7 @@ describe("Shopify catalog mapping", () => {
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["69-73-combo"]).toMatchObject({
       handle: "69-73-combo",
       displayName: "69/73 Combo",
+      subtitle: "A 24-watt, Class A 1x12 combo with clean headroom, master-volume gain control, and a responsive single-channel voice.",
     });
   });
 

@@ -9,7 +9,7 @@ const suppliedPedalKeys = [
   "evil-grin-fuzz-pedal",
 ] as const;
 
-const suppliedAmpKeys = ["princess-reverb-combo", "queen-reverb-combo"] as const;
+const suppliedAmpKeys = ["princess-reverb-combo", "queen-reverb-combo", "69-73-combo"] as const;
 
 describe("supplied pedal product information", () => {
   it("retains an overview and control information for every supplied pedal", () => {
@@ -46,5 +46,19 @@ describe("supplied reverb amplifier product information", () => {
     expect(princessSpecs).toContainEqual({ label: "Channels", value: "One channel" });
     expect(queenSpecs).toContainEqual({ label: "Power", value: "24 watts" });
     expect(queenSpecs).toContainEqual({ label: "Channels", value: "Two channels" });
+  });
+
+  it("keeps the supplied 69/73 recording voice, controls, and complete technical specification", () => {
+    const info = STORE_PRODUCT_INFO_BY_KEY["69-73-combo"];
+    const specs = info?.specifications ?? [];
+
+    expect(info?.overview).toContain("Led Zeppelin I and II");
+    expect(info?.overview).toContain("bedroom-level overdrive");
+    expect(info?.features).toContain("1x12 birch-ply combo cabinet available in a range of tolex and grill-cloth options.");
+    expect(specs).toContainEqual({ label: "Amplifier class", value: "Class A, cathode biased" });
+    expect(specs).toContainEqual({ label: "Power option", value: "24 watts" });
+    expect(specs).toContainEqual({ label: "Controls", value: "Master Volume, Hi Cut, rotary bass-shelf tone control, Volume with pull boost, bright switch" });
+    expect(specs).toContainEqual({ label: "Output tubes", value: "Two 6973s" });
+    expect(specs).toContainEqual({ label: "Shipping weight", value: "Approximately 36 lb" });
   });
 });
