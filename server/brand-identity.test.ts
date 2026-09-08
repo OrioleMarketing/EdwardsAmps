@@ -8,7 +8,7 @@ const indexHtmlPath = fileURLToPath(new URL("../client/index.html", import.meta.
 const faviconPath = fileURLToPath(new URL("../client/public/favicon.png", import.meta.url));
 const faviconIcoPath = fileURLToPath(new URL("../client/public/favicon.ico", import.meta.url));
 const appleTouchIconPath = fileURLToPath(new URL("../client/public/apple-touch-icon.png", import.meta.url));
-const faithfulLogoUrl = "https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png";
+const faithfulLogoUrl = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png";
 
 describe("storefront brand identity", () => {
   it("uses the faithful logo in both cart-page header and footer", () => {

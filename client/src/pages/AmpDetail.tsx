@@ -42,7 +42,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
         <div className="container flex items-center justify-between gap-6 py-4">
           <a href="/" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-8 w-auto sm:h-[44px]"
             />
@@ -345,7 +345,7 @@ export default function AmpDetail({ slug }: { slug: string }) {
         <div className="container grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-[61.6px] w-auto sm:h-[70.4px]"
             />

@@ -182,7 +182,7 @@ export default function Home() {
         <div className="container flex items-center justify-between gap-6 py-4">
           <a href="#top" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-8 w-auto sm:h-[44px] lg:h-[52.8px]"
             />
@@ -258,7 +258,7 @@ export default function Home() {
         <section className="relative overflow-hidden border-b border-white/10">
           <div className="absolute inset-0">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-hero-reference-igVrT9qU3v6WCBowpAQDUa.webp"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwardsamps-hero-reference-igVrT9qU3v6WCBowpAQDUa.webp"
               alt="Boutique Edwards amplifier in a custom workshop setting"
               className="h-full w-full object-cover object-center opacity-35"
             />
@@ -377,7 +377,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,149,92,0.18),transparent_48%)] opacity-80" />
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-75" />
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp"
+                  src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp"
                   alt="All five Edwards amps grouped together in a dark stage-style environment"
                   loading="lazy"
                   decoding="async"
@@ -470,7 +470,7 @@ export default function Home() {
           <div className="container grid gap-10 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-28">
             <div className="relative overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp"
+                src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp"
                 alt="Amp builder assembling an Edwards amplifier chassis"
                 loading="lazy"
                 decoding="async"
@@ -569,7 +569,7 @@ export default function Home() {
         <motion.section {...sectionMotion} className="relative overflow-hidden border-y border-white/10">
           <div className="absolute inset-0">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
+                src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp"
                 alt="Moody listening room with Edwards amplifier and guitar"
                 loading="lazy"
                 decoding="async"
@@ -659,7 +659,7 @@ export default function Home() {
         <div className="container grid gap-8 py-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-[61.6px] w-auto sm:h-[70.4px]"
             />

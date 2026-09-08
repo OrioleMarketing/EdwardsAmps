@@ -11,7 +11,7 @@
 | Public website | Vercel | `edwardsamps.com` and `www.edwardsamps.com` | Vercel team/project administrator | Serves the React storefront and routes `/api/*` requests. |
 | Storefront API | Railway | `https://edwardsamps-production.up.railway.app` | Railway project/service administrator | Hosts Shopify Storefront API integration and cart endpoints. |
 | Catalog, cart, checkout, shipping | Shopify | Storefront: `edwards-amplification.myshopify.com` | Shopify store owner/staff with appropriate product and app permissions | Holds product availability, pricing, checkout, payment, and shipping configuration. |
-| Product and marketing images | Amazon S3 | Bucket: `edwardsamps`; Region: `us-east-2`; migration prefix: `storefront-images/2026-09-08/` | AWS account administrator plus least-privilege image-maintenance IAM user | Serves the independent public image library. |
+| Product, category, logo, and marketing images | Amazon S3 | Bucket: `edwardsamps`; Region: `us-east-2`; migration prefixes: `storefront-images/2026-09-08/` and `storefront-images/2026-09-08/core/` | AWS account administrator plus least-privilege image-maintenance IAM user | Serves the independent public image library. |
 | DNS | SiteGround nameservers | `ns1.siteground.net`, `ns2.siteground.net` | Registrar/DNS-zone administrator | Maps the domain to Vercel and preserves mail-related DNS records. |
 | Source control | GitHub | `OrioleMarketing/EdwardsAmps`, branch `main` | Organization owner and at least two repository administrators | Independent source backup and normal deployment source. |
 
@@ -78,7 +78,7 @@ The direct Railway catalog endpoint and the same endpoint accessed through Verce
 | IAM migration user | Dedicated Edwards image-maintenance IAM user | `s3:ListBucket` on the bucket; `s3:GetObject`, `s3:PutObject`, `s3:DeleteObject` on bucket objects | Use an IAM user or role limited to this bucket, not an account-wide administrator key. |
 | Cache policy | `public, max-age=31536000, immutable` | Bucket/object configuration | Image filenames are stable and content-addressed by their existing names; replace visuals by uploading a new key rather than overwriting in-place. |
 
-The image migration copies the current customer-facing URL references into the S3 prefix above. The source inventory contains 53 customer-facing references that resolve to 51 unique files because two assets are referenced in more than one storefront location. All 51 unique S3 objects were verified against stored SHA-256 metadata and their public URLs returned image responses.
+The image migration copies every former managed image reference to the S3 prefixes above. The initial `files.manuscdn.com` inventory contained 53 customer-facing references resolving to 51 unique files because two assets are reused in multiple locations. A complete source scan found 11 additional Manus-managed CloudFront references resolving to five shared logo and homepage assets. All 56 unique migrated S3 objects were verified against stored SHA-256 metadata and their public URLs returned image responses.
 
 **Recovery steps.** Keep the bucket publicly readable only for the intended image prefix or serve it via CloudFront. Preserve versioning and a lifecycle policy appropriate for original/derivative assets. Never store AWS access-key values in this guide, in GitHub, or in frontend code.
 

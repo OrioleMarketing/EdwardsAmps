@@ -10,7 +10,10 @@ from urllib.request import Request, urlopen
 import boto3
 
 
-MANIFEST_PATH = Path("/home/ubuntu/webdev-static-assets/edwardsamps-s3-migration/manifest.json")
+MANIFEST_PATHS = (
+    Path("/home/ubuntu/webdev-static-assets/edwardsamps-s3-migration/manifest.json"),
+    Path("/home/ubuntu/webdev-static-assets/edwards-s3-migration/cloudfront-assets/manifest.json"),
+)
 BUCKET = "edwardsamps"
 REGION = "us-east-2"
 
@@ -27,7 +30,11 @@ def verify_public_url(url: str) -> tuple[str, int, str]:
 
 
 def main() -> None:
-    records = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    records = [
+        record
+        for manifest_path in MANIFEST_PATHS
+        for record in json.loads(manifest_path.read_text(encoding="utf-8"))
+    ]
     if not records:
         raise RuntimeError("Migration manifest is empty.")
 

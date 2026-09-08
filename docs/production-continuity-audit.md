@@ -12,8 +12,7 @@ This audit traces the currently deployed production request path. It does **not*
 | Storefront API route | Vercel `/api/*` rewrite to `edwardsamps-production.up.railway.app` | Direct Railway catalog request returned `200`; the Vercel-rewritten route also returned `200` | **Independent** of the Manus web-hosting runtime. |
 | Live product catalog | Railway server calls Shopify Storefront API | The public catalog request returned 22 mapped products | **Independent** of Manus, subject to Railway and Shopify availability. |
 | Cart and Shopify checkout handoff | Railway server calls Shopify Storefront API | The live server contains the Shopify cart create/update and checkout URL path; direct Shopify storefront was reachable with `200` | **Independent** of Manus, subject to Railway and Shopify availability. |
-| Three legacy homepage images | Direct `edwardsamps.s3.us-east-2.amazonaws.com` object URLs | All three checked assets returned `200 image/webp` | **Independent** of Manus if the bucket remains available. |
-| Most product and category images | Public `files.manuscdn.com` URLs | The 1x12 Cabinet derivative returned `200 image/webp`; source inventory contains 53 unique Manus CDN asset URLs | **Potential Manus dependency.** The page will continue to load, but these images could fail if the managed CDN is unavailable. |
+| Product, category, logo, and homepage images | Edwards-controlled Amazon S3 bucket `edwardsamps` in `us-east-2` | 56 migrated S3 objects were verified by stored SHA-256 metadata and public HTTP response | **Independent** of Manus-managed image delivery. |
 
 ## Current conclusion
 
@@ -21,15 +20,15 @@ This audit traces the currently deployed production request path. It does **not*
 
 The site is therefore **not wholly dependent on Manus for visitor traffic or commerce**. If Manus project tools were unavailable, the already deployed Vercel frontend and Railway API should continue to operate as long as Vercel, Railway, Shopify, DNS, and their configured credentials remain available.
 
-The remaining continuity gap is **image delivery**. The source inventory currently contains 53 public `files.manuscdn.com` image URLs. They are externally reachable today, but an outage affecting that managed CDN could leave the site functional with missing product and category imagery. The three direct Amazon S3 assets already demonstrate the preferred independent-delivery pattern.
+The former image-delivery continuity gap has been closed. The initial inventory contained 53 customer-facing `files.manuscdn.com` references representing 51 unique assets. A full customer-facing source scan also found 11 residual Manus-managed CloudFront references representing five shared logo and homepage assets. All 56 unique assets are now served from the Edwards-controlled Amazon S3 bucket in `us-east-2`; their bytes were verified against stored SHA-256 metadata and every public S3 URL returned a valid image response.
 
 ## Recommended hardening path
 
 | Priority | Action | Outcome |
 | --- | --- | --- |
-| 1 | Copy all current `files.manuscdn.com` storefront images to an Edwards-controlled AWS S3 bucket and serve them through CloudFront or the existing public S3 origin. | Removes the meaningful remaining Manus runtime delivery dependency. |
-| 2 | Replace every public image mapping in the storefront with the new Edwards-controlled URLs and retain the current responsive desktop/mobile variants. | Preserves image loading performance and visual identity. |
-| 3 | Confirm Vercel, Railway, Shopify, and DNS ownership access is documented outside Manus; keep Shopify Storefront credentials managed in Railway. | Preserves the independently hosted application, catalog, cart, and checkout path. |
-| 4 | Keep a current source backup in the external GitHub repository and export production environment-variable documentation without exposing secret values. | Ensures future maintenance does not rely on a single platform workspace. |
+| 1 | Copy all former managed CDN storefront images to the Edwards-controlled AWS S3 bucket and serve them through the existing public S3 origin. | **Completed:** removes the former Manus-managed image-delivery dependency. |
+| 2 | Replace every public image mapping in the storefront with the new Edwards-controlled URLs and retain the current responsive desktop/mobile variants. | **Completed:** preserves image-loading performance and visual identity. |
+| 3 | Confirm Vercel, Railway, Shopify, and DNS ownership access is documented outside Manus; keep Shopify Storefront credentials managed in Railway. | The secure operations guide records the required access locations and recovery settings. |
+| 4 | Keep a current source backup in the external GitHub repository and export production environment-variable documentation without exposing secret values. | GitHub `main` is the independent source-of-truth and deployment branch. |
 
-No live architecture change was made as part of this audit. Migrating image assets should be done as a deliberate follow-up after confirming access to the Edwards-controlled Amazon S3 bucket.
+The migration keeps existing approved visual files and responsive variants intact; it changes only their delivery origin. Future image changes should use new immutable S3 keys and then update source mappings, rather than overwriting existing production objects.

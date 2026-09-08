@@ -40,14 +40,18 @@ describe("optimized storefront image delivery", () => {
     expect(productPage).toContain("mobileSrc={product.imageMobile ?? product.image}");
   });
 
-  it("contains no Manus CDN image URL in customer-facing image mappings", () => {
+  it("contains no Manus-managed image URL in customer-facing image mappings", () => {
     const imageSources = [
       readFileSync(resolve(process.cwd(), "client/src/lib/ampData.ts"), "utf8"),
+      readFileSync(resolve(process.cwd(), "client/src/pages/AmpDetail.tsx"), "utf8"),
+      readFileSync(resolve(process.cwd(), "client/src/pages/CartPage.tsx"), "utf8"),
       readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8"),
+      readFileSync(resolve(process.cwd(), "client/src/pages/ShopProduct.tsx"), "utf8"),
       readFileSync(resolve(process.cwd(), "shared/shopifyCatalog.ts"), "utf8"),
     ];
 
     expect(imageSources.join("\n")).not.toContain("https://files.manuscdn.com/");
+    expect(imageSources.join("\n")).not.toContain("https://d2xsxph8kpxj0f.cloudfront.net/");
     expect(imageSources.join("\n")).toContain(EDWARDS_S3_IMAGE_ORIGIN);
   });
 

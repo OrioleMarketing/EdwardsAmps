@@ -18,7 +18,7 @@ export default function CartPage() {
         <div className="container flex items-center justify-between gap-4 py-4">
           <a href="/" className="flex items-center">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-8 w-auto sm:h-[44px]"
             />
@@ -131,7 +131,7 @@ export default function CartPage() {
         <div className="container flex flex-col gap-8 py-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663047046836/derAk44VGxZftPNYPv5eS4/branding/edwards-logo-original-white_8e37cbec.png"
+              src="https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/core/edwards-logo-original-white_8e37cbec.png"
               alt="Edwards Amplification"
               className="h-11 w-auto sm:h-[52.8px]"
             />
