@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { SHOPIFY_PRODUCT_OPTIONS_BY_KEY } from "../shared/shopifyCatalog";
 
+const EDWARDS_S3_IMAGE_ORIGIN = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08";
+
 const optimizedProductKeys = [
   "elusive-overdrive-24w-combo",
   "elusive-overdrive-24w-head",
@@ -21,12 +23,12 @@ const optimizedProductKeys = [
 ] as const;
 
 describe("optimized storefront image delivery", () => {
-  it("assigns matching managed WebP desktop and mobile derivatives to each optimized product", () => {
+  it("assigns matching Edwards-controlled S3 WebP desktop and mobile derivatives to each optimized product", () => {
     for (const key of optimizedProductKeys) {
       const product = SHOPIFY_PRODUCT_OPTIONS_BY_KEY[key];
 
-      expect(product.image, `${key} desktop image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
-      expect(product.imageMobile, `${key} mobile image`).toMatch(/^https:\/\/files\.manuscdn\.com\/.+\.webp$/);
+      expect(product.image, `${key} desktop image`).toMatch(/^https:\/\/edwardsamps\.s3\.us-east-2\.amazonaws\.com\/storefront-images\/2026-09-08\/.+\.webp$/);
+      expect(product.imageMobile, `${key} mobile image`).toMatch(/^https:\/\/edwardsamps\.s3\.us-east-2\.amazonaws\.com\/storefront-images\/2026-09-08\/.+\.webp$/);
     }
   });
 
@@ -36,6 +38,17 @@ describe("optimized storefront image delivery", () => {
 
     expect(shopCollection).toContain("mobileImage: product.imageMobile ?? product.image ?? amp?.heroImageMobile ?? \"\"");
     expect(productPage).toContain("mobileSrc={product.imageMobile ?? product.image}");
+  });
+
+  it("contains no Manus CDN image URL in customer-facing image mappings", () => {
+    const imageSources = [
+      readFileSync(resolve(process.cwd(), "client/src/lib/ampData.ts"), "utf8"),
+      readFileSync(resolve(process.cwd(), "client/src/pages/Home.tsx"), "utf8"),
+      readFileSync(resolve(process.cwd(), "shared/shopifyCatalog.ts"), "utf8"),
+    ];
+
+    expect(imageSources.join("\n")).not.toContain("https://files.manuscdn.com/");
+    expect(imageSources.join("\n")).toContain(EDWARDS_S3_IMAGE_ORIGIN);
   });
 
   it("declares WebP source type only when the supplied mobile source is WebP", () => {

@@ -333,3 +333,10 @@
 - [x] Inventory EdwardsAmps.com production dependencies across Vercel hosting, Railway API, Shopify catalog and checkout, and public image delivery.
 - [x] Test the independent availability of each production dependency and identify any remaining Manus-specific runtime reliance.
 - [x] Document continuity risks and an actionable migration path for any dependency that would not remain available during a Manus outage.
+
+- [ ] Confirm write access to the Edwards-controlled Amazon S3 bucket, the intended public delivery origin, and GitHub repository synchronization readiness.
+- [ ] Download and integrity-check all 53 customer-facing Manus CDN image assets, then copy them to Edwards-controlled Amazon S3 under stable public keys.
+- [ ] Replace all 53 storefront Manus CDN image mappings with the corresponding Edwards-controlled S3 delivery URLs and extend regression coverage.
+- [ ] Validate independent desktop and mobile image delivery, publish the production migration, and publicly verify EdwardsAmps.com.
+- [ ] Prepare a secure external operations document covering Vercel, Railway, Shopify, DNS, repository access, ownership, credential locations, and recovery steps without secret values.
+- [ ] Push the current production source—including the migration—to the OrioleMarketing GitHub repository and verify remote-main parity.

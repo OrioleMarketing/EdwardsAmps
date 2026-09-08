@@ -31,12 +31,12 @@ import { useShopifyCart } from "@/hooks/useShopifyCart";
 import { HERO_SHOP_CATEGORIES, SHOP_CATEGORY_FILTERS, type HeroShopCategory, type ShopCategoryFilter } from "@/lib/shopFilters";
 
 const collaborationCardSubtitle = "Elusive Overdrive with a Neville Guitar custom build";
-const amplifiersCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ZPyYfaSjcTVZaqIP.webp";
-const amplifiersCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/knqfHvhehEaCcoEx.webp";
-const speakerCabinetCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/QZxNmKvYnOHoENlZ.webp";
-const speakerCabinetCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/kZffwAGRJsOnchsO.webp";
-const effectsPedalsCategoryImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/KeJvMTcYDDOXenQu.webp";
-const effectsPedalsCategoryImageMobile = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/hvLWdtudqPiJInKQ.webp";
+const amplifiersCategoryImage = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/ZPyYfaSjcTVZaqIP.webp";
+const amplifiersCategoryImageMobile = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/knqfHvhehEaCcoEx.webp";
+const speakerCabinetCategoryImage = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/QZxNmKvYnOHoENlZ.webp";
+const speakerCabinetCategoryImageMobile = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/kZffwAGRJsOnchsO.webp";
+const effectsPedalsCategoryImage = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/KeJvMTcYDDOXenQu.webp";
+const effectsPedalsCategoryImageMobile = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/hvLWdtudqPiJInKQ.webp";
 
 const quantityLabel = (count: number) => `${count} ${count === 1 ? "item" : "items"}`;
 
@@ -102,8 +102,8 @@ const faqs = [
 const collaborationFeature = {
   title: "Elusive Overdrive",
   subtitle: collaborationCardSubtitle,
-  image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/gfnyIPpyeyUrqmWb.webp",
-  mobileImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/OiDEUFpMVypMFwSu.webp",
+  image: "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/gfnyIPpyeyUrqmWb.webp",
+  mobileImage: "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/OiDEUFpMVypMFwSu.webp",
   alt: "Neville Guitar custom build paired with the Edwards Elusive Overdrive amplifier",
 };
 
@@ -111,7 +111,7 @@ const elusiveOverdrive = ampProducts.find((amp) => amp.slug === "elusive-overdri
 
 const nextSectionImageSources = [
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/five-amp-stage-lineup-DDaiygu4dKpw9V2FhK3hz2.webp",
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/PYwqGaVBKqJWfNZK.webp",
+  "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08/PYwqGaVBKqJWfNZK.webp",
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-craftsmanship-HJUAA6HMUZrQzhD2J2uWFr.webp",
   "https://edwardsamps.s3.us-east-2.amazonaws.com/manus-storage/edwardsamps-tone-room-YiwF2TBhNyHCePGvzRvKoS.webp",
 ];

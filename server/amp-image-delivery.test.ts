@@ -1,13 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { ampProducts } from "../client/src/lib/ampData";
 
+const EDWARDS_S3_IMAGE_ORIGIN = "https://edwardsamps.s3.us-east-2.amazonaws.com/storefront-images/2026-09-08";
+
 describe("responsive amplifier imagery", () => {
   it("uses externally reachable CDN image sources for desktop and mobile", () => {
     expect(ampProducts).toHaveLength(5);
 
     for (const amp of ampProducts) {
-      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^(\/manus-storage\/.+|https:\/\/files\.manuscdn\.com\/.+\.(png|webp))$/);
-      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^(\/manus-storage\/.+|https:\/\/files\.manuscdn\.com\/.+\.(png|webp))$/);
+      expect(amp.heroImage, `${amp.name} desktop image`).toMatch(/^https:\/\/edwardsamps\.s3\.us-east-2\.amazonaws\.com\/storefront-images\/2026-09-08\/.+\.(png|webp)$/);
+      expect(amp.heroImageMobile, `${amp.name} mobile image`).toMatch(/^https:\/\/edwardsamps\.s3\.us-east-2\.amazonaws\.com\/storefront-images\/2026-09-08\/.+\.(png|webp)$/);
     }
   });
 
@@ -18,24 +20,24 @@ describe("responsive amplifier imagery", () => {
 
     expect(imageSources).toEqual({
       "elusive-overdrive": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/AkIGNUKzXVdWQQRV.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/RerpBsxEpoTUjpDa.webp",
+        desktop: `${EDWARDS_S3_IMAGE_ORIGIN}/AkIGNUKzXVdWQQRV.webp`,
+        mobile: `${EDWARDS_S3_IMAGE_ORIGIN}/RerpBsxEpoTUjpDa.webp`,
       },
       "king-richard": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/VKakUxtgcftJEoAU.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/dOBbgyGQynTzsgac.webp",
+        desktop: `${EDWARDS_S3_IMAGE_ORIGIN}/VKakUxtgcftJEoAU.webp`,
+        mobile: `${EDWARDS_S3_IMAGE_ORIGIN}/dOBbgyGQynTzsgac.webp`,
       },
       "hot-mama": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/iATUaSsbPuhgrdpr.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/UnUvJoTpPSvfSPxc.webp",
+        desktop: `${EDWARDS_S3_IMAGE_ORIGIN}/iATUaSsbPuhgrdpr.webp`,
+        mobile: `${EDWARDS_S3_IMAGE_ORIGIN}/UnUvJoTpPSvfSPxc.webp`,
       },
       "double-dee-tweed": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/OIgQQWNzVtorOVlC.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/zOmfdgZmZQygMBIk.webp",
+        desktop: `${EDWARDS_S3_IMAGE_ORIGIN}/OIgQQWNzVtorOVlC.webp`,
+        mobile: `${EDWARDS_S3_IMAGE_ORIGIN}/zOmfdgZmZQygMBIk.webp`,
       },
       "lil-tyke-tweed": {
-        desktop: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/PmBhGnQSHJIpFbVC.webp",
-        mobile: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/qtgYJNyBHhKQkbDD.webp",
+        desktop: `${EDWARDS_S3_IMAGE_ORIGIN}/PmBhGnQSHJIpFbVC.webp`,
+        mobile: `${EDWARDS_S3_IMAGE_ORIGIN}/qtgYJNyBHhKQkbDD.webp`,
       },
     });
   });
