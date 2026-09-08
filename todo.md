@@ -329,3 +329,7 @@
 - [x] Create a clean workbench scene from the supplied Elusive 1x12 Oval Open-Back Speaker Cabinet reference without changing its rear-open oval design, gold covering, hardware, or proportions.
 - [x] Replace the current 1x12 Elusive Oval Open-Back Speaker Cabinet storefront image with the approved workbench scene and add regression coverage.
 - [x] Validate responsive delivery, publish, and publicly verify the updated 1x12 cabinet image on EdwardsAmps.com.
+
+- [x] Inventory EdwardsAmps.com production dependencies across Vercel hosting, Railway API, Shopify catalog and checkout, and public image delivery.
+- [x] Test the independent availability of each production dependency and identify any remaining Manus-specific runtime reliance.
+- [x] Document continuity risks and an actionable migration path for any dependency that would not remain available during a Manus outage.
