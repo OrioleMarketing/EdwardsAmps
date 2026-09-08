@@ -320,4 +320,4 @@
 
 - [x] Regenerate both Elusive Overdrive Combo stage images with the same authentic grille-badge angle matching the supplied client reference.
 - [x] Present the matched-angle black 24 Watt and supplied-blue-floral 40 Watt pair for review before publishing.
-- [ ] Integrate, validate, publish, and publicly verify the approved matched-angle Combo pair on EdwardsAmps.com.
+- [x] Integrate, validate, publish, and publicly verify the approved matched-angle Combo pair on EdwardsAmps.com.
