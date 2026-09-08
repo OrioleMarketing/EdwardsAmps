@@ -325,3 +325,7 @@
 - [x] Map the supplied 69/73 amplifier narrative and specifications to all appropriate customer-facing storefront surfaces.
 - [x] Replace the current 69/73 product and collection copy with the supplied customer-approved content.
 - [x] Add regression coverage, validate the rendered 69/73 content, and publicly verify it on EdwardsAmps.com.
+
+- [x] Create a clean workbench scene from the supplied Elusive 1x12 Oval Open-Back Speaker Cabinet reference without changing its rear-open oval design, gold covering, hardware, or proportions.
+- [x] Replace the current 1x12 Elusive Oval Open-Back Speaker Cabinet storefront image with the approved workbench scene and add regression coverage.
+- [ ] Validate responsive delivery, publish, and publicly verify the updated 1x12 cabinet image on EdwardsAmps.com.

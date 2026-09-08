@@ -35,14 +35,15 @@ describe("client product-image mapping", () => {
     expect(SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-overdrive-t-shirt"].image).not.toBe(shirt.image);
   });
 
-  it("uses the supplied cabinet photographs for the three Speaker Cabinet listings", () => {
+  it("uses the approved cabinet photographs for the three Speaker Cabinet listings", () => {
     const oneByTwelve = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["elusive-1x12-oval-cabinet"];
     const twoByTwelve = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["oval-2x12-cabinet"];
     const fourByTen = SHOPIFY_PRODUCT_OPTIONS_BY_KEY["oval-4x10-cabinet"];
 
-    expect(oneByTwelve.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/QckMXgUVOqlWXGaC.jpg");
-    expect(oneByTwelve.imageAlt).toContain("British Vintage speaker");
-    expect(oneByTwelve.imageFit).toBe("contain");
+    expect(oneByTwelve.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/ejDVNotVyWAToWot.webp");
+    expect(oneByTwelve.imageMobile).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/KyVqUeZPGUfSfrMe.webp");
+    expect(oneByTwelve.imageAlt).toContain("rear on a clean hardwood workbench");
+    expect(oneByTwelve.imageFit).toBe("cover");
 
     expect(twoByTwelve.image).toBe("https://files.manuscdn.com/user_upload_by_module/session_file/310519663047046836/DNvxQDBRYSZxHjAT.webp");
     expect(twoByTwelve.imageAlt).toContain("embossed black covering");

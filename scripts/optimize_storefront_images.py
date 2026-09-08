@@ -56,6 +56,9 @@ LOCAL_IMAGE_SOURCES = {
     "elusive-overdrive-40w-combo-stage-matched-badge-angle": Path(
         "/home/ubuntu/webdev-static-assets/elusive-overdrive-40w-combo-stage-matched-badge-angle.png"
     ),
+    "elusive-1x12-oval-cabinet-clean-workbench": Path(
+        "/home/ubuntu/webdev-static-assets/elusive-1x12-oval-open-back-clean-workbench.png"
+    ),
 }
 
 DERIVATIVES = {
