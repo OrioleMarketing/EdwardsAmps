@@ -337,9 +337,9 @@
 - [x] Confirm write access to the Edwards-controlled Amazon S3 bucket, the intended public delivery origin, and GitHub repository synchronization readiness.
 - [x] Download and integrity-check all 53 customer-facing Manus CDN image assets, then copy them to Edwards-controlled Amazon S3 under stable public keys.
 - [x] Replace all 53 storefront Manus CDN image mappings with the corresponding Edwards-controlled S3 delivery URLs and extend regression coverage.
-- [ ] Validate independent desktop and mobile image delivery, publish the production migration, and publicly verify EdwardsAmps.com.
+- [x] Validate independent desktop and mobile image delivery, publish the production migration, and publicly verify EdwardsAmps.com.
 - [x] Prepare a secure external operations document covering Vercel, Railway, Shopify, DNS, repository access, ownership, credential locations, and recovery steps without secret values.
-- [ ] Push the current production source—including the migration—to the OrioleMarketing GitHub repository and verify remote-main parity.
+- [x] Push the current production source—including the migration—to the OrioleMarketing GitHub repository and verify remote-main parity.
 
 - [x] Migrate the remaining customer-facing Manus-managed CloudFront logo and homepage imagery to Edwards-controlled Amazon S3.
-- [ ] Replace residual CloudFront image references, rerun independent-delivery validation, and publish the completed all-assets migration.
+- [x] Replace residual CloudFront image references, rerun independent-delivery validation, and publish the completed all-assets migration.
